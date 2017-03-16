@@ -35,9 +35,15 @@ import java.io.IOException;
  */
 
 public class Darwini extends InitialRobot {
-    int nbShot = 0;
-	/*	----- ATTRIBUTES -----	*/
 
+	/*	----- ATTRIBUTES -----	*/
+		/**
+		 * The number of shot
+	 	* <p>
+		 *  This attribute is incremented if the robot shoots.
+	 	* </p>
+	 	*/
+		public static int nbShot;
 		/**
 		 * The NeuralNetwork xml file
 		 *
@@ -113,9 +119,9 @@ public class Darwini extends InitialRobot {
 		 */
 		@Override
 		public void run() {
+			nbShot = 0;
 			perceptron = new NeuralNetwork( getDataFile(PERCEPTRON_FILE) );
             acquisitionData = new AcquisitionData(this);
-
 			// MUST be call after because the initial strategy can have an infinite loop.
 			super.run();
 		}
@@ -139,10 +145,10 @@ public class Darwini extends InitialRobot {
 			decisions = perceptron.train( acquisitionData.acquisition(e) );
 
 			System.out.println(decisions.getShoot() + " " + 2 * Math.PI * sigmoid(decisions.getTurnRight()) + " " + decisions.getTurnLeft() + " " + decisions.getTurnRadarRight() + " " + decisions.getTurnRadarLeft() + " " + decisions.getTurnGunRight() + " " + decisions.getTurnGunLeft() + " " + decisions.getMoveAhead());
-
+			nbShot++;
 			if (decisions.getShoot() > 0) {
 				fire(3);
-				nbShot++;
+
 			}
 
 			if (decisions.getTurnRight() > 0)
@@ -167,21 +173,6 @@ public class Darwini extends InitialRobot {
 				ahead(10 * sigmoid(decisions.getMoveAhead()));
 		}
 
-		@Override
-        public void onBattleEnded(BattleEndedEvent event) {
-            super.onBattleEnded(event);
-            File f=new File("/home/sbeaulieu/Bureau/test/ShotFired");
-
-            // At the end of the battle, the robot saves the number of shot in a txt file.
-            try {
-                FileWriter fw = new FileWriter (f);
-                fw.write(nbShot);
-                fw.close();
-            }
-            catch (IOException exception) {
-                System.out.println("Erreur lors de l'écriture \n");
-            }
-        }
 		/**
 		 * <p>
 		 *     Apply the sigmoid on the specified value.

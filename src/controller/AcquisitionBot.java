@@ -8,8 +8,11 @@
 
 package controller;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
+import robocode.BattleEndedEvent;
 import robocode.BulletHitEvent;
 import robocode.RoundEndedEvent;
 import robocode.ScannedRobotEvent;
@@ -156,7 +159,5 @@ public class AcquisitionBot extends InitialRobot {
 				e.printStackTrace();
 			}
 		}
-
-
 		
 }

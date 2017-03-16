@@ -149,6 +149,5 @@ public class Score implements Comparable<Score> {
         public String toString()
         {
             return "Total: " + this.totalScore;
-
         }
 }

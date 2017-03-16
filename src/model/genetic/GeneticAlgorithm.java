@@ -14,11 +14,7 @@ import model.perceptron.Matrix;
 import model.perceptron.NeuralNetwork;
 
 import javax.xml.stream.XMLStreamException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -348,6 +344,17 @@ public class GeneticAlgorithm {
                 e.printStackTrace();
             }
 
+			File f = new File("/home/sbeaulieu/Bureau/test/ShotFired.txt");
+			//System.out.println("truc bidule");
+			// At the end of the battle, the robot saves the number of shot in a txt file.
+			try {
+				FileWriter fw = new FileWriter(f);
+				fw.write(String.valueOf(Darwini.nbShot));
+				fw.close();
+			}
+			catch (IOException exception) {
+				System.out.println("Erreur lors de l'écriture \n");
+			}
             return new Score(RESULTS_PATH, "Darwini");
         }
 
