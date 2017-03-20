@@ -8,6 +8,8 @@
 
 package model.genetic;
 
+import java.io.File;
+
 /**
  * This class launches the genetic algorithm.
  * Version Simon Et Martin
@@ -29,7 +31,9 @@ public class NaturalSelection {
         GeneticAlgorithm ga = new GeneticAlgorithm();
         ga.generate(NUMBER_GENERATION);
         ga.savePopulation();
-        System.out.println("The best robot is \"Individual" + (ga.whoIsTheBest(true) + 1) + ".xml\", try it !");
+        int numBest = ga.whoIsTheBest(true) + 1;
+        System.out.println("The best robot is \"Individual" + numBest + ".xml\", try it !");
+        new File("data/population/Individual" + numBest + ".xml" ).renameTo(new File("data/population/Perceptron.xml"));
     }
 
 }

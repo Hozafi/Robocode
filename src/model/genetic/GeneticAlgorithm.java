@@ -347,14 +347,7 @@ public class GeneticAlgorithm {
 			File f = new File("/home/sbeaulieu/Bureau/test/ShotFired.txt");
 			//System.out.println("truc bidule");
 			// At the end of the battle, the robot saves the number of shot in a txt file.
-			try {
-				FileWriter fw = new FileWriter(f);
-				fw.write(String.valueOf(Darwini.nbShot));
-				fw.close();
-			}
-			catch (IOException exception) {
-				System.out.println("Erreur lors de l'écriture \n");
-			}
+
             return new Score(RESULTS_PATH, "Darwini");
         }
 
@@ -371,11 +364,14 @@ public class GeneticAlgorithm {
             if (numberGeneration < 1)
                 throw new IllegalArgumentException("The number of generation must be greater than 0");
 
+            //Darwini darwini;
+
             NeuralNetwork[] newPopulation = new NeuralNetwork[POPULATION_SIZE];
             Score[] newScores = new Score[POPULATION_SIZE];
 
             for (int i = 0; i < numberGeneration; i++) {
                 System.out.println("Generation n°" + (i + 1) + "...");
+
                 // Keep the best individual
 				int best = keepBest();
                 newPopulation[0] = population[best];
@@ -383,11 +379,16 @@ public class GeneticAlgorithm {
 				System.out.println("\tIndividual n°1 ...RECUPERATED ");
 				System.out.println(newScores[0]);
 				for (int j = 1; j < POPULATION_SIZE; j = j + 2) {
+
 					NeuralNetwork[] children = crossover(selection(), selection());
                     mutation(children[0]);
                     newPopulation[j] = children[0];
+
+
                     newScores[j] = fitness(j);
 					System.out.print("\tIndividual n°" + (j + 1) + "...CREATED ");
+
+
 					System.out.println(newScores[j]);
                     if (j != POPULATION_SIZE - 1) {
                         mutation(children[1]);
@@ -451,15 +452,21 @@ public class GeneticAlgorithm {
 		 */
 		public void savePopulation() {
 			System.out.println("The current generation is being saved...");
+
             ExecutorService executor = Executors.newFixedThreadPool(NB_THREADS);
             for (int i = 0; i < POPULATION_SIZE; i++) {
+				final Darwini darwini=new Darwini();
                 int individual = i;
                 executor.submit(() -> {
                     try {
                         population[individual].printToXML( new File(POPULATION_DIRECTORY + INDIVIDUAL_FILENAME + (individual + 1) + ".xml") );
+						//population[individual].printToXML( new File(POPULATION_DIRECTORY + "Perceptron.xml") );
                     } catch (FileNotFoundException | XMLStreamException e) {
                         e.printStackTrace();
                     }
+
+                    darwini.run();
+
 					System.out.println("\tIndividual n°" + (individual + 1) + "...SAVED");
                 });
             }
