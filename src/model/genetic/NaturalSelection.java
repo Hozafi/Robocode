@@ -10,7 +10,7 @@ package model.genetic;
 
 /**
  * This class launches the genetic algorithm.
- *
+ * Version Simon Et Martin
  * @version 1.0 - 17/11/15
  * @author BOIZUMAULT Romain
  * @author BUSSENEAU Alexis
