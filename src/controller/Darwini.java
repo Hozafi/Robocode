@@ -126,7 +126,7 @@ public class Darwini extends InitialRobot {
 			super.run();
 		}
 		
-		/**
+	/**
 		 * The reaction of Darwini when it has scanned an enemy
 		 * 
 		 * <p>

@@ -12,27 +12,26 @@ import java.io.File;
 
 /**
  * This class launches the genetic algorithm.
- * Version Simon Et Martin
- * @version 1.0 - 17/11/15
- * @author BOIZUMAULT Romain
- * @author BUSSENEAU Alexis
- * @author GEFFRAULT Luc
- * @author MATHIEU Vianney
- * @author VAILLAND Guillaume
+ *
+ * @version 1.0 - 28/03/17
+ * @author Beaulieu Simon
+ * @author Goubet Martin
+ * @author ...
+ * @author ...
  */
 public class NaturalSelection {
 
     /**
      * The number of generation.
      */
-    private static final int NUMBER_GENERATION = 2;
+    private static final int NUMBER_GENERATION = 100;
 
     public static void main(String[] args) {
         GeneticAlgorithm ga = new GeneticAlgorithm();
         ga.generate(NUMBER_GENERATION);
         ga.savePopulation();
         int numBest = ga.whoIsTheBest(true) + 1;
-        System.out.println("The best robot is \"Individual" + numBest + ".xml\", try it !");
+        System.out.println("The best robot is \"Individual" + numBest + ".xml\", launch robocode and try Darwini* !");
         new File("data/population/Individual" + numBest + ".xml" ).renameTo(new File("data/population/Perceptron.xml"));
     }
 

@@ -37,10 +37,18 @@ public class Score implements Comparable<Score> {
 
 		/**
 		 *  <p>
-		 *     The robot's total score
+		 *     The robot's total score at the exit of robocode
 		 *  </p>
 		 */
 		private int totalScore;
+
+        /**
+         *  <p>
+         *      total score taking the importance of every value
+         *  </p>
+         */
+
+		private int weightedScore;
 
 		/**
          *  <p>
@@ -117,6 +125,12 @@ public class Score implements Comparable<Score> {
                 bulletBonus = Integer.parseInt(results[5]);
                 ramDamage = Integer.parseInt(results[6]);
                 ramBonus = Integer.parseInt(results[7]);
+
+                /**
+                 * weighted score
+                 */
+                weightedScore= 6 * bulletDamage +  4 * survival  +  2 * ramDamage + survivalBonus + bulletBonus + ramBonus ;
+
             } catch (IOException e) {
                 System.out.println("The results file is not found");
             }
@@ -134,7 +148,7 @@ public class Score implements Comparable<Score> {
 		 *
          * @param o the score of the second robot
          */
-        @Override
+        /*@Override    //ROBOCODE SCORE VERSION
         public int compareTo(Score o) {
             if (totalScore > o.totalScore)
                 return 1;
@@ -148,6 +162,23 @@ public class Score implements Comparable<Score> {
         }
         public String toString()
         {
-            return "Total: " + this.totalScore;
+            return "Total robocode: " + this.totalScore+ "  //  Total pondéré: "+ this.weigthedScore;
+        }*/
+
+        @Override       // WEIGHTED TOTAL
+        public int compareTo(Score o) {
+            if (weightedScore > o.weightedScore)
+                return 1;
+            else if (weightedScore == o.weightedScore)
+                if (victory > o.victory)
+                    return 1;
+                else if (victory == o.victory)
+                    return 0;
+
+            return -1;
         }
+    public String toString()
+    {
+        return "Total robocode: " + this.totalScore+ "  //  weighted total: "+ this.weightedScore;
+    }
 }
