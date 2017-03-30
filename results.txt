@@ -1,4 +1,4 @@
 Results for 10 rounds
 Robot Name	    Total Score    	Survival	Surv Bonus	Bullet Dmg	Bullet Bonus	Ram Dmg * 2	Ram Bonus	 1sts 	 2nds 	 3rds 	
-1st: controller.Darwini*	1930 (94 %)	400	80	712	140	568	30	8	2	0	
-2nd: sample.SittingDuck	120 (6 %)	100	20	0	0	0	0	2	8	0	
+1st: controller.Darwini*	1334 (85 %)	300	60	542	80	294	58	6	4	0	
+2nd: sample.SittingDuck	240 (15 %)	200	40	0	0	0	0	4	6	0	
