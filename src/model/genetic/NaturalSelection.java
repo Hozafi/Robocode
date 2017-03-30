@@ -24,7 +24,7 @@ public class NaturalSelection {
     /**
      * The number of generation.
      */
-    private static final int NUMBER_GENERATION = 100;
+    private static final int NUMBER_GENERATION = 2;
 
     public static void main(String[] args) {
         GeneticAlgorithm ga = new GeneticAlgorithm();

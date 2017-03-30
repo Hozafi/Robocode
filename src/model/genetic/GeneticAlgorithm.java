@@ -8,7 +8,7 @@
 
 package model.genetic;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+//import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import controller.Darwini;
 import model.perceptron.Matrix;
 import model.perceptron.NeuralNetwork;
@@ -76,7 +76,7 @@ public class GeneticAlgorithm {
 		 *     The path where the temporary file created by Robocode will be saved.
          * </p>
          */
-        private static final String RESULTS_PATH = "/home/sbeaulieu/Bureau/test/results.txt";
+        private static final String RESULTS_PATH = "results.txt";
 
 
 	/*	----- GENETIC SETTINGS -----	*/
@@ -93,7 +93,7 @@ public class GeneticAlgorithm {
 		 *     The size of the population.
          * </p>
          */
-		private static final int POPULATION_SIZE = 100;
+		private static final int POPULATION_SIZE = 2;
 
         /**
          * <p>

@@ -120,7 +120,7 @@ public class Darwini extends InitialRobot {
 		@Override
 		public void run() {
 			nbShot = 0;
-			perceptron = new NeuralNetwork( getDataFile("data/population/" + PERCEPTRON_FILE) ); // gets the perceptron given in the population directory (was in "out/...") directory before)
+			perceptron = new NeuralNetwork( getDataFile(PERCEPTRON_FILE) ); // gets the perceptron given in the population directory (was in "out/...") directory before)
             acquisitionData = new AcquisitionData(this);
 			// MUST be called after because the initial strategy can have an infinite loop.
 			super.run();
