@@ -28,6 +28,12 @@ import java.util.concurrent.TimeUnit;
  * @author GEFFRAULT Luc
  * @author MATHIEU Vianney
  * @author VAILLAND Guillaume
+ *
+ * @version 1.1 - 28/03/17
+ * @author Beaulieu Simon
+ * @author Goubet Martin
+ * @author Estevany Raphael
+ * @author Serano Edgar
  */
 public class GeneticAlgorithm {
 
@@ -93,7 +99,7 @@ public class GeneticAlgorithm {
 		 *     The size of the population.
          * </p>
          */
-		private static final int POPULATION_SIZE = 4;
+		private static final int POPULATION_SIZE = 6;
 
         /**
          * <p>
@@ -258,11 +264,11 @@ public class GeneticAlgorithm {
 			NeuralNetwork[] children = {mother, father};
 
             if (Math.random() < CROSSOVER_PROBABILITY) {
+            	System.out.println("Je fais des crossOvers");
                 cross(mother.getInputWeights(), father.getInputWeights());
                 cross(mother.getOutputWeights(), father.getOutputWeights());
                 cross(mother.getBias(), father.getBias());
             }
-
 			return children;
 		}
 
@@ -344,8 +350,6 @@ public class GeneticAlgorithm {
                 e.printStackTrace();
             }
 
-			File f = new File("/home/sbeaulieu/Bureau/test/ShotFired.txt");
-			//System.out.println("truc bidule");
 			// At the end of the battle, the robot saves the number of shot in a txt file.
 
             return new Score(RESULTS_PATH, "Darwini");

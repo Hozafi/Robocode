@@ -13,18 +13,25 @@ import java.io.File;
 /**
  * This class launches the genetic algorithm.
  *
- * @version 1.0 - 28/03/17
+ * @version 1.0 - 17/11/15
+ * @author BOIZUMAULT Romain
+ * @author BUSSENEAU Alexis
+ * @author GEFFRAULT Luc
+ * @author MATHIEU Vianney
+ * @author VAILLAND Guillaume
+ *
+ * @version 1.1 - 28/03/17
  * @author Beaulieu Simon
  * @author Goubet Martin
- * @author ...
- * @author ...
+ * @author Estevany Raphael
+ * @author Serano Edgar
  */
 public class NaturalSelection {
 
     /**
      * The number of generation.
      */
-    private static final int NUMBER_GENERATION = 3;
+    private static final int NUMBER_GENERATION = 2;
 
     public static void main(String[] args) {
         GeneticAlgorithm ga = new GeneticAlgorithm();

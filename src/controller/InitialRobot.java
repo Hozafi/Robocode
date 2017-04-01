@@ -36,10 +36,10 @@ public class InitialRobot extends AdvancedRobot {
 		public void run() {
 			// Set colors
 
-			setBodyColor(Color.blue);
-			setGunColor(Color.blue);
+			setBodyColor(Color.magenta);
+			setGunColor(Color.yellow);
 			setRadarColor(Color.black);
-			setScanColor(Color.yellow);
+			setScanColor(Color.red);
 	
 			//Loop forever
 			while (true) {
@@ -57,7 +57,7 @@ public class InitialRobot extends AdvancedRobot {
 		 * onScannedRobot: Fire hard!
 		 */
 		public void onScannedRobot(ScannedRobotEvent e) {
-			fire(3);
+			//fire(3);
 		}
 	
 }																																				

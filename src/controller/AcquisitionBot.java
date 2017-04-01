@@ -37,6 +37,12 @@ import model.acquisition.AcquisitionData;
  * @author GEFFRAULT Luc
  * @author MATHIEU Vianney
  * @author VAILLAND Guillaume
+ *
+ * @version 1.1 - 28/03/17
+ * @author Beaulieu Simon
+ * @author Goubet Martin
+ * @author Estevany Raphael
+ * @author Serano Edgar
  */
 public class AcquisitionBot extends InitialRobot {
 
