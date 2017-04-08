@@ -26,6 +26,8 @@ import java.io.File;
  * @author Estevany Raphael
  * @author Serano Edgar
  */
+
+//Branche de Edgar
 public class NaturalSelection {
 
     /**
