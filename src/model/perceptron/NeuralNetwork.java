@@ -62,7 +62,7 @@ public class NeuralNetwork {
 		 *     Number of hidden neuron of the neural network
 		 * </p>
 		 */
-		private static final int HIDDEN_NEURONS = 200;
+		private static final int HIDDEN_NEURONS = 20;
 
         /**
 		 * <p>
@@ -248,7 +248,7 @@ public class NeuralNetwork {
 			//Ajout du neurone de biais et application de la fonction sigmoïde
 			for (int i = 0; i < inputWeights.getColumnCount(); i++)
 				vcouche.set(0, i, 1 / (1 + Math.exp(-vcouche.get(0, i) - bias.get(i, 0))));
-			
+
 			// Second Treatment	
 			//Multiplication du vecteur de couche avec la seconde matrice de poids pour obtenir le vecteur de sortie
 			return new OutputData( vcouche.mult(outputWeights) );

@@ -135,7 +135,7 @@ public class Score implements Comparable<Score> {
                 /**
                  * weighted score
                  */
-                weightedScore= 6 * bulletDamage + 6 * survival  +  1 * ramDamage;
+                weightedScore = 6 * bulletDamage + 6 * survival  +  1 * ramDamage;
 
             } catch (IOException e) {
                 System.out.println("The results file is not found");

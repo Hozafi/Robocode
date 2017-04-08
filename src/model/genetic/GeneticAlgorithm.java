@@ -99,7 +99,7 @@ public class GeneticAlgorithm {
 		 *     The size of the population.
          * </p>
          */
-		private static final int POPULATION_SIZE = 6;
+		private static final int POPULATION_SIZE = 10;
 
         /**
          * <p>
@@ -243,8 +243,9 @@ public class GeneticAlgorithm {
 			// Select the individual which has the best score according to a random selection
             for (int i = 0; i < TOURNAMENT_SIZE - 1; i++) {
                 randomIndex = random(0, POPULATION_SIZE);
-                if (scores[randomIndex].compareTo(scores[chosen]) > 1)
-                    chosen = randomIndex;
+                if (scores[randomIndex].compareTo(scores[chosen]) == 1){
+					chosen = randomIndex;
+				}
             }
 
 			return population[chosen];
@@ -264,7 +265,7 @@ public class GeneticAlgorithm {
 			NeuralNetwork[] children = {mother, father};
 
             if (Math.random() < CROSSOVER_PROBABILITY) {
-            	System.out.println("Je fais des crossOvers");
+            	//System.out.println("Crossover done");
                 cross(mother.getInputWeights(), father.getInputWeights());
                 cross(mother.getOutputWeights(), father.getOutputWeights());
                 cross(mother.getBias(), father.getBias());
@@ -368,8 +369,6 @@ public class GeneticAlgorithm {
             if (numberGeneration < 1)
                 throw new IllegalArgumentException("The number of generation must be greater than 0");
 
-            //Darwini darwini;
-
             NeuralNetwork[] newPopulation = new NeuralNetwork[POPULATION_SIZE];
             Score[] newScores = new Score[POPULATION_SIZE];
 
@@ -388,10 +387,8 @@ public class GeneticAlgorithm {
                     mutation(children[0]);
                     newPopulation[j] = children[0];
 
-
                     newScores[j] = fitness(j);
 					System.out.print("\tIndividual n°" + (j + 1) + "...CREATED ");
-
 
 					System.out.println(newScores[j]);
                     if (j != POPULATION_SIZE - 1) {
@@ -402,7 +399,6 @@ public class GeneticAlgorithm {
 						System.out.println(newScores[j+1]);
                     }
                 }
-
                 population = newPopulation;
                 scores = newScores;
             }

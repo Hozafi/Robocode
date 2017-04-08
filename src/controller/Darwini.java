@@ -148,13 +148,12 @@ public class Darwini extends InitialRobot {
 		 */
 		@Override
 		public void onScannedRobot(ScannedRobotEvent e) {
-			decisions = perceptron.train( acquisitionData.acquisition(e) );
+			decisions = perceptron.train( acquisitionData.acquisition(e));
 
 			System.out.println(decisions.getShoot() + " " + 2 * Math.PI * sigmoid(decisions.getTurnRight()) + " " + decisions.getTurnLeft() + " " + decisions.getTurnRadarRight() + " " + decisions.getTurnRadarLeft() + " " + decisions.getTurnGunRight() + " " + decisions.getTurnGunLeft() + " " + decisions.getMoveAhead());
 			nbShot++;
 			if (decisions.getShoot() > 0) {
 				fire(3);
-
 			}
 
 			if (decisions.getTurnRight() > 0)

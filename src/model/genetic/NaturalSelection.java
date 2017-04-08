@@ -31,7 +31,7 @@ public class NaturalSelection {
     /**
      * The number of generation.
      */
-    private static final int NUMBER_GENERATION = 2;
+    private static final int NUMBER_GENERATION = 5;
 
     public static void main(String[] args) {
         GeneticAlgorithm ga = new GeneticAlgorithm();
@@ -39,7 +39,7 @@ public class NaturalSelection {
         ga.savePopulation();
         int numBest = ga.whoIsTheBest(true) + 1;
         System.out.println("The best robot is \"Individual" + numBest + ".xml\", launch robocode and try Darwini* !");
-        new File("data/population/Individual" + numBest + ".xml" ).renameTo(new File("data/population/Perceptron.xml"));
+        new File("data/population/Individual" + numBest + ".xml" ).renameTo(new File("out/production/Darwini/controller/Darwini.data/Perceptron.xml"));
     }
 
 }
