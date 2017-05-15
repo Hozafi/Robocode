@@ -52,7 +52,7 @@ public class InputData {
 		 * 		Number of entries
 		 * </p>
 		 */
-		 static final int INPUT_NEURONS = 13;
+		 static final int INPUT_NEURONS = 17;
 	
 
 		/**
@@ -160,6 +160,13 @@ public class InputData {
 		 */
 		private double enemyY;
 
+	    private double northDist;
+
+	    private double westDist;
+
+	    private double eastDist;
+
+	    private double southDist;
 		
 	/*	----- CONSTRUCTOR -----	*/
 		
@@ -182,7 +189,10 @@ public class InputData {
 		 *
 		 * @see InputData
 		 */
-		public InputData(double myBearing, double distance, double myEnergy, double opponentVelocity, double myVelocity, double opponentHeading, double myHeading, double myRadarHeading, double myGunHeading, double x, double y, double enemyX, double enemyY) {
+		public InputData(double myBearing, double distance, double myEnergy, double opponentVelocity,
+						 double myVelocity, double opponentHeading, double myHeading,
+						 double myRadarHeading, double myGunHeading, double x, double y,
+						 double enemyX, double enemyY, double northDist, double westDist, double eastDist, double southDist) {
 			success = new boolean[OutputData.OUTPUT_NEURONS];
 			this.myBearing = myBearing;
 			this.distance = distance;
@@ -197,6 +207,10 @@ public class InputData {
 			this.y = y;
 			this.enemyX = enemyX;
 			this.enemyY = enemyY;
+			this.northDist = northDist;
+			this.southDist = southDist;
+			this.eastDist = eastDist;
+			this.westDist = westDist;
 		}
 		
 		
@@ -258,6 +272,10 @@ public class InputData {
 					.append(" 11:").append(y)
 					.append(" 12:").append(enemyX)
 					.append(" 13:").append(enemyY)
+					.append(" 14:").append(northDist)
+					.append(" 15:").append(southDist)
+					.append(" 16:").append(westDist)
+					.append(" 17:").append(eastDist)
 					.toString();
         }
 		
@@ -288,6 +306,10 @@ public class InputData {
 			matrix.set(0, 10, y);
 			matrix.set(0, 11, enemyX);
 			matrix.set(0, 12, enemyY);
+			matrix.set(0, 13, northDist);
+			matrix.set(0, 14, southDist);
+			matrix.set(0, 15, westDist);
+			matrix.set(0, 16, eastDist);
 
 			return matrix;
 		}
