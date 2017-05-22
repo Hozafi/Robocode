@@ -12,13 +12,9 @@ import model.acquisition.AcquisitionData;
 import model.perceptron.OutputData;
 import model.perceptron.NeuralNetwork;
 
-import robocode.BattleEndedEvent;
-import robocode.ScannedRobotEvent;
+import robocode.*;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * <p>
@@ -49,7 +45,16 @@ public class Darwini extends InitialRobot {
 		 *  This attribute is incremented if the robot shoots.
 	 	* </p>
 	 	*/
-		public static int nbShot;
+		public static int nbHits=0;
+
+
+		/**
+	 	* The number of missed shots
+	 	* <p>
+		 *  This attribute is incremented if the robot misses.
+		 * </p>
+	 	*/
+	public static int nbMissed=0;
 		/**
 		 * The NeuralNetwork xml file
 		 *
@@ -125,7 +130,6 @@ public class Darwini extends InitialRobot {
 		 */
 		@Override
 		public void run() {
-			nbShot = 0;
 			perceptron = new NeuralNetwork( getDataFile(PERCEPTRON_FILE) ); // gets the perceptron given in the population directory (was in "out/...") directory before)
             acquisitionData = new AcquisitionData(this);
 			// MUST be called after because the initial strategy can have an infinite loop.
@@ -150,8 +154,6 @@ public class Darwini extends InitialRobot {
 		public void onScannedRobot(ScannedRobotEvent e) {
 			decisions = perceptron.train( acquisitionData.acquisition(e));
 
-			System.out.println(decisions.getShoot() + " " + 2 * Math.PI * sigmoid(decisions.getTurnRight()) + " " + decisions.getTurnLeft() + " " + decisions.getTurnRadarRight() + " " + decisions.getTurnRadarLeft() + " " + decisions.getTurnGunRight() + " " + decisions.getTurnGunLeft() + " " + decisions.getMoveAhead());
-			nbShot++;
 			if (decisions.getShoot() > 0) {
 				fire(3);
 			}
@@ -162,7 +164,7 @@ public class Darwini extends InitialRobot {
 			if (decisions.getTurnLeft() > 0)
 				turnLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnLeft()));
 
-			if (decisions.getTurnRadarRight() > 0) {
+			/*if (decisions.getTurnRadarRight() > 0) {
 				turnRadarRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));
 				turnGunRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));
 			}
@@ -171,7 +173,7 @@ public class Darwini extends InitialRobot {
 				turnGunLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarLeft()));
 			}
 
-			/*if (decisions.getTurnGunRight() > 0)
+			if (decisions.getTurnGunRight() > 0)
 				turnGunRightRadians(2 * Math.PI * sigmoid(decisions.getTurnGunRight()));
 
 			if (decisions.getTurnGunLeft() > 0)
@@ -180,6 +182,38 @@ public class Darwini extends InitialRobot {
 			if (decisions.getMoveAhead() > 0)
 				ahead(10 * sigmoid(decisions.getMoveAhead()));
 		}
+
+	@Override
+	public void onBulletHit(BulletHitEvent e) {
+		super.onBulletHit(e);
+		nbHits++;
+	}
+
+	@Override
+	public void onBulletMissed(BulletMissedEvent e) {
+		super.onBulletMissed(e);
+		nbMissed++;
+	}
+
+	@Override
+	public void onBattleEnded(BattleEndedEvent event) {
+		super.onBattleEnded(event);
+		System.out.println("nbShot: "+nbHits+"//nbMissed: "+nbMissed);
+
+		try(FileWriter fw = new FileWriter("/home/delucaboy/darwiniEP/Darwini/accuracy.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter out = new PrintWriter(bw))
+		{
+			out.println("accuracy"+"\t"+nbHits+" "+nbMissed+"\n");
+			if (bw != null)
+				bw.close();
+
+			if (fw != null)
+				fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 		/**
 		 * <p>

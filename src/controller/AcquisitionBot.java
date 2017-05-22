@@ -8,14 +8,9 @@
 
 package controller;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
-import robocode.BattleEndedEvent;
-import robocode.BulletHitEvent;
-import robocode.RoundEndedEvent;
-import robocode.ScannedRobotEvent;
+import robocode.*;
 
 import model.acquisition.Database;
 import model.acquisition.AcquisitionData;
@@ -50,7 +45,7 @@ public class AcquisitionBot extends InitialRobot {
 
 		/**
 		 * <p>
-		 * The name of the SSVM file where the examples are savec.
+		 * The name of the SSVM file where the examples are saved.
 		 * Because of the Robocode security, this file will be save in the project compiler output directory in the
 		 * subdirectory "Darwini/controller/AcquisitionBot.data".
 		 * </p>
@@ -76,7 +71,6 @@ public class AcquisitionBot extends InitialRobot {
 		 * @see AcquisitionData
 		 */
 		private AcquisitionData acquisitionData;
-
 		
 	/*	----- CONSTRUCTOR -----	*/
 	
@@ -139,7 +133,13 @@ public class AcquisitionBot extends InitialRobot {
 		@Override
 		public void onBulletHit(BulletHitEvent e) {
 			super.onBulletHit(e);
+			// Set a success for the first output neuron in OutputData when the robot hits another robot.
+			knowledges.getLastData().setSuccess(0);
+		}
 
+		@Override
+		public void onBulletMissed(BulletMissedEvent e) {
+			super.onBulletMissed(e);
 			// Set a success for the first output neuron in OutputData when the robot hits another robot.
 			knowledges.getLastData().setSuccess(0);
 		}
@@ -166,5 +166,4 @@ public class AcquisitionBot extends InitialRobot {
 				e.printStackTrace();
 			}
 		}
-		
 }

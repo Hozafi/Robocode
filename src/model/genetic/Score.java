@@ -106,6 +106,19 @@ public class Score implements Comparable<Score> {
          */
         private int ramBonus;
 
+        /**
+         * <p>
+         *     The total of bullets that hit the enemy robot
+         * </p>
+         */
+        private int hits;
+
+        /**
+         * <p>
+         *     The total of bullets that missed the enemy robot
+         * </p>
+         */
+        private int missed;
 
 	/*	----- CONSTRUCTOR -----	*/
 
@@ -123,7 +136,7 @@ public class Score implements Comparable<Score> {
                 String[] results = stream.filter(line -> line.contains(robotName)).findFirst().get().split("\t");
                 Matcher m = Pattern.compile("(\\d+)\\s\\((\\d+)").matcher(results[1]);
                 m.find();
-				totalScore = Integer.parseInt(m.group(1));
+                totalScore = Integer.parseInt(m.group(1));
                 victory = Integer.parseInt(m.group(2));
                 survival = Integer.parseInt(results[2]);
                 survivalBonus = Integer.parseInt(results[3]);
@@ -132,10 +145,19 @@ public class Score implements Comparable<Score> {
                 ramDamage = Integer.parseInt(results[6]);
                 ramBonus = Integer.parseInt(results[7]);
 
+                Stream<String> streamAcc = Files.lines(Paths.get("/home/delucaboy/darwiniEP/Darwini/accuracy.txt"));
+                String[] acc = streamAcc.filter(line -> line.contains("accuracy")).findFirst().get().split("\t");
+                Matcher macc = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(acc[1]);
+                macc.find();
+                hits = Integer.parseInt(macc.group(1));
+                missed = Integer.parseInt(macc.group(2));
                 /**
                  * weighted score
                  */
-                weightedScore = 6 * bulletDamage + 6 * survival  +  1 * ramDamage;
+
+                weightedScore = 5 * bulletDamage + 5 * survival  + 300*(hits/hits+missed) + 1 * ramDamage;
+
+                //System.out.println(weightedScore);
 
             } catch (IOException e) {
                 System.out.println("The results file is not found");
