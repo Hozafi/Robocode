@@ -276,7 +276,9 @@ public class NeuralNetwork {
 
 			xmlWriter.writeStartElement("learner");
 			xmlWriter.writeAttribute("accuracy", "");
+
 			xmlWriter.writeAttribute("nbInputNeurons", Integer.toString(inputWeights.getRowCount()));
+
 			xmlWriter.writeAttribute("features_used", "All");
 			xmlWriter.writeCharacters("\n");
 			xmlWriter.writeCharacters("\t\t");

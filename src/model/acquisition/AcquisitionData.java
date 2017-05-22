@@ -12,6 +12,9 @@ import controller.InitialRobot;
 import model.perceptron.InputData;
 import robocode.Rules;
 import robocode.ScannedRobotEvent;
+import sun.rmi.runtime.Log;
+
+import java.util.logging.Logger;
 
 /**
  * <p>
@@ -155,7 +158,8 @@ public class AcquisitionData {
 					getOpponentX(),
 					getMyX(),
 					getOpponentY(),
-					getMyY()
+					getMyY(),
+					getDistWall()
 			);
 		}
 
@@ -291,4 +295,22 @@ public class AcquisitionData {
 			return reduce(myRobot.getY(), maxHeight);
 		}
 
+		private double getDistWall() {
+			double angle = getMyHeading();
+			double northWestAngle = Math.atan(myRobot.getX() / (maxHeight - myRobot.getY()));
+			double northEastAngle = Math.atan(maxWidth - myRobot.getX() / (maxHeight - myRobot.getY()));
+			double southEastAngle = Math.atan(myRobot.getY() / (maxWidth - myRobot.getX()));
+			double southWestAngle = Math.atan(myRobot.getY() / (myRobot.getX()));
+
+			if(angle >= 2 * Math.PI - northWestAngle && angle < 2 * Math.PI || angle >= 0 && angle <= northEastAngle)
+				return reduce(maxHeight - myRobot.getY(),maxHeight);
+
+			if(angle > northWestAngle && angle <= southEastAngle + Math.PI / 2)
+				return reduce(maxWidth - myRobot.getX(),maxHeight);
+
+			if(angle > southEastAngle + Math.PI / 2 && angle <= southWestAngle + Math.PI)
+				return reduce(myRobot.getY(),maxHeight);
+			else
+				return reduce(myRobot.getX(),maxWidth);
+		}
 }

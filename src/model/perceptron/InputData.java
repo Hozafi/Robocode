@@ -52,7 +52,7 @@ public class InputData {
 		 * 		Number of entries
 		 * </p>
 		 */
-		 static final int INPUT_NEURONS = 17;
+		 static final int INPUT_NEURONS = 14;
 	
 
 		/**
@@ -160,13 +160,8 @@ public class InputData {
 		 */
 		private double enemyY;
 
-	    private double northDist;
+	    private double distWall;
 
-	    private double westDist;
-
-	    private double eastDist;
-
-	    private double southDist;
 		
 	/*	----- CONSTRUCTOR -----	*/
 		
@@ -192,7 +187,7 @@ public class InputData {
 		public InputData(double myBearing, double distance, double myEnergy, double opponentVelocity,
 						 double myVelocity, double opponentHeading, double myHeading,
 						 double myRadarHeading, double myGunHeading, double x, double y,
-						 double enemyX, double enemyY, double northDist, double westDist, double eastDist, double southDist) {
+						 double enemyX, double enemyY, double distWall) {
 			success = new boolean[OutputData.OUTPUT_NEURONS];
 			this.myBearing = myBearing;
 			this.distance = distance;
@@ -207,10 +202,7 @@ public class InputData {
 			this.y = y;
 			this.enemyX = enemyX;
 			this.enemyY = enemyY;
-			this.northDist = northDist;
-			this.southDist = southDist;
-			this.eastDist = eastDist;
-			this.westDist = westDist;
+			this.distWall = distWall;
 		}
 		
 		
@@ -272,10 +264,7 @@ public class InputData {
 					.append(" 11:").append(y)
 					.append(" 12:").append(enemyX)
 					.append(" 13:").append(enemyY)
-					.append(" 14:").append(northDist)
-					.append(" 15:").append(southDist)
-					.append(" 16:").append(westDist)
-					.append(" 17:").append(eastDist)
+					.append(" 14:").append(distWall)
 					.toString();
         }
 		
@@ -306,10 +295,7 @@ public class InputData {
 			matrix.set(0, 10, y);
 			matrix.set(0, 11, enemyX);
 			matrix.set(0, 12, enemyY);
-			matrix.set(0, 13, northDist);
-			matrix.set(0, 14, southDist);
-			matrix.set(0, 15, westDist);
-			matrix.set(0, 16, eastDist);
+			matrix.set(0, 13, distWall);
 
 			return matrix;
 		}

@@ -33,7 +33,7 @@ public class NaturalSelection {
     /**
      * The number of generation.
      */
-    private static final int NUMBER_GENERATION = 5;
+    private static final int NUMBER_GENERATION = 10;
 
     public static void main(String[] args) {
         GeneticAlgorithm ga = new GeneticAlgorithm();
