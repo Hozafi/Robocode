@@ -27,13 +27,15 @@ import java.io.File;
  * @author Serano Edgar
  */
 
-//Branche de Edgar
+
+//Branche de Martin merge with edgar
 public class NaturalSelection {
 
     /**
      * The number of generation.
      */
-    private static final int NUMBER_GENERATION = 50;
+    private static final int NUMBER_GENERATION = 3;
+
 
     public static void main(String[] args) {
         GeneticAlgorithm ga = new GeneticAlgorithm();

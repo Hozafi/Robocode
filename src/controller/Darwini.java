@@ -166,18 +166,38 @@ public class Darwini extends InitialRobot {
 
 			/*if (decisions.getTurnRadarRight() > 0) {
 				turnRadarRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));
-				turnGunRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));
+				turnGunRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));=======
+			/*if (decisions.getTurnRadarRight() > 0 && decisions.getTurnGunRight() > 0) {
+				double angle = 2 * Math.PI * sigmoid(decisions.getTurnRadarRight());
+				turnRadarRightRadians(angle);
+				turnGunRightRadians(angle);
+
 			}
-			if (decisions.getTurnRadarLeft() > 0) {
-				turnRadarLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarLeft()));
-				turnGunLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarLeft()));
+			if (decisions.getTurnRadarLeft() > 0 && decisions.getTurnGunLeft() > 0) {
+				double angle = 2 * Math.PI * sigmoid(decisions.getTurnRadarLeft());
+				turnRadarLeftRadians(angle);
+				turnGunLeftRadians(angle);
+			}*/
+
+			/*if (decisions.getTurnGunRight() > 0) {
+				double angle = 2 * Math.PI * sigmoid(decisions.getTurnGunRight());
+				turnRadarRight(angle);
+				turnGunRight(angle);
 			}
+
 
 			if (decisions.getTurnGunRight() > 0)
 				turnGunRightRadians(2 * Math.PI * sigmoid(decisions.getTurnGunRight()));
 
 			if (decisions.getTurnGunLeft() > 0)
-				turnGunLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnGunLeft()));*/
+				turnGunLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnGunLeft()));
+
+			if (decisions.getTurnGunLeft() > 0) {
+				double angle = 2 * Math.PI * sigmoid(decisions.getTurnRadarRight());
+				turnGunLeft(angle);
+				turnRadarLeft(angle);
+			}*/
+
 
 			if (decisions.getMoveAhead() > 0)
 				ahead(10 * sigmoid(decisions.getMoveAhead()));
@@ -200,7 +220,7 @@ public class Darwini extends InitialRobot {
 		super.onBattleEnded(event);
 		System.out.println("nbShot: "+nbHits+"//nbMissed: "+nbMissed);
 
-		try(FileWriter fw = new FileWriter("/home/delucaboy/darwiniEP/Darwini/accuracy.txt");
+		try(FileWriter fw = new FileWriter("accuracy.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter out = new PrintWriter(bw))
 		{

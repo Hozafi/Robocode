@@ -52,7 +52,7 @@ public class InputData {
 		 * 		Number of entries
 		 * </p>
 		 */
-		 static final int INPUT_NEURONS = 13;
+		 static final int INPUT_NEURONS = 14;
 	
 
 		/**
@@ -160,6 +160,8 @@ public class InputData {
 		 */
 		private double enemyY;
 
+	    private double distWall;
+
 		
 	/*	----- CONSTRUCTOR -----	*/
 		
@@ -182,7 +184,10 @@ public class InputData {
 		 *
 		 * @see InputData
 		 */
-		public InputData(double myBearing, double distance, double myEnergy, double opponentVelocity, double myVelocity, double opponentHeading, double myHeading, double myRadarHeading, double myGunHeading, double x, double y, double enemyX, double enemyY) {
+		public InputData(double myBearing, double distance, double myEnergy, double opponentVelocity,
+						 double myVelocity, double opponentHeading, double myHeading,
+						 double myRadarHeading, double myGunHeading, double x, double y,
+						 double enemyX, double enemyY, double distWall) {
 			success = new boolean[OutputData.OUTPUT_NEURONS];
 			this.myBearing = myBearing;
 			this.distance = distance;
@@ -197,6 +202,7 @@ public class InputData {
 			this.y = y;
 			this.enemyX = enemyX;
 			this.enemyY = enemyY;
+			this.distWall = distWall;
 		}
 		
 		
@@ -258,6 +264,7 @@ public class InputData {
 					.append(" 11:").append(y)
 					.append(" 12:").append(enemyX)
 					.append(" 13:").append(enemyY)
+					.append(" 14:").append(distWall)
 					.toString();
         }
 		
@@ -288,6 +295,7 @@ public class InputData {
 			matrix.set(0, 10, y);
 			matrix.set(0, 11, enemyX);
 			matrix.set(0, 12, enemyY);
+			matrix.set(0, 13, distWall);
 
 			return matrix;
 		}

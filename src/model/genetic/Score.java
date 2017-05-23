@@ -145,7 +145,7 @@ public class Score implements Comparable<Score> {
                 ramDamage = Integer.parseInt(results[6]);
                 ramBonus = Integer.parseInt(results[7]);
 
-                Stream<String> streamAcc = Files.lines(Paths.get("/home/delucaboy/darwiniEP/Darwini/accuracy.txt"));
+                Stream<String> streamAcc = Files.lines(Paths.get("accuracy.txt"));
                 String[] acc = streamAcc.filter(line -> line.contains("accuracy")).findFirst().get().split("\t");
                 Matcher macc = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(acc[1]);
                 macc.find();
@@ -154,9 +154,14 @@ public class Score implements Comparable<Score> {
                 /**
                  * weighted score
                  */
-
-                weightedScore = 5 * bulletDamage + 5 * survival  + 300*(hits/hits+missed) + 1 * ramDamage;
-
+                double scoreTmp;
+                if(hits+missed != 0) {
+                    double accuracy = hits / (hits + missed);
+                    scoreTmp = 5 * bulletDamage + 5 * survival + 300 * accuracy + 1 * ramDamage;
+                }else{
+                    scoreTmp = 5 * bulletDamage + 5 * survival + 1 * ramDamage;
+                }
+                weightedScore = (int) scoreTmp;
                 //System.out.println(weightedScore);
 
             } catch (IOException e) {
