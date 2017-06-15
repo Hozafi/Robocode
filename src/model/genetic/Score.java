@@ -106,6 +106,11 @@ public class Score implements Comparable<Score> {
          */
         private int ramBonus;
 
+        private int hits;
+        private int missed;
+        private int hitsWall;
+        private int hitByBullet;
+
 
 	/*	----- CONSTRUCTOR -----	*/
 
@@ -132,11 +137,26 @@ public class Score implements Comparable<Score> {
                 ramDamage = Integer.parseInt(results[6]);
                 ramBonus = Integer.parseInt(results[7]);
 
+                Stream<String> streamAcc = Files.lines(Paths.get("accuracy.txt"));
+                String[] acc = streamAcc.filter(line -> line.contains("accuracy")).findFirst().get().split("\t");
+                Matcher macc = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(acc[1]);
+                macc.find();
+                hits = Integer.parseInt(macc.group(1));
+                missed = Integer.parseInt(macc.group(2));
+
+                Stream<String> streamDod = Files.lines(Paths.get("dodge.txt"));
+                String[] dod = streamDod.filter(line -> line.contains("dodge")).findFirst().get().split("\t");
+                Matcher mdod = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(dod[1]);
+                mdod.find();
+                hitsWall = Integer.parseInt(mdod.group(1));
+                hitByBullet = Integer.parseInt(mdod.group(2));
+               // double accuracy = (hits / (hits + missed));
                 /**
                  * weighted score
                  */
-                weightedScore = 6 * bulletDamage + 6 * survival  +  1 * ramDamage;
-
+                System.out.println("Dodge:" +  (hitByBullet + hitsWall));
+                weightedScore = 6 * bulletDamage + 6 * survival  +  1 * ramDamage + 300 * (hits / (hits + missed));
+               // weightedScore = (int) scoreTmp;
             } catch (IOException e) {
                 System.out.println("The results file is not found");
             }

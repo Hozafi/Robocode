@@ -99,7 +99,7 @@ public class GeneticAlgorithm {
 		 *     The size of the population.
          * </p>
          */
-		private static final int POPULATION_SIZE = 10;
+		private static final int POPULATION_SIZE = 3;
 
         /**
          * <p>
@@ -346,7 +346,7 @@ public class GeneticAlgorithm {
                 copyFile(POPULATION_DIRECTORY + INDIVIDUAL_FILENAME + (individual + 1) + ".xml", ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
 
                 // Launch the test in Robocode
-                Runtime.getRuntime().exec("java -Xmx512M -DWORKINGDIRECTORY=data -cp " + ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle " + BATTLE_PATH + " -results " + RESULTS_PATH).waitFor();
+                Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp " + ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle " + BATTLE_PATH + " -results " + RESULTS_PATH).waitFor();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
