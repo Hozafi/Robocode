@@ -47,14 +47,27 @@ public class Darwini extends InitialRobot {
 	 	*/
 		public static int nbHits=0;
 
-
 		/**
 	 	* The number of missed shots
 	 	* <p>
 		 *  This attribute is incremented if the robot misses.
 		 * </p>
 	 	*/
-	public static int nbMissed=0;
+		public static int nbMissed=0;
+		/**
+		 * <p>
+		 *     The total of bullets that hit our robot
+		 * </p>
+		 */
+		public static int nbHitByBullet = 0;
+
+		/**
+		 * <p>
+		 *     The total of walls that our robot hit
+		 * </p>
+		 */
+		public static int nbHitWall = 0;
+
 		/**
 		 * The NeuralNetwork xml file
 		 *
@@ -154,6 +167,10 @@ public class Darwini extends InitialRobot {
 		public void onScannedRobot(ScannedRobotEvent e) {
 			decisions = perceptron.train( acquisitionData.acquisition(e));
 
+<<<<<<< HEAD
+=======
+			System.out.println(decisions.getShoot() + " " + 2 * Math.PI * sigmoid(decisions.getTurnRight()) + " " + decisions.getTurnLeft() + " " + decisions.getTurnRadarRight() + " " + decisions.getTurnRadarLeft() + " " + decisions.getTurnGunRight() + " " + decisions.getTurnGunLeft() + " " + decisions.getMoveAhead());
+>>>>>>> origin/Martin
 			if (decisions.getShoot() > 0) {
 				fire(3);
 			}
@@ -203,6 +220,7 @@ public class Darwini extends InitialRobot {
 				ahead(10 * sigmoid(decisions.getMoveAhead()));
 		}
 
+<<<<<<< HEAD
 	@Override
 	public void onBulletHit(BulletHitEvent e) {
 		super.onBulletHit(e);
@@ -235,6 +253,61 @@ public class Darwini extends InitialRobot {
 		}
 	}
 
+=======
+		@Override
+		public void onHitByBullet(HitByBulletEvent e){
+			super.onHitByBullet(e);
+			nbHitByBullet++;
+		}
+
+		@Override
+		public void onHitWall(HitWallEvent e){
+			super.onHitWall(e);
+			nbHitWall++;
+		}
+
+		@Override
+		public void onBulletHit(BulletHitEvent e){
+			super.onBulletHit(e);
+			nbHits++;
+		}
+
+		@Override
+		public void onBulletMissed(BulletMissedEvent e){
+			super.onBulletMissed(e);
+			nbMissed++;
+		}
+
+		@Override
+		public void onBattleEnded(BattleEndedEvent event){
+			super.onBattleEnded(event);
+
+			try(FileWriter fw = new FileWriter("accuracy.txt");
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw);){
+				out.println("accuracy"+"\t"+nbHits+" "+nbMissed+"\n");
+				if(bw != null)
+					bw.close();
+				if(fw != null)
+					fw.close();
+
+			} catch(IOException e){
+					e.printStackTrace();
+			}
+
+			try(FileWriter fw = new FileWriter("dodge.txt");
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw);){
+				out.println("dodge"+"\t"+nbHitWall+" "+nbHitByBullet+"\n");
+				if(bw != null)
+					bw.close();
+				if(fw != null)
+					fw.close();
+			} catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+>>>>>>> origin/Martin
 		/**
 		 * <p>
 		 *     Apply the sigmoid on the specified value.
@@ -245,7 +318,10 @@ public class Darwini extends InitialRobot {
 		 * @return the value after the sigmoid computation
 		 */
 		private double sigmoid(double i) {
+			// Code sigmoid
 			return 1 / (1 + Math.exp(i));
+			// Code RELU
+			//return Math.max(0,i);
 		}
 
 }

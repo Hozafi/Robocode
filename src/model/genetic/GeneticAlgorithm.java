@@ -99,7 +99,9 @@ public class GeneticAlgorithm {
 		 *     The size of the population.
          * </p>
          */
-		private static final int POPULATION_SIZE = 4;
+
+	private static final int POPULATION_SIZE = 4;
+
 
         /**
          * <p>
