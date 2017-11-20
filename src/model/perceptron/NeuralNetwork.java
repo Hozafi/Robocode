@@ -62,7 +62,7 @@ public class NeuralNetwork {
 		 *     Number of hidden neuron of the neural network
 		 * </p>
 		 */
-		private static final int HIDDEN_NEURONS = 20;
+		private static final int HIDDEN_NEURONS = 14;
 
         /**
 		 * <p>

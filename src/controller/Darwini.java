@@ -167,10 +167,6 @@ public class Darwini extends InitialRobot {
 		public void onScannedRobot(ScannedRobotEvent e) {
 			decisions = perceptron.train( acquisitionData.acquisition(e));
 
-<<<<<<< HEAD
-=======
-			System.out.println(decisions.getShoot() + " " + 2 * Math.PI * sigmoid(decisions.getTurnRight()) + " " + decisions.getTurnLeft() + " " + decisions.getTurnRadarRight() + " " + decisions.getTurnRadarLeft() + " " + decisions.getTurnGunRight() + " " + decisions.getTurnGunLeft() + " " + decisions.getMoveAhead());
->>>>>>> origin/Martin
 			if (decisions.getShoot() > 0) {
 				fire(3);
 			}
@@ -220,7 +216,6 @@ public class Darwini extends InitialRobot {
 				ahead(10 * sigmoid(decisions.getMoveAhead()));
 		}
 
-<<<<<<< HEAD
 	@Override
 	public void onBulletHit(BulletHitEvent e) {
 		super.onBulletHit(e);
@@ -233,96 +228,66 @@ public class Darwini extends InitialRobot {
 		nbMissed++;
 	}
 
+
 	@Override
-	public void onBattleEnded(BattleEndedEvent event) {
+	public void onHitByBullet(HitByBulletEvent e){
+		super.onHitByBullet(e);
+		nbHitByBullet++;
+	}
+
+	@Override
+	public void onHitWall(HitWallEvent e){
+		super.onHitWall(e);
+		nbHitWall++;
+	}
+
+
+
+	@Override
+	public void onBattleEnded(BattleEndedEvent event){
 		super.onBattleEnded(event);
-		System.out.println("nbShot: "+nbHits+"//nbMissed: "+nbMissed);
 
 		try(FileWriter fw = new FileWriter("accuracy.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
-			PrintWriter out = new PrintWriter(bw))
-		{
+			PrintWriter out = new PrintWriter(bw);){
 			out.println("accuracy"+"\t"+nbHits+" "+nbMissed+"\n");
-			if (bw != null)
+			if(bw != null)
 				bw.close();
-
-			if (fw != null)
+			if(fw != null)
 				fw.close();
-		} catch (IOException e) {
+
+		} catch(IOException e){
+				e.printStackTrace();
+		}
+
+		try(FileWriter fw = new FileWriter("dodge.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter out = new PrintWriter(bw);){
+			out.println("dodge"+"\t"+nbHitWall+" "+nbHitByBullet+"\n");
+			if(bw != null)
+				bw.close();
+			if(fw != null)
+				fw.close();
+		} catch(IOException e){
 			e.printStackTrace();
 		}
 	}
 
-=======
-		@Override
-		public void onHitByBullet(HitByBulletEvent e){
-			super.onHitByBullet(e);
-			nbHitByBullet++;
-		}
-
-		@Override
-		public void onHitWall(HitWallEvent e){
-			super.onHitWall(e);
-			nbHitWall++;
-		}
-
-		@Override
-		public void onBulletHit(BulletHitEvent e){
-			super.onBulletHit(e);
-			nbHits++;
-		}
-
-		@Override
-		public void onBulletMissed(BulletMissedEvent e){
-			super.onBulletMissed(e);
-			nbMissed++;
-		}
-
-		@Override
-		public void onBattleEnded(BattleEndedEvent event){
-			super.onBattleEnded(event);
-
-			try(FileWriter fw = new FileWriter("accuracy.txt");
-				BufferedWriter bw = new BufferedWriter(fw);
-				PrintWriter out = new PrintWriter(bw);){
-				out.println("accuracy"+"\t"+nbHits+" "+nbMissed+"\n");
-				if(bw != null)
-					bw.close();
-				if(fw != null)
-					fw.close();
-
-			} catch(IOException e){
-					e.printStackTrace();
-			}
-
-			try(FileWriter fw = new FileWriter("dodge.txt");
-				BufferedWriter bw = new BufferedWriter(fw);
-				PrintWriter out = new PrintWriter(bw);){
-				out.println("dodge"+"\t"+nbHitWall+" "+nbHitByBullet+"\n");
-				if(bw != null)
-					bw.close();
-				if(fw != null)
-					fw.close();
-			} catch(IOException e){
-				e.printStackTrace();
-			}
-		}
->>>>>>> origin/Martin
-		/**
-		 * <p>
-		 *     Apply the sigmoid on the specified value.
-		 * </p>
-		 *
-		 * @param i the value to apply the sigmoid
-		 *
-		 * @return the value after the sigmoid computation
-		 */
-		private double sigmoid(double i) {
-			// Code sigmoid
-			return 1 / (1 + Math.exp(i));
-			// Code RELU
-			//return Math.max(0,i);
-		}
+	/**
+	 * <p>
+	 *     Apply the sigmoid on the specified value.
+	 * </p>
+	 *
+	 * @param i the value to apply the sigmoid
+	 *
+	 * @return the value after the sigmoid computation
+	 */
+	private double sigmoid(double i) {
+		// Code sigmoid
+		return 1 / (1 + Math.exp(i));
+		// Code RELU
+		//return Math.max(0,i);
+	}
 
 }
 

@@ -192,22 +192,6 @@ public class Score implements Comparable<Score> {
 		 *
          * @param o the score of the second robot
          */
-        /*@Override    //ROBOCODE SCORE VERSION
-        public int compareTo(Score o) {
-            if (totalScore > o.totalScore)
-                return 1;
-            else if (totalScore == o.totalScore)
-				if (victory > o.victory)
-					return 1;
-				else if (victory == o.victory)
-					return 0;
-
-			return -1;
-        }
-        public String toString()
-        {
-            return "Total robocode: " + this.totalScore+ "  //  Total pondéré: "+ this.weigthedScore;
-        }*/
 
         @Override       // WEIGHTED TOTAL
         public int compareTo(Score o) {

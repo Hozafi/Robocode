@@ -100,7 +100,7 @@ public class GeneticAlgorithm {
          * </p>
          */
 
-	private static final int POPULATION_SIZE = 4;
+	private static final int POPULATION_SIZE = 50;
 
 
         /**
@@ -115,16 +115,18 @@ public class GeneticAlgorithm {
 		 *     The probability to make a crossover.
 		 * </p>
 		 */
-		private static final double CROSSOVER_PROBABILITY = 0.7;
+		//private static final double CROSSOVER_PROBABILITY = 0.7;
+		private static final double CROSSOVER_PROBABILITY = 1; // On place à 1 car le crossover entre individu père et mère doit etre fait a chaque génération
 
 		/**
 		 * <p>
 		 *     The probability to make a mutation.
 		 * </p>
 		 */
-		private static final double MUTATION_PROBABILITY = 0.3;
+		//private static final double MUTATION_PROBABILITY = 0.3;
+		private static final double MUTATION_PROBABILITY = 0.1;
 
-        /**
+	/**
          * <p>
 		 *     The number of minimum mutation when it happens.
          * </p>
