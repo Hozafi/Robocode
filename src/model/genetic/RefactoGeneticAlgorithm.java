@@ -172,6 +172,8 @@ public class RefactoGeneticAlgorithm {
      * </p>
      */
     public RefactoGeneticAlgorithm(){
+        int i;
+
         population = new NeuralNetwork[POPULATION_SIZE];
         scores = new Score[POPULATION_SIZE];
         new File(POPULATION_DIRECTORY).mkdir();
@@ -180,7 +182,7 @@ public class RefactoGeneticAlgorithm {
         System.out.println(POPULATION_SIZE + " individuals are being initialized...");
         // Create pools (thread) to execute all the individual loadings.
         ExecutorService executor = Executors.newFixedThreadPool(NB_THREADS);
-        for (int i = 0; i < POPULATION_SIZE; i++) {
+        for (i = 0; i < POPULATION_SIZE; i++) {
             int individual = i;
             // Send to the pools a runnable action.
             executor.submit(() -> {
@@ -198,7 +200,9 @@ public class RefactoGeneticAlgorithm {
                         e.printStackTrace();
                     }
 
-                scores[individual] = fitness(individual);
+                synchronized(scores) {
+                    scores[individual] = fitness(individual);
+                }
                 System.out.println("\tIndividual n°" + (individual + 1) + "...LOADED");
             });
         }
@@ -209,6 +213,7 @@ public class RefactoGeneticAlgorithm {
         catch (InterruptedException e) {
             System.out.println("Initialization takes too much time, please change your computer");
         }
+
         System.out.println("DONE");
     }
 
