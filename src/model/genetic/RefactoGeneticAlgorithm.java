@@ -192,28 +192,29 @@ public class RefactoGeneticAlgorithm {
                 if (file.exists())
                     population[individual] = new NeuralNetwork(file);
                     // Else create a random perceptron.
-                else
+                else {
                     try {
                         population[individual] = new NeuralNetwork();
                         population[individual].printToXML(file);
                     } catch (FileNotFoundException | XMLStreamException e) {
                         e.printStackTrace();
                     }
-
-                synchronized(scores) {
-                    scores[individual] = fitness(individual);
                 }
+
+                //scores[individual] = fitness(individual);
                 System.out.println("\tIndividual n°" + (individual + 1) + "...LOADED");
             });
         }
         executor.shutdown();
         try {
             executor.awaitTermination(6000, TimeUnit.SECONDS);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             System.out.println("Initialization takes too much time, please change your computer");
         }
 
+        for (i=0; i<POPULATION_SIZE; i++){
+            scores[i] = fitness(i);
+        }
         System.out.println("DONE");
     }
 
@@ -235,13 +236,13 @@ public class RefactoGeneticAlgorithm {
             // Comparing the score of the winning random individual and the two best individual
             indexGagnant = (scores[i].compareTo(scores[i+1]) > 0) ? i : i+1;
 
-            if ( (scores[indexGagnant].compareTo(scores[indexOfBestIndividual]) == 1)
+            if ( (scores[indexGagnant].compareTo(scores[indexOfBestIndividual]) >= 0)
                     || (bestIndividual == null)
                     && (bestIndividual != population[indexGagnant])){
                 indexOfBestIndividual = indexGagnant;
                 bestIndividual = population[indexOfBestIndividual];
             }
-            else if ( (scores[indexGagnant].compareTo(scores[indexOfSecondBestIndividual]) == 1)
+            else if ( (scores[indexGagnant].compareTo(scores[indexOfSecondBestIndividual]) >=0)
                     || (secondBestIndividual == null)
                     && (secondBestIndividual != population[indexGagnant])){
                 indexOfSecondBestIndividual = indexGagnant;
@@ -291,7 +292,7 @@ public class RefactoGeneticAlgorithm {
                 if (random <= CROSS_PROBABILITY){ // If we're applying a cross to this weight
                     tmp = m1.get(i, j);
                     m1.set(i, j, m2.get(i, j));
-                    m1.set(i, j, tmp);
+                    m2.set(i, j, tmp);
                 }
             }
     }
