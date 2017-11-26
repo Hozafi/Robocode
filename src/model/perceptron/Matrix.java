@@ -44,7 +44,15 @@ public class Matrix {
 		 */
 		private double[][] matrix;
 
+		private int numRows;
+		private int numColumns;
 
+		private int getRows(){return numRows;}
+		private int getColumns(){return numColumns;}
+		
+		
+		
+		
 	/*	----- CONSTRUCTOR -----	*/
 
 		/**
@@ -55,8 +63,10 @@ public class Matrix {
 		 *
 		 * @see Matrix
 		 */
-		public Matrix(int numRows, int numColumns) {
-			matrix = new double[numRows][numColumns];
+		public Matrix(int rows, int columns) {
+			matrix = new double[rows][columns];
+			this.numRows = rows;
+			this.numColumns = columns;
 		}
 		
 	
@@ -82,6 +92,9 @@ public class Matrix {
 		 */
 		public Matrix mult(Matrix m2) {
 			Matrix res = new Matrix(matrix.length, m2.matrix[0].length);
+			
+			if(m2.getRows != this.numColumns){return null;}
+			//checks if multiplication is possible, avoids possible memory issues
 			
 			double value;
 			for (int k = 0; k < m2.matrix.length; k++) 
