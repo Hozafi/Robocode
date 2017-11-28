@@ -103,7 +103,7 @@ public class RefactoGeneticAlgorithm {
      *     Defines the size of a population
      * </p>
      */
-    private static final int POPULATION_SIZE = 10;
+    private static final int POPULATION_SIZE = 50;
 
     /**
      * <p>
@@ -212,20 +212,24 @@ public class RefactoGeneticAlgorithm {
             System.out.println("Initialization takes too much time, please change your computer");
         }
 
+
+        // TODO : Try to use an ExecutorService to make the fitness calcul parallel
         for (i=0; i<POPULATION_SIZE; i++){
             scores[i] = fitness(i);
         }
+        moyenneScores();
         System.out.println("DONE");
     }
+
+
 
     // ====================================================================================
     // ========================= EXCHANGE OF GENETIC MATERIAL  ============================
     // ====================================================================================
     /**
      * <p>
-     *     Select by tournament an individual.
+     *     Select the two best individuals in the population
      * </p>
-     * @return the individual selected
      */
     private void selection() {
         int i;
@@ -254,13 +258,13 @@ public class RefactoGeneticAlgorithm {
 
     /**
      * <p>
-     *     Cross two individuals and return their descendants.
+     *     Cross two individuals and return their two descendants.
      * </p>
      *
      * @param mother the first individual to cross
      * @param father the second individual to cross
      *
-     * @return the children generated
+     * @return the two childrens generated
      */
     private NeuralNetwork[] crossover(NeuralNetwork mother, NeuralNetwork father) {
         NeuralNetwork[] children = {mother, father};
@@ -410,6 +414,8 @@ public class RefactoGeneticAlgorithm {
                     System.out.println(newScores[j+1]);
                 }
             }
+            moyenneScores();
+
             copyNewPopulation(newPopulation);
             copyNewScores(newScores);
             //population = newPopulation;
@@ -529,5 +535,14 @@ public class RefactoGeneticAlgorithm {
         for (int i=0; i<POPULATION_SIZE; i++){
             scores[i] = newScores[i];
         }
+    }
+
+    private void moyenneScores(){
+        int somme = 0;
+        for (int i=0; i<POPULATION_SIZE; i++){
+            somme += scores[i].getWeightedScore();
+        }
+        double moyenne = somme/POPULATION_SIZE;
+        System.out.println("MOYENNE FITNESS GENERATION : " + moyenne);
     }
 }

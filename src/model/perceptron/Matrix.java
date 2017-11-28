@@ -58,8 +58,8 @@ public class Matrix {
 		/**
 		 * The matrix's constructor
 		 *
-		 * @param numColumns Matrix's number of columns
-		 * @param numRows Matrix's number of rows
+		 * @param columns Matrix's number of columns
+		 * @param rows Matrix's number of rows
 		 *
 		 * @see Matrix
 		 */
@@ -93,7 +93,7 @@ public class Matrix {
 		public Matrix mult(Matrix m2) {
 			Matrix res = new Matrix(matrix.length, m2.matrix[0].length);
 			
-			if(m2.getRows != this.numColumns){return null;}
+			if(m2.getRows() != this.numColumns){return null;}
 			//checks if multiplication is possible, avoids possible memory issues
 			
 			double value;

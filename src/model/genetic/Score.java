@@ -214,4 +214,8 @@ public class Score implements Comparable<Score> {
     {
         return "Total robocode: " + this.totalScore+ "  //  weighted total: "+ this.weightedScore;
     }
+
+    public int getWeightedScore(){
+            return weightedScore;
+    }
 }
