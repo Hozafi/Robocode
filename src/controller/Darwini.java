@@ -34,6 +34,12 @@ import java.io.*;
  * @author Goubet Martin
  * @author Estevany Raphael
  * @author Serano Edgar
+ * 
+ * @version 2.0 - 29/11/17
+ * @author Rebout Etienne
+ * @author Haus Daniel
+ * @author Barroux Etienne
+ * @author Gilbert Auriane
  */
 
 public class Darwini extends InitialRobot {
