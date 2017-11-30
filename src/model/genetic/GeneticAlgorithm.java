@@ -124,7 +124,14 @@ public class GeneticAlgorithm {
 		 * </p>
 		 */
 		//private static final double MUTATION_PROBABILITY = 0.3;
-		private static final double MUTATION_PROBABILITY = 0.1;
+		private static final double MUTATION_PROBABILITY = 0.05;
+		
+		/**
+		 * <p>
+		 *     The maximal absolute proportion of mutation on a single link.
+		 * </p>
+		 */
+		private static final double MUTATION_PROPORTION = 0.2;
 
 	/**
          * <p>
@@ -311,12 +318,9 @@ public class GeneticAlgorithm {
 		 * @param child the individual to mutate
          */
 		private void mutation(NeuralNetwork child) {
-            if (Math.random() < MUTATION_PROBABILITY)
-                mutate(child.getInputWeights());
-            if (Math.random() < MUTATION_PROBABILITY)
-                mutate(child.getOutputWeights());
-            if (Math.random() < MUTATION_PROBABILITY)
-                mutate(child.getBias());
+            mutate(child.getInputWeights());
+            mutate(child.getOutputWeights());
+            mutate(child.getBias());
 		}
 
         /**
@@ -330,7 +334,14 @@ public class GeneticAlgorithm {
             int rowCount = m.getRowCount();
             int columnCount = m.getColumnCount();
 
-            for (int i = 0; i < random(MUTATION_MIN, MUTATION_MAX); i++)
+            for (int i = 0; i < rowCount; i++) {
+            	for (int j = 0; i < columnCount; i++) {
+            		if (Math.random() < MUTATION_PROBABILITY) {
+            			double newValue = m.get(i, j) + (((Math.random() * 2 * MUTATION_PROPORTION) - MUTATION_PROPORTION) * m.get(i, j));
+            			m.set(i, j, newValue);
+            		}
+            	}
+            }
                 m.set(random(0, rowCount), random(0, columnCount) , Math.random() * 2 - 1);
         }
 
