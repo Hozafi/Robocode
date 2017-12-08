@@ -124,7 +124,7 @@ public class GeneticAlgorithm {
 		 * </p>
 		 */
 		//private static final double MUTATION_PROBABILITY = 0.3;
-		private static final double MUTATION_PROBABILITY = 0.05;
+		private static final double MUTATION_PROBABILITY = 0.1;
 		
 		/**
 		 * <p>

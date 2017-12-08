@@ -36,7 +36,7 @@ public class NaturalSelection {
     private static final int NUMBER_GENERATION = 10;
 
     public static void main(String[] args) {
-        GeneticAlgorithm ga = new GeneticAlgorithm();
+        RefactoGeneticAlgorithm ga = new RefactoGeneticAlgorithm();
         ga.generate(NUMBER_GENERATION);
         ga.savePopulation();
         int numBest = ga.whoIsTheBest(true) + 1;
