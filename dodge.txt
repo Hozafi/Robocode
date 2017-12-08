@@ -1,2 +1,2 @@
-dodge	1133 65
+dodge	0 0
 

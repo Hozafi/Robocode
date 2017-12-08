@@ -1,2 +1,2 @@
-accuracy	26 89
+accuracy	0 0
 

@@ -27,7 +27,6 @@ import javax.xml.stream.XMLStreamWriter;
  *     Our job is to define the right weighting coefficient for the neural network to be efficient.
  *     We can set those coefficient thanks to supervised process (AcquitisionBot and iriselm)
  *     or un-supervised process (Genetic algorithm)
- *
  * </p>
  *
  * @see InputData
@@ -62,16 +61,8 @@ public class NeuralNetwork {
 		 *     Number of hidden neuron of the neural network
 		 * </p>
 		 */
-		private static final int HIDDEN_NEURONS = 14;
+		private static final int HIDDEN_NEURONS = InputData.INPUT_NEURONS;
 
-        /**
-		 * <p>
-		 *     The first matrix of weighting coefficient
-		 *     We'll call it the input weights matrix
-		 * </p>
-		 */
-		private Matrix inputWeights;
-		
 		/**
 		 * <p>
 		 *     The second matrix of weighting coefficient
@@ -97,8 +88,6 @@ public class NeuralNetwork {
 		 * </p>
 		 */
 		public NeuralNetwork() {
-			inputWeights = new Matrix(InputData.INPUT_NEURONS, HIDDEN_NEURONS);
-			randomizeIOMatrix(inputWeights);
 			outputWeights = new Matrix(HIDDEN_NEURONS, OutputData.OUTPUT_NEURONS);
 			randomizeIOMatrix(outputWeights);
 			bias = new Matrix(HIDDEN_NEURONS, 1);
@@ -122,11 +111,6 @@ public class NeuralNetwork {
 				for (int i = 0; i < 4; i++)
 					xmlReader.nextTag();
 
-				// Get matrix values from the other lines
-				inputWeights = initMatrix(xmlReader);
-				// Skip the end of the inputWeights
-				xmlReader.nextTag();
-				xmlReader.nextTag();
 				outputWeights = initMatrix(xmlReader);
 				// Skip the end of the outputWeights
 				xmlReader.nextTag();
@@ -148,13 +132,6 @@ public class NeuralNetwork {
 
 
     /*	----- MUTATORS -----	*/
-
-        /**
-         * @return The input weights Matrix
-         */
-        public Matrix getInputWeights() {
-            return inputWeights;
-        }
 
         /**
          * @return The output weights Matrix
@@ -244,14 +221,14 @@ public class NeuralNetwork {
 		public OutputData train(InputData entries) {
 			// First Treatment
 			//Multiplication du vecteur d'entrée avec la première matrice de poids. On obtient le vecteur de couche sans le neurone de biais
-			Matrix vcouche = entries.toMatrix().mult(inputWeights);
+			Matrix vcouche = entries.toMatrix().mult(outputWeights);
 			//Ajout du neurone de biais et application de la fonction sigmoïde
-			for (int i = 0; i < inputWeights.getColumnCount(); i++)
+			for (int i = 0; i < outputWeights.getColumnCount(); i++)
 				vcouche.set(0, i, 1 / (1 + Math.exp(-vcouche.get(0, i) - bias.get(i, 0))));
 
 			// Second Treatment	
 			//Multiplication du vecteur de couche avec la seconde matrice de poids pour obtenir le vecteur de sortie
-			return new OutputData( vcouche.mult(outputWeights) );
+			return new OutputData( vcouche );
 		}
 		
 		/**
@@ -277,24 +254,13 @@ public class NeuralNetwork {
 			xmlWriter.writeStartElement("learner");
 			xmlWriter.writeAttribute("accuracy", "");
 
-			xmlWriter.writeAttribute("nbInputNeurons", Integer.toString(inputWeights.getRowCount()));
-
 			xmlWriter.writeAttribute("features_used", "All");
 			xmlWriter.writeCharacters("\n");
 			xmlWriter.writeCharacters("\t\t");
 
 			xmlWriter.writeStartElement("perceptron");
-			xmlWriter.writeAttribute("InputNeurons", Integer.toString(inputWeights.getRowCount()));
-			xmlWriter.writeAttribute("HiddenNeurons", Integer.toString(inputWeights.getColumnCount()));
 			xmlWriter.writeAttribute("OutputNeurons", Integer.toString(outputWeights.getColumnCount()));
 			xmlWriter.writeAttribute("Kernel", "sigmoid");
-			xmlWriter.writeCharacters("\n");
-			xmlWriter.writeCharacters("\t\t\t");
-
-			xmlWriter.writeEmptyElement("InputWeights");
-			xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.getRowCount()));
-			xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.getColumnCount()));
-			xmlWriter.writeAttribute("Matrix", inputWeights.toString());
 			xmlWriter.writeCharacters("\n");
 			xmlWriter.writeCharacters("\t\t\t");
 

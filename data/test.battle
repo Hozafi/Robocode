@@ -5,6 +5,6 @@ robocode.battle.numRounds=10
 robocode.battleField.width=800
 robocode.battle.gunCoolingRate=0.1
 robocode.battle.rules.inactivityTime=450
-robocode.battle.selectedRobots=controller.Darwini*,sample.Crazy
+robocode.battle.selectedRobots=controller.Darwini*,sample.Target
 robocode.battle.hideEnemyNames=false
 robocode.battleField.height=600
