@@ -33,7 +33,7 @@ public class NaturalSelection {
      * The number of generation.
      */
 
-    private static final int NUMBER_GENERATION = 10;
+    private static final int NUMBER_GENERATION = 30;
 
     public static void main(String[] args) {
         RefactoGeneticAlgorithm ga = new RefactoGeneticAlgorithm();

@@ -3,10 +3,11 @@ package model.genetic;
 import controller.Darwini;
 import model.perceptron.Matrix;
 import model.perceptron.NeuralNetwork;
-import org.apache.bcel.generic.POP;
+//import org.apache.bcel.generic.POP;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.*;
+import java.nio.file.StandardOpenOption;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -40,7 +41,6 @@ public class RefactoGeneticAlgorithm {
      * </p>
      */
     private static final String POPULATION_DIRECTORY = "data/population/";
-
 
     /**
      * <p>
@@ -80,6 +80,8 @@ public class RefactoGeneticAlgorithm {
      */
     private static final String RESULTS_PATH = "results.txt";
 
+    private static final String FITNESS_EVOLUTION_PATH = "fitness_evo.csv";
+
 
     // ====================================================================================
     // =========================== GENETIC ALGORITHM SETTINGS =============================
@@ -89,21 +91,23 @@ public class RefactoGeneticAlgorithm {
      * Take only the third quarter of the available cores of the computer user.
      * </p>
      */
-    private static final int NB_THREADS = 3 * Runtime.getRuntime().availableProcessors() / 4;
+    private static final int NB_THREADS = 1;
+
+    //3 * Runtime.getRuntime().availableProcessors() / 4;
 
     /**
      * <p>
      * Defines the size of a population
      * </p>
      */
-    private static final int POPULATION_SIZE = 50;
+    private static final int POPULATION_SIZE = 60;
 
     /**
      * <p>
      * Defines the probability of the cross for each weights
      * </p>
      */
-    private static final double CROSS_PROBABILITY = 0.1;
+    private static final double CROSS_PROBABILITY = 0.5;
 
     /**
      * <p>
@@ -213,13 +217,13 @@ public class RefactoGeneticAlgorithm {
         for (i = 0; i < POPULATION_SIZE; i++) {
             scores[i] = fitness(i);
         }
-        moyenneScores();
+        moyenneScores(1);
         System.out.println("DONE");
     }
 
 
     // ====================================================================================
-    // ========================= EXCHANGE OF GENETIC MATERIAL  ============================
+    // ================== EXCHANGE OF GENETIC MATERIAL  ( ͡° ͜ʖ ͡°) =======================
     // ====================================================================================
 
     /**
@@ -385,7 +389,7 @@ public class RefactoGeneticAlgorithm {
             //int best = keepBest();
             newPopulation[0] = population[indexOfBestIndividual];
             newScores[0] = scores[indexOfBestIndividual];
-            System.out.println("\tIndividual n°1 ...RECUPERATED ");
+            System.out.println("\tIndividual n°1 ...RECOVERED ");
             System.out.println(newScores[0]);
             for (int j = 1; j < POPULATION_SIZE; j = j + 2) {
 
@@ -405,7 +409,7 @@ public class RefactoGeneticAlgorithm {
                     System.out.println(newScores[j + 1]);
                 }
             }
-            moyenneScores();
+            moyenneScores(i+1);
 
             copyNewPopulation(newPopulation);
             copyNewScores(newScores);
@@ -523,12 +527,22 @@ public class RefactoGeneticAlgorithm {
         }
     }
 
-    private void moyenneScores() {
+    private void moyenneScores(int nbGeneration) {
         int somme = 0;
         for (int i = 0; i < POPULATION_SIZE; i++) {
             somme += scores[i].getWeightedScore();
         }
         double moyenne = somme / POPULATION_SIZE;
-        System.out.println("MOYENNE FITNESS GENERATION : " + moyenne);
+
+
+        try(FileWriter fw = new FileWriter(FITNESS_EVOLUTION_PATH, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            out.println(nbGeneration + ";" + moyenne + ";");
+        } catch (IOException e) {
+            System.out.println("IOException: " + FITNESS_EVOLUTION_PATH + " was not found or could not be opened.");
+        }
+        System.out.println("AVERAGE FITNESS FOR GENERATION : " + moyenne);
     }
 }

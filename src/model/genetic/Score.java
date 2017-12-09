@@ -171,11 +171,18 @@ public class Score implements Comparable<Score> {
             hitByBullet = Integer.parseInt(mdod.group(2));
 
             //System.out.println("Dodge:" +  (hitByBullet + hitsWall));
+            weightedScore = 20 * bulletDamage
+                    + 10 * survival
+                    + ramDamage
+                    + 5*totalScore
+                    + victory
+                    - 40*hitsWall
+                    - 5*hitByBullet;
+
             if (hits + missed > 0) {
-                weightedScore = 6 * bulletDamage + 6 * survival + ramDamage + 300 * (hits / (hits + missed));
-            } else {
-                weightedScore = 6 * bulletDamage + 6 * survival + ramDamage;
+                weightedScore += 200 * (hits / (hits + missed));
             }
+
             System.out.println("Fitness : " + weightedScore);
         } catch (IOException e) {
             System.out.println("The results file is not found");
