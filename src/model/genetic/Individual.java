@@ -40,6 +40,8 @@ public class Individual implements Comparable {
         fitness = -9999;
         perceptron = new NeuralNetwork();
 
+        perceptron.printToXML(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml");
+
 
     }
 
@@ -50,6 +52,8 @@ public class Individual implements Comparable {
 
         perceptron = new NeuralNetwork(cross(mother.getOutputWeights(), father.getOutputWeights()),
                 cross(mother.getBias(), father.getBias()));
+
+        perceptron.printToXML(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml");
 
     }
 

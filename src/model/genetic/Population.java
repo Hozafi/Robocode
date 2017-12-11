@@ -21,14 +21,14 @@ public class Population {
      * The directory where the population will be saved.
      * </p>
      */
-    private static final String POPULATION_DIRECTORY = "data/population/";
+    static final String POPULATION_DIRECTORY = "data/population/";
 
     /**
      * <p>
      * The name of an XML individual file.
      * </p>
      */
-    private static final String INDIVIDUAL_FILENAME = "Individual";
+    static final String INDIVIDUAL_FILENAME = "Individual";
 
     /*	----- ATTRIBUTES -----	*/
 
@@ -142,6 +142,7 @@ public class Population {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            individuals.get(i - 1).setIndex(i);
         }
 
     }
