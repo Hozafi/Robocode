@@ -1,3 +1,6 @@
 data/population
 data/population2
 /bin/
+.idea/*
+results.txt
+out/*
