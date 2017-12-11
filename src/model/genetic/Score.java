@@ -31,7 +31,7 @@ import java.util.stream.Stream;
  * @author Estevany Raphael
  * @author Serano Edgar
  * @version 1.1 - 28/03/17
- * @see GeneticAlgorithm
+ * @see RefactoGeneticAlgorithm
  * @see NaturalSelection
  */
 public class Score implements Comparable<Score> {

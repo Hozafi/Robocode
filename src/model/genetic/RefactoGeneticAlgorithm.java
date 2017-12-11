@@ -107,7 +107,7 @@ public class RefactoGeneticAlgorithm {
      * Defines the probability of the cross for each weights
      * </p>
      */
-    private static final double CROSS_PROBABILITY = 0.5;
+    protected static final double CROSS_PROBABILITY = 0.5;
 
     /**
      * <p>

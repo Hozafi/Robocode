@@ -10,6 +10,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Population {
 
@@ -74,7 +75,7 @@ public class Population {
         nbSurvivors = nbSurv;
         size = s;
 
-        individuals = new ArrayList<Individual>();
+        individuals = new ArrayList<Individual>(s);
 
         for (int i = 1; i <= size; i++) {
             individuals.add(new Individual(i));
@@ -111,7 +112,7 @@ public class Population {
 
         System.out.println("Generating generation " + generation + "...");
 
-        Collections.sort(individuals);
+        sortIndividuals();
 
         saveBest();
 
@@ -159,7 +160,7 @@ public class Population {
             f.delete();
         }
 
-        for (int i = nbSurvivors + 1; i <= size) {
+        for (int i = nbSurvivors + 1; i <= size; i++) {
             individuals.remove(i);
         }
 
@@ -190,7 +191,7 @@ public class Population {
 
         int motherID, fatherID;
 
-        for (int i = nbSurvivors + 1; i <= size) {
+        for (int i = nbSurvivors + 1; i <= size; i++) {
 
             motherID = random(1, nbSurvivors);
             do {
@@ -210,7 +211,7 @@ public class Population {
      */
     public Individual bestIndividual() {
 
-        Collections.sort(individuals);
+        sortIndividuals();
 
         return individuals.get(0);
 
@@ -275,7 +276,21 @@ public class Population {
         return (int) (Math.random() * (max - min)) + min;
     }
 
+    private void sortIndividuals(){
+        individuals.sort(new IndividualsComparator());
+    }
 
+
+    /**
+     * Custom comparator to sort the list of individuals.
+     */
+    private static class IndividualsComparator implements Comparator<Individual> {
+
+        @Override
+        public int compare(Individual individual, Individual t1) {
+            return individual.compareTo(t1);
+        }
+    }
 
 
 }

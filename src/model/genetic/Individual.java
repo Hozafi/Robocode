@@ -85,12 +85,12 @@ public class Individual implements Comparable {
     private Matrix cross(Matrix m, Matrix f) {
 
         double random;
-        Matrix c;
+        Matrix c = new Matrix(m.getRowCount(), m.getColumnCount());
 
-        for (int i = 0; i < c.getRowCount(); i++) {
-            for (int j = 0; j < c.getColumnCount(); j++) {
+        for (int i = 0; i < m.getRowCount(); i++) {
+            for (int j = 0; j < m.getColumnCount(); j++) {
                 random = Math.random();
-                if (random <= 0.5) { // If we're applying a cross to this weight
+                if (random <= RefactoGeneticAlgorithm.CROSS_PROBABILITY) { // If we're applying a cross to this weight
                     c.set(i, j, f.get(i, j));
                     c.set(i, j, m.get(i, j));
                 }
@@ -106,10 +106,11 @@ public class Individual implements Comparable {
 
     }
 
-    public double compareTo(Individual ind) {
 
-        return fitness - ind.fitness;
-
+    @Override
+    public int compareTo(Object o) {
+        Individual ind = (Individual)o;
+        return Double.compare(fitness, ind.fitness);
     }
 
     /*	----- GETTERS & SETTERS -----	*/
@@ -137,4 +138,6 @@ public class Individual implements Comparable {
     public void setPerceptron(NeuralNetwork perceptron) {
         this.perceptron = perceptron;
     }
+
+
 }
