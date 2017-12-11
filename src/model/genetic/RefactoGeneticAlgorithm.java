@@ -40,7 +40,7 @@ public class RefactoGeneticAlgorithm {
      * The directory where the population will be saved.
      * </p>
      */
-    private static final String POPULATION_DIRECTORY = "data/population/";
+    static final String POPULATION_DIRECTORY = "data/population/";
 
     /**
      * <p>
@@ -56,7 +56,7 @@ public class RefactoGeneticAlgorithm {
      * The name of an xml file for a robot. His number will be added at the end of his name to have Individual1, Individual2, ...
      * </p>
      */
-    private static final String INDIVIDUAL_FILENAME = "Individual";
+    static final String INDIVIDUAL_FILENAME = "Individual";
 
     /**
      * <p>
