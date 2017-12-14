@@ -49,7 +49,7 @@ public class RefactoGeneticAlgorithm {
      * Currently, it is set to IntelliJ configuration.
      * </p>
      */
-    private static final String ROBOT_DIRECTORY = "out/production/Darwini/controller/Darwini.data/";
+    static final String ROBOT_DIRECTORY = "out/production/Darwini/controller/Darwini.data/";
 
     /**
      * <p>
@@ -63,7 +63,7 @@ public class RefactoGeneticAlgorithm {
      * The directory containing the Robocode library.
      * </p>
      */
-    private static final String ROBOCODE_PATH = "libs/robocode.jar";
+    static final String ROBOCODE_PATH = "libs/robocode.jar";
 
     /**
      * <p>
@@ -71,14 +71,14 @@ public class RefactoGeneticAlgorithm {
      * Modify it if you want to change the opponent robot.
      * </p>
      */
-    private static final String BATTLE_PATH = "data/test.battle";
+    static final String BATTLE_PATH = "data/test.battle";
 
     /**
      * <p>
      * The path where the temporary file created by Robocode will be saved.
      * </p>
      */
-    private static final String RESULTS_PATH = "results.txt";
+    static final String RESULTS_PATH = "results.txt";
 
     private static final String FITNESS_EVOLUTION_PATH = "fitness_evo.csv";
 

@@ -1,5 +1,7 @@
 package model.genetic;
 
+import controller.Darwini;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -110,9 +112,11 @@ public class Population {
      */
     public void nextGeneration() {
 
-        System.out.println("Generating generation " + generation + "...");
+        System.out.println("Generating generation " + (generation + 1) + "...");
 
-        sortIndividuals();
+        //sortIndividuals();
+        Collections.sort(individuals);
+        Collections.reverse(individuals);
 
         saveBest();
 
@@ -161,7 +165,7 @@ public class Population {
             f.delete();
         }
 
-        for (int i = nbSurvivors + 1; i <= size; i++) {
+        for (int i = size - 1; i >= nbSurvivors; i--) {
             individuals.remove(i);
         }
 
@@ -194,9 +198,9 @@ public class Population {
 
         for (int i = nbSurvivors + 1; i <= size; i++) {
 
-            motherID = random(1, nbSurvivors);
+            motherID = random(0, nbSurvivors);
             do {
-                fatherID = random(1, nbSurvivors);
+                fatherID = random(0, nbSurvivors);
             } while (motherID == fatherID);
 
             individuals.add(new Individual(i, individuals.get(motherID).getPerceptron(),
@@ -212,7 +216,16 @@ public class Population {
      */
     public Individual bestIndividual() {
 
-        sortIndividuals();
+        //sortIndividuals();
+        Collections.sort(individuals);
+        Collections.reverse(individuals);
+
+        try {
+            copyFile(RefactoGeneticAlgorithm.POPULATION_DIRECTORY + RefactoGeneticAlgorithm.INDIVIDUAL_FILENAME
+                    + 1 + ".xml", RefactoGeneticAlgorithm.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return individuals.get(0);
 
