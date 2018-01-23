@@ -8,6 +8,7 @@ import javax.xml.stream.XMLStreamException;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -41,7 +42,7 @@ public class Individual implements Comparable {
 
     /*	----- CONSTRUCTORS -----	*/
 
-    public Individual(int id) {
+    public Individual(int id){
 
         index = id;
         fitness = -9999;
@@ -54,7 +55,6 @@ public class Individual implements Comparable {
         } catch (XMLStreamException e) {
             e.printStackTrace();
         }
-
 
     }
 
@@ -142,12 +142,24 @@ public class Individual implements Comparable {
 
     }
 
-    private void evaluate() {
+    private void evaluate() throws IllegalStateException{
 
-        try (Stream<String> stream = Files.lines(Paths.get(RefactoGeneticAlgorithm.RESULTS_PATH))) {
-            String[] results = stream.filter(line -> line.contains("Darwini")).findFirst().get().split("\t");
+        // RECOVERING DATA FROM RESULTS.TXT
+        try {
+            Stream<String> stream = Files.lines(Paths.get(RefactoGeneticAlgorithm.RESULTS_PATH));
+
+            final Optional<String> result = stream.filter(line -> line.contains("Darwini"))
+                    .findFirst();
+            if (!result.isPresent()){
+                throw new IllegalStateException("No Darwini's line found in the result's file !");
+            }
+
+            String[] results = result.get().split("\t");
             Matcher m = Pattern.compile("(\\d+)\\s\\((\\d+)").matcher(results[1]);
-            m.find();
+            if (!m.find()){
+                throw new IllegalStateException("Unable to find data matching regex in the result's file");
+            }
+
             int totalScore = Integer.parseInt(m.group(1));
             int victory = Integer.parseInt(m.group(2));
             int survival = Integer.parseInt(results[2]);
@@ -157,32 +169,66 @@ public class Individual implements Comparable {
             int ramDamage = Integer.parseInt(results[6]);
             int ramBonus = Integer.parseInt(results[7]);
 
-            Stream<String> streamAcc = Files.lines(Paths.get("accuracy.txt"));
-            String[] acc = streamAcc.filter(line -> line.contains("accuracy")).findFirst().get().split("\t");
-            Matcher macc = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(acc[1]);
-            macc.find();
-            int hits = Integer.parseInt(macc.group(1));
-            int missed = Integer.parseInt(macc.group(2));
 
-            Stream<String> streamDod = Files.lines(Paths.get("dodge.txt"));
-            String[] dod = streamDod.filter(line -> line.contains("dodge")).findFirst().get().split("\t");
-            Matcher mdod = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(dod[1]);
-            mdod.find();
-            int hitsWall = Integer.parseInt(mdod.group(1));
-            int hitByBullet = Integer.parseInt(mdod.group(2));
+            // RECOVERING DATA FROM ACCURACY.TXT
+            try {
+                Stream<String> streamAcc = Files.lines(Paths.get("accuracy.txt"));
+                Optional<String> accuracy = streamAcc.filter(line -> line.contains("accuracy"))
+                        .findFirst();
+                if (!accuracy.isPresent()){
+                    throw new IllegalStateException("No Accuracy found in the accuracy's file !");
+                }
+                String[] acc = accuracy.get().split("\t");
+                Matcher macc = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(acc[1]);
+                if (!macc.find()){
+                    throw new IllegalStateException("Unable to find data maching regex in the accuracy's file");
+                }
 
-            //System.out.println("Dodge:" +  (hitByBullet + hitsWall));
-            fitness = 20 * bulletDamage
-                    + 10 * survival
-                    + ramDamage
-                    + 5*totalScore
-                    + victory
-                    - 1000*hitsWall
-                    - 5*hitByBullet;
+                int hits = Integer.parseInt(macc.group(1));
+                int missed = Integer.parseInt(macc.group(2));
 
-            System.out.println("Fitness of robot " + index + " : " + fitness);
-        } catch (IOException e) {
-            System.out.println("The results file was not found");
+
+
+                // RECOVERING DATA FROM DODGE.TXT
+                try{
+                    Stream<String> streamDod = Files.lines(Paths.get("dodge.txt"));
+                    Optional<String> dodge = streamDod.filter(line -> line.contains("dodge"))
+                            .findFirst();
+                    if (!dodge.isPresent()){
+                        throw new IllegalStateException("No dodge found in the dodge's file");
+                    }
+                    String[] dod = dodge.get().split("\t");
+                    Matcher mdod = Pattern.compile("(\\d+)\\s*(\\d+)").matcher(dod[1]);
+                    if (!mdod.find()){
+                        throw new IllegalStateException("Unable to find data matching regex in the dodge's file");
+                    }
+
+                    int hitsWall = Integer.parseInt(mdod.group(1));
+                    int hitByBullet = Integer.parseInt(mdod.group(2));
+
+                    fitness = 20 * bulletDamage
+                            + 10 * survival
+                            + ramDamage
+                            + 5*totalScore
+                            + victory
+                            - 1000*hitsWall
+                            - 5*hitByBullet;
+
+                    System.out.println("Fitness of robot " + index + " : " + fitness);
+
+
+                } catch(IOException e){
+                    System.err.println("Unable to open the dodge's file...");
+                }
+
+
+            } catch (IOException e){
+                System.err.println("Unable to open the accuracy's file...");
+            }
+
+
+        } catch (IOException e){
+            System.err.println("Unable to open the result's file...");
         }
         
     }
