@@ -322,7 +322,7 @@ public class RefactoGeneticAlgorithm {
         int columnCount = m.getColumnCount();
 
         for (int i = 0; i < rowCount; i++) {
-            for (int j = 0; i < columnCount; i++) {
+            for (int j = 0; j < columnCount; i++) {
                 if (Math.random() < MUTATION_PROBABILITY) {
                     double newValue = m.get(i, j) + (((Math.random() * 2 * MUTATION_PROPORTION) - MUTATION_PROPORTION) * m.get(i, j));
                     m.set(i, j, newValue);
