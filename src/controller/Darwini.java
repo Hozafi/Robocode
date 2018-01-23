@@ -171,7 +171,7 @@ public class Darwini extends InitialRobot {
             if (decisions.getTurnLeft() > 0)
                 turnLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnLeft()));
 
-            if (decisions.getTurnRadarRight() > 0) {
+            /*if (decisions.getTurnRadarRight() > 0) {
                 turnRadarRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));
                 turnGunRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRadarRight()));
             }
@@ -186,7 +186,7 @@ public class Darwini extends InitialRobot {
                 double angle = 2 * Math.PI * sigmoid(decisions.getTurnRadarLeft());
                 turnRadarLeftRadians(angle);
                 turnGunLeftRadians(angle);
-            }
+            }*/
 
             if (decisions.getTurnGunRight() > 0) {
                 double angle = 2 * Math.PI * sigmoid(decisions.getTurnGunRight());
@@ -200,11 +200,13 @@ public class Darwini extends InitialRobot {
             if (decisions.getTurnGunLeft() > 0)
                 turnGunLeftRadians(2 * Math.PI * sigmoid(decisions.getTurnGunLeft()));
 
+            /*
             if (decisions.getTurnGunLeft() > 0) {
                 double angle = 2 * Math.PI * sigmoid(decisions.getTurnRadarRight());
                 turnGunLeft(angle);
                 turnRadarLeft(angle);
             }
+            */
 
             if (decisions.getMoveAhead() > 0)
                 ahead(10 * sigmoid(decisions.getMoveAhead()));

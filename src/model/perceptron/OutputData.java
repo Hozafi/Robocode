@@ -41,7 +41,7 @@ public class OutputData {
 		 *  	Number of output Neurons of the neural network
 		 * </p>
 		 */
-		protected static final int OUTPUT_NEURONS = 8;
+		protected static final int OUTPUT_NEURONS = 6;
 		
 		/**
 		 * <p>
@@ -86,22 +86,6 @@ public class OutputData {
 		/**
 		 * <p>
 		 * 		Sixth output neuron
-		 * 		The radar turn right decision
-		 * </p>
-		 */
-		private double turnRadarRight;
-		
-		/**
-		 * <p>
-		 * 		Seventh output neuron
-		 * 		The radar turn left decision
-		 * </p>
-		 */
-		private double turnRadarLeft;
-		
-		/**
-		 * <p>
-		 * 		Eighth output neuron
 		 * 		The move ahead decision
 		 * </p>
 		 */
@@ -119,11 +103,9 @@ public class OutputData {
 			shoot = results.get(0, 0);
 			turnRight = results.get(0, 1);
 			turnLeft = results.get(0, 2);
-			turnRadarRight = results.get(0, 3);
-			turnRadarLeft = results.get(0, 4);
-			turnGunRight = results.get(0, 5);
-			turnGunLeft = results.get(0, 6);
-			moveAhead = results.get(0, 7);
+			turnGunRight = results.get(0, 3);
+			turnGunLeft = results.get(0, 4);
+			moveAhead = results.get(0, 5);
 		}
 		
 	
@@ -148,20 +130,6 @@ public class OutputData {
 		 */
 		public double getTurnLeft() {
 			return turnLeft;
-		}
-		
-		/**
-		 * @return The radar turn right decision
-		 */
-		public double getTurnRadarRight() {
-			return turnRadarRight;
-		}
-		
-		/**
-		 * @return The radar turn left decision
-		 */
-		public double getTurnRadarLeft() {
-			return turnRadarLeft;
 		}
 		
 		/**
