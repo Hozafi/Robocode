@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static model.genetic.RefactoGeneticAlgorithm.ROBOT_DIRECTORY;
+
 public class Population {
 
     /*	----- PATHS -----	*/
@@ -78,6 +80,12 @@ public class Population {
         size = s;
 
         individuals = new ArrayList<Individual>(s);
+
+        try{
+            createDirs();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
         for (int i = 1; i <= size; i++) {
             individuals.add(new Individual(i));
@@ -162,7 +170,14 @@ public class Population {
 
         for (int i = 1; i <= size; i++) {
             f = new File(POPULATION_DIRECTORY + INDIVIDUAL_FILENAME + i + ".xml");
-            f.delete();
+            try {
+                if (!f.delete()){
+                    System.out.println("An error occured when trying to delete file " + f.getName());
+                }
+            } catch (SecurityException e){
+                System.out.println("You don't have the permission to delete the file " + f.getName());
+                e.printStackTrace();
+            }
         }
 
         for (int i = size - 1; i >= nbSurvivors; i--) {
@@ -182,7 +197,14 @@ public class Population {
 
         for (int i = 1; i <= nbSurvivors; i++) {
             f = new File(POPULATION_DIRECTORY + "Temp_" + INDIVIDUAL_FILENAME + i + ".xml");
-            f.renameTo(new File(POPULATION_DIRECTORY + INDIVIDUAL_FILENAME + i + ".xml"));
+            try{
+                if (!f.renameTo(new File(POPULATION_DIRECTORY + INDIVIDUAL_FILENAME + i + ".xml"))){
+                    System.out.println("An error occured when trying to rename the file " + f.getName());
+                }
+            } catch (SecurityException e){
+                System.out.println("You don'y have the permission to rename the file " + f.getName());
+                e.printStackTrace();
+            }
         }
 
     }
@@ -216,13 +238,12 @@ public class Population {
      */
     public Individual bestIndividual() {
 
-        //sortIndividuals();
         Collections.sort(individuals);
         Collections.reverse(individuals);
 
         try {
             copyFile(RefactoGeneticAlgorithm.POPULATION_DIRECTORY + RefactoGeneticAlgorithm.INDIVIDUAL_FILENAME
-                    + 1 + ".xml", RefactoGeneticAlgorithm.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
+                    + 1 + ".xml", ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -288,6 +309,27 @@ public class Population {
      */
     private int random(int min, int max) {
         return (int) (Math.random() * (max - min)) + min;
+    }
+
+
+    /**
+     * Creates the directories for population and robots
+     * @throws IOException if the system can't create these directories
+     */
+    private void createDirs() throws IOException{
+        File f = new File(POPULATION_DIRECTORY);
+        if (!f.exists()){
+            if (!f.mkdir()){
+                throw new IOException("Unable to create the dir " + POPULATION_DIRECTORY);
+            }
+        }
+
+        f = new File(ROBOT_DIRECTORY);
+        if (!f.exists()){
+            if (!f.mkdir()){
+                throw new IOException("Unable to create the dir " + ROBOT_DIRECTORY);
+            }
+        }
     }
 
     private void sortIndividuals(){
