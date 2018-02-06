@@ -232,8 +232,10 @@ public class NeuralNetwork {
         //Multiplication du vecteur d'entrée avec la première matrice de poids. On obtient le vecteur de couche sans le neurone de biais
         Matrix vcouche = entries.toMatrix().mult(outputWeights);
         //Ajout du neurone de biais et application de la fonction sigmoïde
-        for (int i = 0; i < outputWeights.getColumnCount(); i++)
-            vcouche.set(0, i, 1 / (1 + Math.exp(-vcouche.get(0, i) - bias.get(i, 0))));
+
+
+        /*for (int i = 0; i < outputWeights.getColumnCount(); i++)
+            vcouche.set(0, i, 1 / (1 + Math.exp(-vcouche.get(0, i) - bias.get(i, 0)))); */
 
         // Second Treatment
         //Multiplication du vecteur de couche avec la seconde matrice de poids pour obtenir le vecteur de sortie

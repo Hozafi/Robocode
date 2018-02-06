@@ -100,7 +100,7 @@ public class RefactoGeneticAlgorithm {
      * Defines the size of a population
      * </p>
      */
-    private static final int POPULATION_SIZE = 60;
+    private static final int POPULATION_SIZE = 10;
 
     /**
      * <p>

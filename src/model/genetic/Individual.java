@@ -13,6 +13,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import static controller.Darwini.nbHits;
+import static controller.Darwini.nbMissed;
+
 public class Individual implements Comparable {
 
     /*	----- ATTRIBUTES -----	*/
@@ -206,13 +209,17 @@ public class Individual implements Comparable {
                     int hitsWall = Integer.parseInt(mdod.group(1));
                     int hitByBullet = Integer.parseInt(mdod.group(2));
 
-                    fitness = 20 * bulletDamage
+                    /*fitness = 20 * bulletDamage
                             + 10 * survival
                             + ramDamage
                             + 5*totalScore
                             + victory
                             - 1000*hitsWall
-                            - 5*hitByBullet;
+                            - 5*hitByBullet*/
+
+                    fitness = 100 * hits
+                            + 20 * (hits + missed)
+                            - 15 * missed;
 
                     System.out.println("Fitness of robot " + index + " : " + fitness);
 

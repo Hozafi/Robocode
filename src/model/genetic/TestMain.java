@@ -4,7 +4,7 @@ public class TestMain {
 
     public static void main (String[] args) {
         Population pop = new Population(20,4);
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < 1; i++) {
             pop.makeFight();
             pop.nextGeneration();
         }

@@ -303,11 +303,11 @@ public class InputData {
         matrix.set(0, 12, enemyY);
         matrix.set(0, 13, distWall);*/
 
-        matrix.set(0, 1, myBearing);
-        matrix.set(0, 2, distance);
-        matrix.set(0, 3, gunBearing);
-        matrix.set(0, 4, myVelocity);
-        matrix.set(0, 5, distWall);
+        matrix.set(0, 0, myBearing);
+        matrix.set(0, 1, distance);
+        matrix.set(0, 2, gunBearing);
+        matrix.set(0, 3, myVelocity);
+        matrix.set(0, 4, distWall);
 
         return matrix;
     }

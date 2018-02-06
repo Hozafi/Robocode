@@ -16,6 +16,8 @@ import robocode.*;
 
 import java.io.*;
 
+import static robocode.util.Utils.normalRelativeAngleDegrees;
+
 /**
  * <p>
  * A robot based on an existing one, however this one will improve itself over time, by building and following a neural network.
@@ -128,7 +130,9 @@ public class Darwini extends InitialRobot {
     private OutputData decisions;
     private ScannedRobotEvent ennemy;
 
-    private boolean seen;
+    private boolean seen = false;
+    private double absoluteBearing;
+    private double bearingFromGun;
 
     /*	----- OTHER METHODS -----	*/
 
@@ -152,18 +156,12 @@ public class Darwini extends InitialRobot {
         //super.run();
 
         while (true) {
+            System.out.println("coucou je suis en train de combattre run");
+            seen = false;
+            // If we can't see the enemy robot, turn the gun to the right
+            while (!seen) { turnGunRight(30); }
+            //decisions = perceptron.train(acquisitionData.acquisition(ennemy));
 
-            if (!seen) {
-                setTurnLeft(10000);
-                setMaxVelocity(5);
-                ahead(10000);
-            } else {
-                decisions = perceptron.train(acquisitionData.acquisition(ennemy));
-            }
-
-            if (decisions.getShoot() > 0) {
-                fire(3);
-            }
 
             /*if (decisions.getTurnRight() > 0)
                 turnRightRadians(2 * Math.PI * sigmoid(decisions.getTurnRight()));
@@ -215,12 +213,50 @@ public class Darwini extends InitialRobot {
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
+        System.out.println("coucou je suis en train de combattre onScannedRobot debut");
+        seen = true;
+        // Calculate exact location of the robot
+        absoluteBearing = getHeading() + e.getBearing();
+        bearingFromGun = normalRelativeAngleDegrees(absoluteBearing - getGunHeading());
+
+        // If it's close enough, fire!
+        if (Math.abs(bearingFromGun) <= 3) {
+            turnGunRight(bearingFromGun);
+            // We check gun heat here, because calling fire()
+            // uses a turn, which could cause us to lose track
+            // of the other robot.
+			/*if (getGunHeat() == 0) {
+				fire(Math.min(3 - Math.abs(bearingFromGun), getEnergy() - .1));
+			}*/
+        } // otherwise just set the gun to turn.
+        // Note:  This will have no effect until we call scan()
+        else {
+            turnGunRight(bearingFromGun);
+        }
+        // Generates another scan event if we see a robot.
+        // We only need to call this if the gun (and therefore radar)
+        // are not turning.  Otherwise, scan is called automatically.
+        if (bearingFromGun == 0) {
+            scan();
+        }
+
+
+
+
+
+
+
         decisions = perceptron.train(acquisitionData.acquisition(e));
-        setTurnLeft(0);
+
+        System.out.println("coucou je suis en train de combattre onScannedRobot fin");
+
+        if (sigmoid(decisions.getShoot()) > 0) {
+            fire(3);
+        }
+        /*setTurnLeft(0);
         setMaxVelocity(0);
         ahead(0);
-        ennemy = e;
-        seen = true;
+        ennemy = e;*/
     }
 
 
@@ -289,6 +325,8 @@ public class Darwini extends InitialRobot {
      * @return the value after the sigmoid computation
      */
     private double sigmoid(double i) {
+        System.out.println("SIGMOID : i = " + i);
+        System.out.println("SIGMOID VALEUR = " + 1 / (1 + Math.exp(i)));
         // Code sigmoid
         return 1 / (1 + Math.exp(i));
         // Code RELU
