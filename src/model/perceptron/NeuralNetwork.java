@@ -70,18 +70,38 @@ public class NeuralNetwork {
 
     /**
      * <p>
-     * The second matrix of weighting coefficient
-     * We'll call it the output weight matrix
+     * The first matrix, linking input neurons and the hidden layer
+     * </p>
+     */
+    private Matrix inputWeights;
+
+    /**
+     * <p>
+     * The second matrix, linking hidden neurons and the output neurons
      * </p>
      */
     private Matrix outputWeights;
 
     /**
      * <p>
-     * The bias vector (bias neuron)
+     * Bias vector for the first matrix
      * </p>
      */
-    private Matrix bias;
+    private Matrix inputBias;
+
+    /**
+     * <p>
+     * Bias vector for the second matrix
+     * </p>
+     */
+    private Matrix outputBias;
+
+    /**
+     * <p>
+     * Boolean attribute that indicates if the neural network has a hidden layer or not.
+     * </p>
+     */
+    private boolean hasHiddenLayer;
 
 
     /*	----- CONSTRUCTOR -----	*/
@@ -93,10 +113,13 @@ public class NeuralNetwork {
      * </p>
      */
     public NeuralNetwork() {
-        outputWeights = new Matrix(INPUT_NEURONS, OutputData.OUTPUT_NEURONS);
-        randomizeIOMatrix(outputWeights);
-        bias = new Matrix(OUTPUT_NEURONS, 1);
-        randomizeBiasMatrix(bias);
+        inputWeights = new Matrix(INPUT_NEURONS, OutputData.OUTPUT_NEURONS);
+        randomizeIOMatrix(inputWeights);
+        inputBias = new Matrix(OUTPUT_NEURONS, 1);
+        randomizeBiasMatrix(inputBias);
+
+        hasHiddenLayer = false;
+
     }
 
     /**
@@ -105,9 +128,12 @@ public class NeuralNetwork {
      * (used in the genetic algorithm process)
      * </p>
      */
-    public NeuralNetwork(Matrix outputWeights, Matrix bias) {
-        this.outputWeights = outputWeights;
-        this.bias = bias;
+    public NeuralNetwork(Matrix inputWeights, Matrix inputBias) {
+        this.inputWeights = inputWeights;
+        this.inputBias = inputBias;
+
+        hasHiddenLayer = false;
+
     }
 
     /**
@@ -127,14 +153,17 @@ public class NeuralNetwork {
             for (int i = 0; i < 4; i++)
                 xmlReader.nextTag();
 
-            outputWeights = initMatrix(xmlReader);
-            // Skip the end of the outputWeights
+            inputWeights = initMatrix(xmlReader);
+            // Skip the end of the inputWeights
             xmlReader.nextTag();
             xmlReader.nextTag();
-            bias = initMatrix(xmlReader);
+            inputBias = initMatrix(xmlReader);
 
             // Close the reader
             xmlReader.close();
+
+            hasHiddenLayer = false;
+
         } catch (FileNotFoundException e) {
             System.out.println(file.getAbsolutePath() + " is not found.");
             System.out.println("The perceptron is not initialized, please put a perceptron in the correct directory.");
@@ -150,15 +179,15 @@ public class NeuralNetwork {
     /**
      * @return The output weights Matrix
      */
-    public Matrix getOutputWeights() {
-        return outputWeights;
+    public Matrix getInputWeights() {
+        return inputWeights;
     }
 
     /**
-     * @return The bias vector
+     * @return The inputBias vector
      */
-    public Matrix getBias() {
-        return bias;
+    public Matrix getInputBias() {
+        return inputBias;
     }
 
     /*	----- OTHER METHODS -----	*/
@@ -230,12 +259,12 @@ public class NeuralNetwork {
     public OutputData train(InputData entries) {
         // First Treatment
         //Multiplication du vecteur d'entrée avec la première matrice de poids. On obtient le vecteur de couche sans le neurone de biais
-        Matrix vcouche = entries.toMatrix().mult(outputWeights);
+        Matrix vcouche = entries.toMatrix().mult(inputWeights);
         //Ajout du neurone de biais et application de la fonction sigmoïde
 
 
-        /*for (int i = 0; i < outputWeights.getColumnCount(); i++)
-            vcouche.set(0, i, 1 / (1 + Math.exp(-vcouche.get(0, i) - bias.get(i, 0)))); */
+        /*for (int i = 0; i < inputWeights.getColumnCount(); i++)
+            vcouche.set(0, i, 1 / (1 + Math.exp(-vcouche.get(0, i) - inputBias.get(i, 0)))); */
 
         // Second Treatment
         //Multiplication du vecteur de couche avec la seconde matrice de poids pour obtenir le vecteur de sortie
@@ -256,7 +285,7 @@ public class NeuralNetwork {
         XMLStreamWriter xmlWriter = XMLOutputFactory.newInstance().createXMLStreamWriter(new FileOutputStream(file));
 
         xmlWriter.writeStartElement("meta");
-        xmlWriter.writeAttribute("NbOutputNeurons", Integer.toString(outputWeights.getColumnCount()));
+        xmlWriter.writeAttribute("NbOutputNeurons", Integer.toString(inputWeights.getColumnCount()));
         xmlWriter.writeAttribute("Learners", "1");
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t");
@@ -269,22 +298,22 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\t\t");
 
         xmlWriter.writeStartElement("perceptron");
-        xmlWriter.writeAttribute("OutputNeurons", Integer.toString(outputWeights.getColumnCount()));
+        xmlWriter.writeAttribute("OutputNeurons", Integer.toString(inputWeights.getColumnCount()));
         xmlWriter.writeAttribute("Kernel", "sigmoid");
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("OutputWeights");
-        xmlWriter.writeAttribute("Rows", Integer.toString(outputWeights.getRowCount()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(outputWeights.getColumnCount()));
-        xmlWriter.writeAttribute("Matrix", outputWeights.toString());
+        xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.getRowCount()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.getColumnCount()));
+        xmlWriter.writeAttribute("Matrix", inputWeights.toString());
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("Bias");
-        xmlWriter.writeAttribute("Rows", Integer.toString(bias.getRowCount()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(bias.getColumnCount()));
-        xmlWriter.writeAttribute("Matrix", bias.toString());
+        xmlWriter.writeAttribute("Rows", Integer.toString(inputBias.getRowCount()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(inputBias.getColumnCount()));
+        xmlWriter.writeAttribute("Matrix", inputBias.toString());
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t");
         xmlWriter.writeEndElement();
@@ -295,6 +324,21 @@ public class NeuralNetwork {
         xmlWriter.writeEndElement();
 
         xmlWriter.close();
+    }
+
+    public String toString(){
+
+        String str = "";
+
+        str += "First matrix: \n" + this.inputWeights.toString();
+        str += "\nFirst bias vector: \n" + this.inputWeights.toString();
+
+        if(hasHiddenLayer){
+            str += "\nSecond matrix: \n" + this.inputWeights.toString();
+            str += "\nSecond bias vector: \n" + this.inputWeights.toString();
+        }
+
+        return str;
     }
 
 }

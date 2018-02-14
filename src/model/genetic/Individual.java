@@ -13,9 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import static controller.Darwini.nbHits;
-import static controller.Darwini.nbMissed;
-
 public class Individual implements Comparable {
 
     /*	----- ATTRIBUTES -----	*/
@@ -66,8 +63,8 @@ public class Individual implements Comparable {
         index = id;
         fitness = -9999;
 
-        perceptron = new NeuralNetwork(cross(mother.getOutputWeights(), father.getOutputWeights()),
-                cross(mother.getBias(), father.getBias()));
+        perceptron = new NeuralNetwork(cross(mother.getInputWeights(), father.getInputWeights()),
+                cross(mother.getInputBias(), father.getInputBias()));
 
         try {
             perceptron.printToXML(new File(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml"));
@@ -93,11 +90,31 @@ public class Individual implements Comparable {
     private NeuralNetwork[] crossover(NeuralNetwork mother, NeuralNetwork father) {
         NeuralNetwork[] children = {mother, father};
 
-        cross(mother.getOutputWeights(), father.getOutputWeights());
-        cross(mother.getBias(), father.getBias());
+        cross(mother.getInputWeights(), father.getInputWeights());
+        cross(mother.getInputBias(), father.getInputBias());
 
         return children;
     }
+
+    public boolean testmethod(){
+
+        Individual father = new Individual(1);
+        Individual mother = new Individual(2);
+
+        System.out.println("Father before cross: \n\n " + father.toString());
+        System.out.println("Mother before cross: \n\n " + mother.toString());
+
+        NeuralNetwork[] children = crossover(father.getPerceptron(), mother.getPerceptron());
+
+        System.out.println("Father after cross: \n\n " + father.toString());
+        System.out.println("Mother after cross: \n\n " + mother.toString());
+
+        for(int i=0; i<children.length;i++){
+            System.out.println("Child # " + i + ":\n" + children[i].toString());
+        }
+        return true;
+    }
+
 
 
     /**
@@ -299,6 +316,20 @@ public class Individual implements Comparable {
         is.close();
         os.close();
         ;;
+    }
+
+    public String toString(){
+
+        String str = "========================================================";
+
+        str += "Individual #" + this.index + "\n\n";
+        str += "Fitness: " + this.fitness;
+        str += "Perceptron: \n\n" + this.perceptron.toString();
+
+        str += "\n========================================================";
+
+        return str;
+
     }
 
 }

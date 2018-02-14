@@ -7,7 +7,6 @@ import model.perceptron.NeuralNetwork;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.*;
-import java.nio.file.StandardOpenOption;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -267,8 +266,8 @@ public class RefactoGeneticAlgorithm {
     private NeuralNetwork[] crossover(NeuralNetwork mother, NeuralNetwork father) {
         NeuralNetwork[] children = {mother, father};
 
-        cross(mother.getOutputWeights(), father.getOutputWeights());
-        cross(mother.getBias(), father.getBias());
+        cross(mother.getInputWeights(), father.getInputWeights());
+        cross(mother.getInputBias(), father.getInputBias());
 
         return children;
     }
@@ -306,8 +305,8 @@ public class RefactoGeneticAlgorithm {
      * @param child the individual to mutate
      */
     private void mutation(NeuralNetwork child) {
-        mutate(child.getOutputWeights());
-        mutate(child.getBias());
+        mutate(child.getInputWeights());
+        mutate(child.getInputBias());
     }
 
     /**

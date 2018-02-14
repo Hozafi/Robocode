@@ -155,9 +155,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>private <a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../model/perceptron/NeuralNetwork.html#bias">bias</a></span></code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../model/perceptron/NeuralNetwork.html#inputBias">inputBias</a></span></code>
 <div class="block">
-     The bias vector (bias neuron)
+     The inputBias vector (inputBias neuron)
  </div>
 </td>
 </tr>
@@ -180,7 +180,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>private <a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../model/perceptron/NeuralNetwork.html#outputWeights">outputWeights</a></span></code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../model/perceptron/NeuralNetwork.html#inputWeights">inputWeights</a></span></code>
 <div class="block">
      The second matrix of weighting coefficient
      We'll call it the output weight matrix
@@ -333,28 +333,28 @@ extends java.lang.Object</pre>
  </p></div>
 </li>
 </ul>
-<a name="outputWeights">
+<a name="inputWeights">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>outputWeights</h4>
-<pre>private&nbsp;<a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a> outputWeights</pre>
+<h4>inputWeights</h4>
+<pre>private&nbsp;<a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a> inputWeights</pre>
 <div class="block"><p>
      The second matrix of weighting coefficient
      We'll call it the output weight matrix
  </p></div>
 </li>
 </ul>
-<a name="bias">
+<a name="inputBias">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>bias</h4>
-<pre>private&nbsp;<a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a> bias</pre>
+<h4>inputBias</h4>
+<pre>private&nbsp;<a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a> inputBias</pre>
 <div class="block"><p>
-     The bias vector (bias neuron)
+     The inputBias vector (inputBias neuron)
  </p></div>
 </li>
 </ul>
@@ -439,7 +439,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../model/perceptron/Matrix.html" title="class in model.perceptron">Matrix</a>&nbsp;getBias()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The bias vector</dd>
+<dd>The inputBias vector</dd>
 </dl>
 </li>
 </ul>
