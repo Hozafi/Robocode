@@ -150,10 +150,13 @@ public class Matrix {
 		 */
 		public String toString() {
 			StringBuilder sb = new StringBuilder(matrix.length * matrix[0].length);
-			for (int i = 0; i < matrix.length; i++)
-				for (int j = 0; j < matrix[0].length; j++)
-					sb.append(String.format(Locale.US, "%.6f", matrix[i][j])).append(" ");
+			for (int i = 0; i < matrix.length; i++) {
 
+				for (int j = 0; j < matrix[0].length; j++) {
+					sb.append(String.format(Locale.US, "%.2f", matrix[i][j])).append(" ");
+				}
+				sb.append("\n");
+			}
 			return sb.toString();
 		}
 

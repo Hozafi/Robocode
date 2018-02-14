@@ -36,6 +36,8 @@ public class NaturalSelection {
     private static final int NUMBER_GENERATION = 30;
 
     public static void main(String[] args) {
+
+        
         RefactoGeneticAlgorithm ga = new RefactoGeneticAlgorithm();
         ga.generate(NUMBER_GENERATION);
         ga.savePopulation();

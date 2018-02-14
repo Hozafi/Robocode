@@ -3,13 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="eb6d1a81-ba6a-4719-a770-f4f87ff32b94" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-13.html" afterPath="$PROJECT_DIR$/doc/index-files/index-13.html" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-2.html" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" />
-      <change beforePath="$PROJECT_DIR$/doc/model/perceptron/NeuralNetwork.html" afterPath="$PROJECT_DIR$/doc/model/perceptron/NeuralNetwork.html" />
-      <change beforePath="$PROJECT_DIR$/doc/model/perceptron/class-use/Matrix.html" afterPath="$PROJECT_DIR$/doc/model/perceptron/class-use/Matrix.html" />
+      <change beforePath="$PROJECT_DIR$/data/robots/robot.database" afterPath="$PROJECT_DIR$/data/robots/robot.database" />
+      <change beforePath="$PROJECT_DIR$/dodge.txt" afterPath="$PROJECT_DIR$/dodge.txt" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/controller/Darwini.class" afterPath="$PROJECT_DIR$/out/production/Darwini/controller/Darwini.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/controller/Darwini.data/Perceptron.xml" afterPath="$PROJECT_DIR$/out/production/Darwini/controller/Darwini.data/Perceptron.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/model/genetic/NaturalSelection.class" afterPath="$PROJECT_DIR$/out/production/Darwini/model/genetic/NaturalSelection.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/model/genetic/RefactoGeneticAlgorithm.class" afterPath="$PROJECT_DIR$/out/production/Darwini/model/genetic/RefactoGeneticAlgorithm.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/InputData.class" afterPath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/InputData.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/Matrix.class" afterPath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/Matrix.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/NeuralNetwork.class" afterPath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/NeuralNetwork.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/OutputData.class" afterPath="$PROJECT_DIR$/out/production/Darwini/model/perceptron/OutputData.class" />
+      <change beforePath="$PROJECT_DIR$/results.txt" afterPath="$PROJECT_DIR$/results.txt" />
       <change beforePath="$PROJECT_DIR$/src/model/genetic/Individual.java" afterPath="$PROJECT_DIR$/src/model/genetic/Individual.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" afterPath="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/genetic/Population.java" afterPath="$PROJECT_DIR$/src/model/genetic/Population.java" />
       <change beforePath="$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java" afterPath="$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java" afterPath="$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/genetic/TestMain.java" afterPath="$PROJECT_DIR$/src/model/genetic/TestMain.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/perceptron/Matrix.java" afterPath="$PROJECT_DIR$/src/model/perceptron/Matrix.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NaturalSelection.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NaturalSelection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+            <state relative-caret-position="311">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/genetic/TestMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -34,8 +54,8 @@
       <file leaf-file-name="RefactoGeneticAlgorithm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="466" column="7" lean-forward="false" selection-start-line="466" selection-start-column="7" selection-end-line="466" selection-end-column="7" />
+            <state relative-caret-position="153">
+              <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="e#885#972#0" expanded="false" />
@@ -70,21 +90,20 @@
                 <element signature="docComment;method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="docComment;method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-                <element signature="method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="docComment;method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-                <element signature="e#11900#11987#0" expanded="false" />
+                <element signature="e#11902#11989#0" expanded="false" />
                 <element signature="docComment;method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-                <element signature="e#13060#13087#0" expanded="false" />
-                <element signature="e#14281#14310#0" expanded="false" />
-                <element signature="e#14367#14454#0" expanded="false" />
+                <element signature="e#13062#13089#0" expanded="false" />
+                <element signature="e#14283#14312#0" expanded="false" />
+                <element signature="e#14369#14456#0" expanded="false" />
                 <element signature="docComment;method#random#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="docComment;method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="docComment;method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-                <element signature="e#16168#16710#0" expanded="false" />
+                <element signature="e#16170#16712#0" expanded="false" />
                 <element signature="docComment;method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
                 <element signature="method#copyNewPopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
@@ -95,21 +114,60 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/genetic/Population.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1496">
+              <caret line="354" column="0" lean-forward="true" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;field#POPULATION_DIRECTORY#0;class#Population#0" expanded="false" />
+                <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#Population#0" expanded="false" />
+                <element signature="docComment;field#individuals#0;class#Population#0" expanded="false" />
+                <element signature="docComment;field#generation#0;class#Population#0" expanded="false" />
+                <element signature="docComment;field#size#0;class#Population#0" expanded="false" />
+                <element signature="docComment;field#nbSurvivors#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#Population#0;class#Population#0" expanded="false" />
+                <element signature="method#Population#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#makeFight#0;class#Population#0" expanded="false" />
+                <element signature="method#makeFight#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#nextGeneration#0;class#Population#0" expanded="false" />
+                <element signature="method#nextGeneration#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#saveBest#0;class#Population#0" expanded="false" />
+                <element signature="method#saveBest#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#killWeaklings#0;class#Population#0" expanded="false" />
+                <element signature="method#killWeaklings#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#loadBest#0;class#Population#0" expanded="false" />
+                <element signature="method#loadBest#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#generateChildren#0;class#Population#0" expanded="false" />
+                <element signature="method#generateChildren#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#bestIndividual#0;class#Population#0" expanded="false" />
+                <element signature="method#bestIndividual#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#averageFitness#0;class#Population#0" expanded="false" />
+                <element signature="method#averageFitness#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#copyFile#0;class#Population#0" expanded="false" />
+                <element signature="method#copyFile#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#random#0;class#Population#0" expanded="false" />
+                <element signature="docComment;method#createDirs#0;class#Population#0" expanded="false" />
+                <element signature="method#createDirs#0;class#Population#0" expanded="false" />
+                <element signature="docComment;class#IndividualsComparator#0;class#Population#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Individual.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="320" column="3" lean-forward="false" selection-start-line="320" selection-start-column="3" selection-end-line="333" selection-end-column="0" />
+            <state relative-caret-position="123">
+              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
                 <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
                 <element signature="method#Individual#0;class#Individual#0" expanded="false" />
-                <element signature="method#Individual#1;class#Individual#0" expanded="false" />
                 <element signature="docComment;method#crossover#0;class#Individual#0" expanded="false" />
                 <element signature="method#crossover#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;method#cross#0;class#Individual#0" expanded="false" />
-                <element signature="method#cross#0;class#Individual#0" expanded="false" />
                 <element signature="method#fight#0;class#Individual#0" expanded="false" />
                 <element signature="method#evaluate#0;class#Individual#0" expanded="false" />
                 <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
@@ -120,11 +178,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="341" column="5" lean-forward="true" selection-start-line="341" selection-start-column="5" selection-end-line="341" selection-end-column="5" />
+            <state relative-caret-position="311">
+              <caret line="105" column="0" lean-forward="true" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
@@ -133,6 +191,7 @@
                 <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+                <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
@@ -161,8 +220,8 @@
       <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/perceptron/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="157" column="9" lean-forward="false" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
+            <state relative-caret-position="663">
+              <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
               <folding>
                 <element signature="docComment;class#Matrix#0" expanded="false" />
                 <element signature="docComment;field#matrix#0;class#Matrix#0" expanded="false" />
@@ -174,6 +233,8 @@
                 <element signature="docComment;method#mult#0;class#Matrix#0" expanded="false" />
                 <element signature="method#mult#0;class#Matrix#0" expanded="false" />
                 <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+                <element signature="e#2852#2853#0" expanded="true" />
+                <element signature="e#2895#2896#0" expanded="true" />
                 <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
                 <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
                 <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
@@ -186,7 +247,7 @@
       <file leaf-file-name="Score.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/Score.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2856">
+            <state relative-caret-position="17">
               <caret line="179" column="36" lean-forward="false" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
               <folding>
                 <element signature="e#6074#6075#0" expanded="true" />
@@ -208,6 +269,7 @@
       <find>moyennescores</find>
       <find>RESULTS_PATH</find>
       <find>fitness</find>
+      <find>cross</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,11 +283,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" />
         <option value="$PROJECT_DIR$/src/model/genetic/Score.java" />
-        <option value="$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/TestMain.java" />
         <option value="$PROJECT_DIR$/src/model/genetic/Individual.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/Population.java" />
+        <option value="$PROJECT_DIR$/src/model/perceptron/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" />
       </list>
     </option>
   </component>
@@ -236,9 +301,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="492" />
-    <option name="y" value="48" />
-    <option name="width" value="697" />
+    <option name="x" value="-7" />
+    <option name="width" value="340" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
@@ -282,7 +346,30 @@
               <item name="Darwini" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="genetic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Darwini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Darwini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="genetic" type="462c0819:PsiDirectoryNode" />
+              <item name="Individual" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="Darwini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Darwini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="perceptron" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Darwini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Darwini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="perceptron" type="462c0819:PsiDirectoryNode" />
+              <item name="Matrix" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="Darwini" type="b2602c69:ProjectViewProjectNode" />
@@ -322,6 +409,20 @@
     <configuration name="Evolve!" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="model.genetic.NaturalSelection" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Darwini" />
+      <envs />
+    </configuration>
+    <configuration name="Evolve!" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="model.genetic.TestMain" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -425,12 +526,12 @@
       <workItem from="1513692031370" duration="1269000" />
       <workItem from="1514226321553" duration="733000" />
       <workItem from="1518626769706" duration="3688000" />
-      <workItem from="1518630564428" duration="36000" />
+      <workItem from="1518630564428" duration="8378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12863000" />
+    <option name="totallyTimeSpent" value="21205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -438,17 +539,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4801902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32012677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38351822" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20204978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.057101026" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -460,7 +562,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33755943" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -502,15 +603,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java</url>
-          <line>186</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -561,21 +654,20 @@
             <element signature="docComment;method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#11900#11987#0" expanded="false" />
+            <element signature="e#11902#11989#0" expanded="false" />
             <element signature="docComment;method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#13060#13087#0" expanded="false" />
-            <element signature="e#14281#14310#0" expanded="false" />
-            <element signature="e#14367#14454#0" expanded="false" />
+            <element signature="e#13062#13089#0" expanded="false" />
+            <element signature="e#14283#14312#0" expanded="false" />
+            <element signature="e#14369#14456#0" expanded="false" />
             <element signature="docComment;method#random#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#16168#16710#0" expanded="false" />
+            <element signature="e#16170#16712#0" expanded="false" />
             <element signature="docComment;method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyNewPopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
@@ -594,11 +686,9 @@
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
             <element signature="method#Individual#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#1;class#Individual#0" expanded="false" />
             <element signature="docComment;method#crossover#0;class#Individual#0" expanded="false" />
             <element signature="method#crossover#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#cross#0;class#Individual#0" expanded="false" />
-            <element signature="method#cross#0;class#Individual#0" expanded="false" />
             <element signature="method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#evaluate#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
@@ -623,6 +713,8 @@
             <element signature="docComment;method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
             <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
@@ -654,6 +746,7 @@
             <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
@@ -695,11 +788,9 @@
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
             <element signature="method#Individual#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#1;class#Individual#0" expanded="false" />
             <element signature="docComment;method#crossover#0;class#Individual#0" expanded="false" />
             <element signature="method#crossover#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#cross#0;class#Individual#0" expanded="false" />
-            <element signature="method#cross#0;class#Individual#0" expanded="false" />
             <element signature="method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#evaluate#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
@@ -721,6 +812,7 @@
             <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
@@ -760,6 +852,8 @@
             <element signature="docComment;method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
             <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
@@ -817,21 +911,20 @@
             <element signature="docComment;method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#11900#11987#0" expanded="false" />
+            <element signature="e#11902#11989#0" expanded="false" />
             <element signature="docComment;method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#13060#13087#0" expanded="false" />
-            <element signature="e#14281#14310#0" expanded="false" />
-            <element signature="e#14367#14454#0" expanded="false" />
+            <element signature="e#13062#13089#0" expanded="false" />
+            <element signature="e#14283#14312#0" expanded="false" />
+            <element signature="e#14369#14456#0" expanded="false" />
             <element signature="docComment;method#random#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#16168#16710#0" expanded="false" />
+            <element signature="e#16170#16712#0" expanded="false" />
             <element signature="docComment;method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyNewPopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
@@ -887,21 +980,20 @@
             <element signature="docComment;method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#11900#11987#0" expanded="false" />
+            <element signature="e#11902#11989#0" expanded="false" />
             <element signature="docComment;method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#13060#13087#0" expanded="false" />
-            <element signature="e#14281#14310#0" expanded="false" />
-            <element signature="e#14367#14454#0" expanded="false" />
+            <element signature="e#13062#13089#0" expanded="false" />
+            <element signature="e#14283#14312#0" expanded="false" />
+            <element signature="e#14369#14456#0" expanded="false" />
             <element signature="docComment;method#random#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#16168#16710#0" expanded="false" />
+            <element signature="e#16170#16712#0" expanded="false" />
             <element signature="docComment;method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyNewPopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
@@ -923,6 +1015,7 @@
             <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
@@ -962,6 +1055,8 @@
             <element signature="docComment;method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
             <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
@@ -990,11 +1085,9 @@
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
             <element signature="method#Individual#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#1;class#Individual#0" expanded="false" />
             <element signature="docComment;method#crossover#0;class#Individual#0" expanded="false" />
             <element signature="method#crossover#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#cross#0;class#Individual#0" expanded="false" />
-            <element signature="method#cross#0;class#Individual#0" expanded="false" />
             <element signature="method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#evaluate#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
@@ -1024,6 +1117,7 @@
             <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
@@ -1063,6 +1157,8 @@
             <element signature="docComment;method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
             <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
@@ -1120,21 +1216,20 @@
             <element signature="docComment;method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#11900#11987#0" expanded="false" />
+            <element signature="e#11902#11989#0" expanded="false" />
             <element signature="docComment;method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#13060#13087#0" expanded="false" />
-            <element signature="e#14281#14310#0" expanded="false" />
-            <element signature="e#14367#14454#0" expanded="false" />
+            <element signature="e#13062#13089#0" expanded="false" />
+            <element signature="e#14283#14312#0" expanded="false" />
+            <element signature="e#14369#14456#0" expanded="false" />
             <element signature="docComment;method#random#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#16168#16710#0" expanded="false" />
+            <element signature="e#16170#16712#0" expanded="false" />
             <element signature="docComment;method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyNewPopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
@@ -1146,7 +1241,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/genetic/Score.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2856">
+        <state relative-caret-position="17">
           <caret line="179" column="36" lean-forward="false" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
           <folding>
             <element signature="e#6074#6075#0" expanded="true" />
@@ -1155,10 +1250,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/TestMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="354" column="0" lean-forward="true" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;field#POPULATION_DIRECTORY#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#individuals#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#generation#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#size#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#nbSurvivors#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#Population#0;class#Population#0" expanded="false" />
+            <element signature="method#Population#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#makeFight#0;class#Population#0" expanded="false" />
+            <element signature="method#makeFight#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#nextGeneration#0;class#Population#0" expanded="false" />
+            <element signature="method#nextGeneration#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#saveBest#0;class#Population#0" expanded="false" />
+            <element signature="method#saveBest#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#killWeaklings#0;class#Population#0" expanded="false" />
+            <element signature="method#killWeaklings#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#loadBest#0;class#Population#0" expanded="false" />
+            <element signature="method#loadBest#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#generateChildren#0;class#Population#0" expanded="false" />
+            <element signature="method#generateChildren#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#bestIndividual#0;class#Population#0" expanded="false" />
+            <element signature="method#bestIndividual#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#averageFitness#0;class#Population#0" expanded="false" />
+            <element signature="method#averageFitness#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#copyFile#0;class#Population#0" expanded="false" />
+            <element signature="method#copyFile#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#random#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#createDirs#0;class#Population#0" expanded="false" />
+            <element signature="method#createDirs#0;class#Population#0" expanded="false" />
+            <element signature="docComment;class#IndividualsComparator#0;class#Population#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="105" column="0" lean-forward="true" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#INPUT_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#inputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#2;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#NeuralNetwork#2;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#7616#7634#0" expanded="false" />
+            <element signature="e#8084#8103#0" expanded="false" />
+            <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/perceptron/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="157" column="9" lean-forward="false" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
+        <state relative-caret-position="663">
+          <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
           <folding>
             <element signature="docComment;class#Matrix#0" expanded="false" />
             <element signature="docComment;field#matrix#0;class#Matrix#0" expanded="false" />
@@ -1170,6 +1349,8 @@
             <element signature="docComment;method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="method#mult#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
             <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
@@ -1178,18 +1359,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="123">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
+            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#crossover#0;class#Individual#0" expanded="false" />
+            <element signature="method#crossover#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#cross#0;class#Individual#0" expanded="false" />
+            <element signature="method#fight#0;class#Individual#0" expanded="false" />
+            <element signature="method#evaluate#0;class#Individual#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
+            <element signature="method#copyFile#0;class#Individual#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="466" column="7" lean-forward="false" selection-start-line="466" selection-start-column="7" selection-end-line="466" selection-end-column="7" />
+        <state relative-caret-position="153">
+          <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="e#885#972#0" expanded="false" />
@@ -1224,21 +1418,20 @@
             <element signature="docComment;method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#mutation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="method#mutate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#fitness#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#11900#11987#0" expanded="false" />
+            <element signature="e#11902#11989#0" expanded="false" />
             <element signature="docComment;method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#generate#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#13060#13087#0" expanded="false" />
-            <element signature="e#14281#14310#0" expanded="false" />
-            <element signature="e#14367#14454#0" expanded="false" />
+            <element signature="e#13062#13089#0" expanded="false" />
+            <element signature="e#14283#14312#0" expanded="false" />
+            <element signature="e#14369#14456#0" expanded="false" />
             <element signature="docComment;method#random#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyFile#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="docComment;method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#savePopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
-            <element signature="e#16168#16710#0" expanded="false" />
+            <element signature="e#16170#16712#0" expanded="false" />
             <element signature="docComment;method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#whoIsTheBest#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
             <element signature="method#copyNewPopulation#0;class#RefactoGeneticAlgorithm#0" expanded="false" />
@@ -1248,62 +1441,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="320" column="3" lean-forward="false" selection-start-line="320" selection-start-column="3" selection-end-line="333" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#1;class#Individual#0" expanded="false" />
-            <element signature="docComment;method#crossover#0;class#Individual#0" expanded="false" />
-            <element signature="method#crossover#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;method#cross#0;class#Individual#0" expanded="false" />
-            <element signature="method#cross#0;class#Individual#0" expanded="false" />
-            <element signature="method#fight#0;class#Individual#0" expanded="false" />
-            <element signature="method#evaluate#0;class#Individual#0" expanded="false" />
-            <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
-            <element signature="method#copyFile#0;class#Individual#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="341" column="5" lean-forward="true" selection-start-line="341" selection-start-column="5" selection-end-line="341" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#INPUT_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#inputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#1;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#NeuralNetwork#2;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#2;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#7616#7634#0" expanded="false" />
-            <element signature="e#8084#8103#0" expanded="false" />
-            <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="311">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

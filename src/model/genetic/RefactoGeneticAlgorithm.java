@@ -309,6 +309,8 @@ public class RefactoGeneticAlgorithm {
         mutate(child.getInputBias());
     }
 
+
+
     /**
      * <p>
      * Realize a mutation on a matrix
@@ -544,4 +546,8 @@ public class RefactoGeneticAlgorithm {
         }
         System.out.println("AVERAGE FITNESS FOR GENERATION : " + moyenne);
     }
+
+
+
+
 }

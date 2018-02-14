@@ -1,2 +1,2 @@
-dodge	4 0
+dodge	0 0
 

@@ -6,10 +6,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.DirectoryNotEmptyException;
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -41,7 +37,7 @@ public class Population {
      * The array of individuals contained in the population.
      * </p>
      */
-     private ArrayList<Individual> individuals;
+    private ArrayList<Individual> individuals;
 
     /**
      * <p>
@@ -132,7 +128,7 @@ public class Population {
 
         loadBest();
 
-        generateChilds();
+        generateChildren();
 
         generation ++;
 
@@ -188,6 +184,26 @@ public class Population {
 
     /**
      * <p>
+     * Realize a mutation on a matrix
+     * </p>
+     *
+     * @param m the matrix to mutate
+     */
+
+
+    /**
+     * <p>
+     * Make a mutation on an individual.
+     * </p>
+     *
+     * @param child the individual to mutate
+     */
+
+
+
+
+    /**
+     * <p>
      * Reloads the best individuals.
      * </p>
      */
@@ -214,7 +230,7 @@ public class Population {
      * Fills the new generation with childs of the surviving individuals.
      * </p>
      */
-    private void generateChilds() {
+    private void generateChildren() {
 
         int motherID, fatherID;
 

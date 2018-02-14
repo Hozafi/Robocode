@@ -96,26 +96,6 @@ public class Individual implements Comparable {
         return children;
     }
 
-    public boolean testmethod(){
-
-        Individual father = new Individual(1);
-        Individual mother = new Individual(2);
-
-        System.out.println("Father before cross: \n\n " + father.toString());
-        System.out.println("Mother before cross: \n\n " + mother.toString());
-
-        NeuralNetwork[] children = crossover(father.getPerceptron(), mother.getPerceptron());
-
-        System.out.println("Father after cross: \n\n " + father.toString());
-        System.out.println("Mother after cross: \n\n " + mother.toString());
-
-        for(int i=0; i<children.length;i++){
-            System.out.println("Child # " + i + ":\n" + children[i].toString());
-        }
-        return true;
-    }
-
-
 
     /**
      * <p>
@@ -139,9 +119,10 @@ public class Individual implements Comparable {
                 }
             }
         }
-
         return c;
     }
+
+
 
     public void fight() {
 
@@ -320,13 +301,13 @@ public class Individual implements Comparable {
 
     public String toString(){
 
-        String str = "========================================================";
+        String str = "========================================================\n";
 
         str += "Individual #" + this.index + "\n\n";
-        str += "Fitness: " + this.fitness;
+        str += "Fitness: " + this.fitness + "\n\n";
         str += "Perceptron: \n\n" + this.perceptron.toString();
 
-        str += "\n========================================================";
+        str += "========================================================";
 
         return str;
 

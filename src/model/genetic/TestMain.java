@@ -12,5 +12,4 @@ public class TestMain {
         System.out.println("Best fitness : " + pop.bestIndividual().getFitness());
 
     }
-
 }
