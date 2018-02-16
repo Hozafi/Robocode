@@ -113,7 +113,7 @@ public class Individual implements Comparable {
         for (int i = 0; i < m.getRowCount(); i++) {
             for (int j = 0; j < m.getColumnCount(); j++) {
                 random = Math.random();
-                if (random <= RefactoGeneticAlgorithm.CROSS_PROBABILITY) { // If we're applying a cross to this weight
+                if (random <= NaturalSelection.CROSS_PROBABILITY) { // If we're applying a cross to this weight
                     c.set(i, j, f.get(i, j));
                     c.set(i, j, m.get(i, j));
                 }
@@ -127,14 +127,14 @@ public class Individual implements Comparable {
     public void fight() {
 
         try {
-            copyFile(RefactoGeneticAlgorithm.POPULATION_DIRECTORY + RefactoGeneticAlgorithm.INDIVIDUAL_FILENAME
-                    + index + ".xml", RefactoGeneticAlgorithm.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
+            copyFile(NaturalSelection.POPULATION_DIRECTORY + NaturalSelection.INDIVIDUAL_FILENAME
+                    + index + ".xml", NaturalSelection.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
 
             // Launch the test in Robocode
             Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp "
-                    + RefactoGeneticAlgorithm.ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle "
-                    + RefactoGeneticAlgorithm.BATTLE_PATH + " -results "
-                    + RefactoGeneticAlgorithm.RESULTS_PATH).waitFor();
+                    + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle "
+                    + NaturalSelection.BATTLE_PATH + " -results "
+                    + NaturalSelection.RESULTS_PATH).waitFor();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -147,7 +147,7 @@ public class Individual implements Comparable {
 
         // RECOVERING DATA FROM RESULTS.TXT
         try {
-            Stream<String> stream = Files.lines(Paths.get(RefactoGeneticAlgorithm.RESULTS_PATH));
+            Stream<String> stream = Files.lines(Paths.get(NaturalSelection.RESULTS_PATH));
 
             final Optional<String> result = stream.filter(line -> line.contains("Darwini"))
                     .findFirst();
@@ -216,7 +216,6 @@ public class Individual implements Comparable {
                             - 5*hitByBullet*/
 
                     fitness = 100 * hits
-                            + 20 * (hits + missed)
                             - 15 * missed;
 
                     System.out.println("Fitness of robot " + index + " : " + fitness);
@@ -254,6 +253,7 @@ public class Individual implements Comparable {
         return fitness;
     }
 
+    // in case we need to force a bad fitness in case of an event, for example
     public void setFitness(double fitness) {
         this.fitness = fitness;
     }
@@ -303,9 +303,9 @@ public class Individual implements Comparable {
 
         String str = "========================================================\n";
 
-        str += "Individual #" + this.index + "\n\n";
-        str += "Fitness: " + this.fitness + "\n\n";
-        str += "Perceptron: \n\n" + this.perceptron.toString();
+        str += "Individual #" + this.index + "\n";
+        str += "Fitness: " + this.fitness + "\n";
+        str += "Perceptron: \n" + this.perceptron.toString();
 
         str += "========================================================";
 

@@ -1,16 +1,16 @@
 <meta NbOutputNeurons="4" Learners="1">
 	<learner accuracy="" features_used="All">
 		<perceptron OutputNeurons="4" Kernel="sigmoid">
-			<OutputWeights Rows="5" Cols="4" Matrix="0.21 0.50 0.58 0.34 
--0.64 0.75 0.02 0.18 
--0.08 -0.23 0.31 -0.54 
-0.20 -0.63 -0.33 0.71 
-0.54 0.58 0.29 -0.97 
+			<OutputWeights Rows="5" Cols="4" Matrix="0.13 -0.20 0.91 -0.62 
+-0.95 0.17 -0.14 0.45 
+-0.93 0.25 -0.85 0.91 
+-0.02 0.50 0.31 -0.03 
+-0.65 -0.70 0.83 0.32 
 "/>
-			<Bias Rows="4" Cols="1" Matrix="0.10 
-0.14 
-0.20 
-0.69 
+			<Bias Rows="4" Cols="1" Matrix="0.38 
+0.80 
+0.81 
+0.23 
 "/>
 		</perceptron>
 	</learner>

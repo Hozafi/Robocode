@@ -1,6 +1,7 @@
 package model.genetic;
 
 import controller.Darwini;
+import jdk.nashorn.internal.objects.NativeUint8Array;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,8 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
-import static model.genetic.RefactoGeneticAlgorithm.ROBOT_DIRECTORY;
 
 public class Population {
 
@@ -204,7 +203,7 @@ public class Population {
 
     /**
      * <p>
-     * Reloads the best individuals.
+     * Reloads the best individuals, renaming their XML files to match files for normal individuals.
      * </p>
      */
     private void loadBest() {
@@ -227,7 +226,7 @@ public class Population {
 
     /**
      * <p>
-     * Fills the new generation with childs of the surviving individuals.
+     * Fills the new generation's population with the children of the surviving individuals.
      * </p>
      */
     private void generateChildren() {
@@ -242,7 +241,7 @@ public class Population {
             } while (motherID == fatherID);
 
             individuals.add(new Individual(i, individuals.get(motherID).getPerceptron(),
-                    individuals.get(fatherID).getPerceptron()));
+                                              individuals.get(fatherID).getPerceptron()));
         }
 
     }
@@ -258,8 +257,8 @@ public class Population {
         Collections.reverse(individuals);
 
         try {
-            copyFile(RefactoGeneticAlgorithm.POPULATION_DIRECTORY + RefactoGeneticAlgorithm.INDIVIDUAL_FILENAME
-                    + 1 + ".xml", ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
+            copyFile(POPULATION_DIRECTORY + INDIVIDUAL_FILENAME
+                    + 1 + ".xml", NaturalSelection.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -340,10 +339,10 @@ public class Population {
             }
         }
 
-        f = new File(ROBOT_DIRECTORY);
+        f = new File(NaturalSelection.ROBOT_DIRECTORY);
         if (!f.exists()){
             if (!f.mkdir()){
-                throw new IOException("Unable to create the dir " + ROBOT_DIRECTORY);
+                throw new IOException("Unable to create the dir " + NaturalSelection.ROBOT_DIRECTORY);
             }
         }
     }
