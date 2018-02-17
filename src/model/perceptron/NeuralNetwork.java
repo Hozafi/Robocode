@@ -8,6 +8,9 @@
 
 package model.perceptron;
 
+import model.genetic.Individual;
+import model.genetic.NaturalSelection;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -138,6 +141,37 @@ public class NeuralNetwork {
 
     /**
      * <p>
+     * The neural network constructor, taking two individuals and crossing their neural networks according to CROSS_PROBABILITY.
+     * Used in the genetic algorithm process.
+     * </p>
+     */
+    public NeuralNetwork(NeuralNetwork mother, NeuralNetwork father) throws IllegalArgumentException{
+
+        //checks if Individuals have different number of neuron layers, ie if one of them has a hidden layer and the other does not
+        if((father.hasHiddenLayer) && (!mother.hasHiddenLayer)
+                || (!father.hasHiddenLayer) && (mother.hasHiddenLayer))
+        {
+            throw new IllegalArgumentException("Error: Individuals do not have the same type of perceptron.");
+        }
+
+        //for readability
+
+        this.inputWeights = father.getInputWeights().cross(mother.getInputWeights(), NaturalSelection.CROSS_PROBABILITY);
+        this.inputBias = father.getInputBias().cross(mother.getInputBias(), NaturalSelection.CROSS_PROBABILITY);
+
+        if(father.hasHiddenLayer){
+            this.outputWeights = father.getOutputWeights().cross(mother.getOutputWeights(), NaturalSelection.CROSS_PROBABILITY);
+            this.outputBias = father.getOutputBias().cross(mother.getOutputBias(), NaturalSelection.CROSS_PROBABILITY);
+        }
+
+        this.hasHiddenLayer = father.hasHiddenLayer;
+
+    }
+
+
+
+    /**
+     * <p>
      * The neural network constructor with a file containing the weighting coefficients
      * from the supervised process (from iriselm treatment)
      * </p>
@@ -174,7 +208,7 @@ public class NeuralNetwork {
     }
 
 
-    /*	----- MUTATORS -----	*/
+    /*	----- GETTERS -----	*/
 
     /**
      * @return The output weights Matrix
@@ -188,6 +222,14 @@ public class NeuralNetwork {
      */
     public Matrix getInputBias() {
         return inputBias;
+    }
+
+    public Matrix getOutputWeights(){
+        return outputWeights;
+    }
+
+    public Matrix getOutputBias(){
+        return outputBias;
     }
 
     /*	----- OTHER METHODS -----	*/

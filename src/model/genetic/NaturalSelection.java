@@ -62,7 +62,7 @@ public class NaturalSelection {
      * Defines the probability of the cross for each weights
      * </p>
      */
-    protected static final double CROSS_PROBABILITY = 0.5;
+    public static final double CROSS_PROBABILITY = 0.5;
 
     /**
      * <p>

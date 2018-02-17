@@ -240,8 +240,7 @@ public class Population {
                 fatherID = random(0, nbSurvivors);
             } while (motherID == fatherID);
 
-            individuals.add(new Individual(i, individuals.get(motherID).getPerceptron(),
-                                              individuals.get(fatherID).getPerceptron()));
+            individuals.add(new Individual(i, individuals.get(motherID), individuals.get(fatherID)));
         }
 
     }
