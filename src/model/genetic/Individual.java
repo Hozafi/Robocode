@@ -97,19 +97,6 @@ public class Individual implements Comparable {
     /*	----- METHODS -----	*/
 
 
-
-
-    /**
-     * <p>
-     * Crosses two matrixes.
-     * </p>
-     *
-     * @param m the mother matrix (first matrix to cross)
-     * @param f the father matrix (second matrix to cross)
-     */
-
-
-
     public void fight() {
 
         try {

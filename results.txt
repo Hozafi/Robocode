@@ -1,4 +1,4 @@
 Results for 10 rounds
 Robot Name	    Total Score    	Survival	Surv Bonus	Bullet Dmg	Bullet Bonus	Ram Dmg * 2	Ram Bonus	 1sts 	 2nds 	 3rds 	
-1st: sample.Target	600 (100%)	500	100	0	0	0	0	10	0	0	
-2nd: controller.Darwini*	0 (0%)	0	0	0	0	0	0	0	10	0	
+1st: controller.Darwini*	1787 (100%)	500	100	989	198	0	0	10	0	0	
+2nd: sample.Target	1 (0%)	0	0	0	0	1	0	0	10	0	

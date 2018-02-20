@@ -59,7 +59,8 @@ public class NeuralNetwork {
      * Number of hidden neuron of the neural network
      * </p>
      */
-    private static final int HIDDEN_NEURONS = InputData.INPUT_NEURONS;
+    //private static final int HIDDEN_NEURONS = InputData.INPUT_NEURONS;
+    private static final int HIDDEN_NEURONS = 20;
 
     /**
      * <p>
@@ -116,10 +117,20 @@ public class NeuralNetwork {
      * </p>
      */
     public NeuralNetwork(boolean hiddenLayer) {
-        inputWeights = new Matrix(INPUT_NEURONS, OutputData.OUTPUT_NEURONS);
+
+        inputWeights = new Matrix(INPUT_NEURONS, hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS);
         randomizeIOMatrix(inputWeights);
-        inputBias = new Matrix(OUTPUT_NEURONS, 1);
+        inputBias = new Matrix(hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS, 1);
         randomizeBiasMatrix(inputBias);
+
+        if(hiddenLayer){
+
+            outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+            randomizeIOMatrix(outputWeights);
+            outputBias = new Matrix(OUTPUT_NEURONS, 1);
+            randomizeBiasMatrix(outputBias);
+
+        }
 
         hasHiddenLayer = hiddenLayer;
 
@@ -376,6 +387,21 @@ public class NeuralNetwork {
         if(hasHiddenLayer){
             str += "\nSecond matrix: \n" + this.inputWeights.toString();
             str += "\nSecond bias vector: \n" + this.inputWeights.toString();
+        }
+
+        return str;
+    }
+
+    public String toDebug(){
+
+        String str = "";
+
+        str += "First matrix: \n" + this.inputWeights.toDebug();
+        str += "\nFirst bias vector: \n" + this.inputWeights.toDebug();
+
+        if(hasHiddenLayer){
+            str += "\nSecond matrix: \n" + this.inputWeights.toDebug();
+            str += "\nSecond bias vector: \n" + this.inputWeights.toDebug();
         }
 
         return str;
