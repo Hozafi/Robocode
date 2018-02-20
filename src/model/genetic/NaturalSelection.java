@@ -94,12 +94,12 @@ public class NaturalSelection {
 
     public static void main (String[] args) {
 
-        Individual bob = new Individual(1, true);
+        //Individual bob = new Individual(1, true);
 
 
 
 
-        Population pop = new Population(20,4);
+        Population pop = new Population(20,4, true);
         for(int i = 0; i < 1; i++) {
             pop.makeFight();
             pop.nextGeneration();
