@@ -42,11 +42,11 @@ public class Individual implements Comparable {
 
     /*	----- CONSTRUCTORS -----	*/
 
-    public Individual(int id){
+    public Individual(int id, boolean hasHiddenLayer){
 
         index = id;
         fitness = -9999;
-        perceptron = new NeuralNetwork();
+        perceptron = new NeuralNetwork(hasHiddenLayer);
 
         try {
             perceptron.printToXML(new File(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml"));

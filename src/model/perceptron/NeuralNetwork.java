@@ -115,13 +115,13 @@ public class NeuralNetwork {
      * (used in the genetic algorithm process)
      * </p>
      */
-    public NeuralNetwork() {
+    public NeuralNetwork(boolean hiddenLayer) {
         inputWeights = new Matrix(INPUT_NEURONS, OutputData.OUTPUT_NEURONS);
         randomizeIOMatrix(inputWeights);
         inputBias = new Matrix(OUTPUT_NEURONS, 1);
         randomizeBiasMatrix(inputBias);
 
-        hasHiddenLayer = false;
+        hasHiddenLayer = hiddenLayer;
 
     }
 
@@ -131,11 +131,10 @@ public class NeuralNetwork {
      * (used in the genetic algorithm process)
      * </p>
      */
-    public NeuralNetwork(Matrix inputWeights, Matrix inputBias) {
+    public NeuralNetwork( Matrix inputWeights, Matrix inputBias) {
         this.inputWeights = inputWeights;
         this.inputBias = inputBias;
 
-        hasHiddenLayer = false;
 
     }
 
@@ -154,7 +153,6 @@ public class NeuralNetwork {
             throw new IllegalArgumentException("Error: Individuals do not have the same type of perceptron.");
         }
 
-        //for readability
 
         this.inputWeights = father.getInputWeights().cross(mother.getInputWeights(), NaturalSelection.CROSS_PROBABILITY);
         this.inputBias = father.getInputBias().cross(mother.getInputBias(), NaturalSelection.CROSS_PROBABILITY);

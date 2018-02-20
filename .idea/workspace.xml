@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/src/model/genetic/Individual.java" afterPath="$PROJECT_DIR$/src/model/genetic/Individual.java" />
       <change beforePath="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" afterPath="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" />
       <change beforePath="$PROJECT_DIR$/src/model/genetic/Population.java" afterPath="$PROJECT_DIR$/src/model/genetic/Population.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/perceptron/Matrix.java" afterPath="$PROJECT_DIR$/src/model/perceptron/Matrix.java" />
       <change beforePath="$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java" afterPath="$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,8 +21,8 @@
       <file leaf-file-name="NaturalSelection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+            <state relative-caret-position="260">
+              <caret line="92" column="47" lean-forward="true" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
               <folding>
                 <element signature="docComment;field#ROBOT_DIRECTORY#0;class#NaturalSelection#0" expanded="false" />
                 <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#NaturalSelection#0" expanded="false" />
@@ -40,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Population.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/Population.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="251" column="7" lean-forward="false" selection-start-line="251" selection-start-column="7" selection-end-line="251" selection-end-column="7" />
+            <state relative-caret-position="236">
+              <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;field#POPULATION_DIRECTORY#0;class#Population#0" expanded="false" />
@@ -53,7 +52,6 @@
                 <element signature="docComment;field#generation#0;class#Population#0" expanded="false" />
                 <element signature="docComment;field#size#0;class#Population#0" expanded="false" />
                 <element signature="docComment;field#nbSurvivors#0;class#Population#0" expanded="false" />
-                <element signature="method#Population#0;class#Population#0" expanded="false" />
                 <element signature="docComment;method#makeFight#0;class#Population#0" expanded="false" />
                 <element signature="method#makeFight#0;class#Population#0" expanded="false" />
                 <element signature="docComment;method#nextGeneration#0;class#Population#0" expanded="false" />
@@ -71,8 +69,8 @@
                 <element signature="docComment;method#random#0;class#Population#0" expanded="false" />
                 <element signature="docComment;method#createDirs#0;class#Population#0" expanded="false" />
                 <element signature="method#createDirs#0;class#Population#0" expanded="false" />
-                <element signature="e#8276#8277#0" expanded="true" />
-                <element signature="e#8337#8338#0" expanded="true" />
+                <element signature="e#8310#8311#0" expanded="true" />
+                <element signature="e#8371#8372#0" expanded="true" />
                 <element signature="docComment;class#IndividualsComparator#0;class#Population#0" expanded="false" />
               </folding>
             </state>
@@ -82,14 +80,13 @@
       <file leaf-file-name="Individual.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+            <state relative-caret-position="391">
+              <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-                <element signature="method#Individual#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
                 <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
                 <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
@@ -99,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="161" column="34" lean-forward="false" selection-start-line="161" selection-start-column="34" selection-end-line="161" selection-end-column="34" />
+            <state relative-caret-position="171">
+              <caret line="140" column="7" lean-forward="true" selection-start-line="140" selection-start-column="7" selection-end-line="140" selection-end-column="7" />
               <folding>
                 <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
@@ -114,19 +111,18 @@
                 <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-                <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
                 <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-                <element signature="e#6621#6622#0" expanded="true" />
-                <element signature="e#6656#6657#0" expanded="true" />
+                <element signature="e#6589#6590#0" expanded="true" />
+                <element signature="e#6624#6625#0" expanded="true" />
                 <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+                <element signature="e#6712#6713#0" expanded="true" />
                 <element signature="e#6744#6745#0" expanded="true" />
-                <element signature="e#6776#6777#0" expanded="true" />
-                <element signature="e#6815#6816#0" expanded="true" />
-                <element signature="e#6851#6852#0" expanded="true" />
-                <element signature="e#6887#6888#0" expanded="true" />
-                <element signature="e#6920#6921#0" expanded="true" />
+                <element signature="e#6783#6784#0" expanded="true" />
+                <element signature="e#6819#6820#0" expanded="true" />
+                <element signature="e#6855#6856#0" expanded="true" />
+                <element signature="e#6888#6889#0" expanded="true" />
                 <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
@@ -135,8 +131,8 @@
                 <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-                <element signature="e#9169#9187#0" expanded="false" />
-                <element signature="e#9637#9656#0" expanded="false" />
+                <element signature="e#9137#9155#0" expanded="false" />
+                <element signature="e#9605#9624#0" expanded="false" />
                 <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
                 <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
               </folding>
@@ -147,7 +143,7 @@
       <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/perceptron/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="884">
               <caret line="117" column="90" lean-forward="false" selection-start-line="117" selection-start-column="90" selection-end-line="117" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -203,11 +199,11 @@
         <option value="$PROJECT_DIR$/src/model/genetic/Score.java" />
         <option value="$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/model/genetic/TestMain.java" />
-        <option value="$PROJECT_DIR$/src/model/genetic/Population.java" />
         <option value="$PROJECT_DIR$/src/model/perceptron/Matrix.java" />
-        <option value="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" />
-        <option value="$PROJECT_DIR$/src/model/genetic/Individual.java" />
         <option value="$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/Individual.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/NaturalSelection.java" />
+        <option value="$PROJECT_DIR$/src/model/genetic/Population.java" />
       </list>
     </option>
   </component>
@@ -238,8 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -280,8 +274,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,12 +425,13 @@
       <workItem from="1514226321553" duration="733000" />
       <workItem from="1518626769706" duration="3688000" />
       <workItem from="1518630564428" duration="13288000" />
-      <workItem from="1518883288942" duration="2246000" />
+      <workItem from="1518883288942" duration="2732000" />
+      <workItem from="1519120732985" duration="1140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28361000" />
+    <option name="totallyTimeSpent" value="29987000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -442,14 +439,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21394612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34706813" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34706813" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -465,6 +461,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21394612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33755943" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -513,6 +510,146 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+          <folding>
+            <element signature="docComment;field#ROBOT_DIRECTORY#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#ROBOCODE_PATH#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#BATTLE_PATH#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#RESULTS_PATH#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#POPULATION_SIZE#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_PROBABILITY#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_PROPORTION#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_MIN#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_MAX#0;class#NaturalSelection#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4267">
+          <caret line="251" column="7" lean-forward="false" selection-start-line="251" selection-start-column="7" selection-end-line="251" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;field#POPULATION_DIRECTORY#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#individuals#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#generation#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#size#0;class#Population#0" expanded="false" />
+            <element signature="docComment;field#nbSurvivors#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#makeFight#0;class#Population#0" expanded="false" />
+            <element signature="method#makeFight#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#nextGeneration#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#saveBest#0;class#Population#0" expanded="false" />
+            <element signature="method#saveBest#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#killWeaklings#0;class#Population#0" expanded="false" />
+            <element signature="method#killWeaklings#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#loadBest#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#generateChildren#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#bestIndividual#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#averageFitness#0;class#Population#0" expanded="false" />
+            <element signature="method#averageFitness#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#copyFile#0;class#Population#0" expanded="false" />
+            <element signature="method#copyFile#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#random#0;class#Population#0" expanded="false" />
+            <element signature="docComment;method#createDirs#0;class#Population#0" expanded="false" />
+            <element signature="method#createDirs#0;class#Population#0" expanded="false" />
+            <element signature="e#8310#8311#0" expanded="true" />
+            <element signature="e#8371#8372#0" expanded="true" />
+            <element signature="docComment;class#IndividualsComparator#0;class#Population#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
+            <element signature="method#copyFile#0;class#Individual#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/perceptron/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="117" column="90" lean-forward="false" selection-start-line="117" selection-start-column="90" selection-end-line="117" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Matrix#0" expanded="false" />
+            <element signature="docComment;field#matrix#0;class#Matrix#0" expanded="false" />
+            <element signature="method#getRows#0;class#Matrix#0" expanded="false" />
+            <element signature="method#getColumns#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#Matrix#0;class#Matrix#0" expanded="false" />
+            <element signature="method#Matrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#set#0;class#Matrix#0" expanded="false" />
+            <element signature="method#mult#0;class#Matrix#0" expanded="false" />
+            <element signature="method#cross#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#get#0;class#Matrix#0" expanded="false" />
+            <element signature="e#3843#3844#0" expanded="true" />
+            <element signature="e#3886#3887#0" expanded="true" />
+            <element signature="docComment;method#getRowCount#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#getColumnCount#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Matrix#0" expanded="false" />
+            <element signature="method#toString#0;class#Matrix#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="153" column="76" lean-forward="false" selection-start-line="153" selection-start-column="76" selection-end-line="153" selection-end-column="76" />
+          <folding>
+            <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#INPUT_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#inputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
+            <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
+            <element signature="e#6744#6745#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
+            <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
+            <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
@@ -542,7 +679,6 @@
             <element signature="docComment;field#generation#0;class#Population#0" expanded="false" />
             <element signature="docComment;field#size#0;class#Population#0" expanded="false" />
             <element signature="docComment;field#nbSurvivors#0;class#Population#0" expanded="false" />
-            <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="docComment;method#makeFight#0;class#Population#0" expanded="false" />
             <element signature="method#makeFight#0;class#Population#0" expanded="false" />
             <element signature="docComment;method#nextGeneration#0;class#Population#0" expanded="false" />
@@ -560,8 +696,8 @@
             <element signature="docComment;method#random#0;class#Population#0" expanded="false" />
             <element signature="docComment;method#createDirs#0;class#Population#0" expanded="false" />
             <element signature="method#createDirs#0;class#Population#0" expanded="false" />
-            <element signature="e#8276#8277#0" expanded="true" />
-            <element signature="e#8337#8338#0" expanded="true" />
+            <element signature="e#8310#8311#0" expanded="true" />
+            <element signature="e#8371#8372#0" expanded="true" />
             <element signature="docComment;class#IndividualsComparator#0;class#Population#0" expanded="false" />
           </folding>
         </state>
@@ -581,19 +717,18 @@
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
             <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
             <element signature="e#6744#6745#0" expanded="true" />
-            <element signature="e#6776#6777#0" expanded="true" />
-            <element signature="e#6815#6816#0" expanded="true" />
-            <element signature="e#6851#6852#0" expanded="true" />
-            <element signature="e#6887#6888#0" expanded="true" />
-            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
             <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
@@ -602,8 +737,8 @@
             <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#9169#9187#0" expanded="false" />
-            <element signature="e#9637#9656#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
             <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
           </folding>
@@ -645,7 +780,6 @@
             <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
@@ -683,7 +817,6 @@
             <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
@@ -733,19 +866,18 @@
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
             <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
             <element signature="e#6744#6745#0" expanded="true" />
-            <element signature="e#6776#6777#0" expanded="true" />
-            <element signature="e#6815#6816#0" expanded="true" />
-            <element signature="e#6851#6852#0" expanded="true" />
-            <element signature="e#6887#6888#0" expanded="true" />
-            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
             <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
@@ -754,8 +886,8 @@
             <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#9169#9187#0" expanded="false" />
-            <element signature="e#9637#9656#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
             <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
           </folding>
@@ -790,7 +922,6 @@
             <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
@@ -813,19 +944,18 @@
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
             <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
             <element signature="e#6744#6745#0" expanded="true" />
-            <element signature="e#6776#6777#0" expanded="true" />
-            <element signature="e#6815#6816#0" expanded="true" />
-            <element signature="e#6851#6852#0" expanded="true" />
-            <element signature="e#6887#6888#0" expanded="true" />
-            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
             <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
@@ -834,8 +964,8 @@
             <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#9169#9187#0" expanded="false" />
-            <element signature="e#9637#9656#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
             <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
           </folding>
@@ -904,19 +1034,18 @@
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
             <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
             <element signature="e#6744#6745#0" expanded="true" />
-            <element signature="e#6776#6777#0" expanded="true" />
-            <element signature="e#6815#6816#0" expanded="true" />
-            <element signature="e#6851#6852#0" expanded="true" />
-            <element signature="e#6887#6888#0" expanded="true" />
-            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
             <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
@@ -925,8 +1054,8 @@
             <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#9169#9187#0" expanded="false" />
-            <element signature="e#9637#9656#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
             <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
           </folding>
@@ -969,7 +1098,6 @@
             <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
             <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
             <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
             <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
@@ -1011,19 +1139,18 @@
             <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
             <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
             <element signature="e#6744#6745#0" expanded="true" />
-            <element signature="e#6776#6777#0" expanded="true" />
-            <element signature="e#6815#6816#0" expanded="true" />
-            <element signature="e#6851#6852#0" expanded="true" />
-            <element signature="e#6887#6888#0" expanded="true" />
-            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
             <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
@@ -1032,8 +1159,8 @@
             <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#9169#9187#0" expanded="false" />
-            <element signature="e#9637#9656#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
             <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
             <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
           </folding>
@@ -1089,28 +1216,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/genetic/RefactoGeneticAlgorithm.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
-          <folding>
-            <element signature="docComment;field#ROBOT_DIRECTORY#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#ROBOCODE_PATH#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#BATTLE_PATH#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#RESULTS_PATH#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#POPULATION_SIZE#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#MUTATION_PROBABILITY#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#MUTATION_PROPORTION#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#MUTATION_MIN#0;class#NaturalSelection#0" expanded="false" />
-            <element signature="docComment;field#MUTATION_MAX#0;class#NaturalSelection#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/perceptron/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
+        <state relative-caret-position="884">
           <caret line="117" column="90" lean-forward="false" selection-start-line="117" selection-start-column="90" selection-end-line="117" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1134,10 +1242,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/genetic/Population.java">
+    <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="140" column="7" lean-forward="true" selection-start-line="140" selection-start-column="7" selection-end-line="140" selection-end-column="7" />
+          <folding>
+            <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#INPUT_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#inputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6589#6590#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
+            <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#6712#6713#0" expanded="true" />
+            <element signature="e#6744#6745#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="e#6819#6820#0" expanded="true" />
+            <element signature="e#6855#6856#0" expanded="true" />
+            <element signature="e#6888#6889#0" expanded="true" />
+            <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="e#9137#9155#0" expanded="false" />
+            <element signature="e#9605#9624#0" expanded="false" />
+            <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
+            <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="251" column="7" lean-forward="false" selection-start-line="251" selection-start-column="7" selection-end-line="251" selection-end-column="7" />
+          <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
+            <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
+            <element signature="method#copyFile#0;class#Individual#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/NaturalSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="92" column="47" lean-forward="true" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+          <folding>
+            <element signature="docComment;field#ROBOT_DIRECTORY#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#INDIVIDUAL_FILENAME#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#ROBOCODE_PATH#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#BATTLE_PATH#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#RESULTS_PATH#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#POPULATION_SIZE#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_PROBABILITY#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_PROPORTION#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_MIN#0;class#NaturalSelection#0" expanded="false" />
+            <element signature="docComment;field#MUTATION_MAX#0;class#NaturalSelection#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/genetic/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;field#POPULATION_DIRECTORY#0;class#Population#0" expanded="false" />
@@ -1146,7 +1332,6 @@
             <element signature="docComment;field#generation#0;class#Population#0" expanded="false" />
             <element signature="docComment;field#size#0;class#Population#0" expanded="false" />
             <element signature="docComment;field#nbSurvivors#0;class#Population#0" expanded="false" />
-            <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="docComment;method#makeFight#0;class#Population#0" expanded="false" />
             <element signature="method#makeFight#0;class#Population#0" expanded="false" />
             <element signature="docComment;method#nextGeneration#0;class#Population#0" expanded="false" />
@@ -1164,70 +1349,9 @@
             <element signature="docComment;method#random#0;class#Population#0" expanded="false" />
             <element signature="docComment;method#createDirs#0;class#Population#0" expanded="false" />
             <element signature="method#createDirs#0;class#Population#0" expanded="false" />
-            <element signature="e#8276#8277#0" expanded="true" />
-            <element signature="e#8337#8338#0" expanded="true" />
+            <element signature="e#8310#8311#0" expanded="true" />
+            <element signature="e#8371#8372#0" expanded="true" />
             <element signature="docComment;class#IndividualsComparator#0;class#Population#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/genetic/Individual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;field#index#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;field#fitness#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;field#perceptron#0;class#Individual#0" expanded="false" />
-            <element signature="method#Individual#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;method#fight#0;class#Individual#0" expanded="false" />
-            <element signature="method#compareTo#0;class#Individual#0" expanded="false" />
-            <element signature="docComment;method#copyFile#0;class#Individual#0" expanded="false" />
-            <element signature="method#copyFile#0;class#Individual#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/perceptron/NeuralNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="161" column="34" lean-forward="false" selection-start-line="161" selection-start-column="34" selection-end-line="161" selection-end-column="34" />
-          <folding>
-            <element signature="docComment;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#HIDDEN_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#INPUT_NEURONS#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#inputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#outputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#inputBias#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#outputBias#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;field#hasHiddenLayer#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#NeuralNetwork#3;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#getInputWeights#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6621#6622#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
-            <element signature="docComment;method#getInputBias#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#6744#6745#0" expanded="true" />
-            <element signature="e#6776#6777#0" expanded="true" />
-            <element signature="e#6815#6816#0" expanded="true" />
-            <element signature="e#6851#6852#0" expanded="true" />
-            <element signature="e#6887#6888#0" expanded="true" />
-            <element signature="e#6920#6921#0" expanded="true" />
-            <element signature="docComment;method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#initMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#randomizeIOMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#randomizeBiasMatrix#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="docComment;method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#train#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="e#9169#9187#0" expanded="false" />
-            <element signature="e#9637#9656#0" expanded="false" />
-            <element signature="docComment;method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
-            <element signature="method#printToXML#0;class#NeuralNetwork#0" expanded="false" />
           </folding>
         </state>
       </provider>
