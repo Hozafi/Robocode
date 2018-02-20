@@ -42,11 +42,11 @@ public class Individual implements Comparable {
 
     /*	----- CONSTRUCTORS -----	*/
 
-    public Individual(int id){
+    public Individual(int id, boolean hasHiddenLayer){
 
         index = id;
         fitness = -9999;
-        perceptron = new NeuralNetwork();
+        perceptron = new NeuralNetwork(hasHiddenLayer);
 
         try {
             perceptron.printToXML(new File(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml"));
@@ -58,6 +58,24 @@ public class Individual implements Comparable {
 
     }
 
+
+
+    public Individual(int id, Individual father, Individual mother){
+        index = id;
+        fitness = -9999;
+
+        perceptron = new NeuralNetwork(father.getPerceptron(), mother.getPerceptron());
+
+        try {
+            perceptron.printToXML(new File(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        }
+
+    }
+    /*   OLD CONSTRUCTOR, for reference
     public Individual(int id, NeuralNetwork mother, NeuralNetwork father) {
 
         index = id;
@@ -74,27 +92,11 @@ public class Individual implements Comparable {
             e.printStackTrace();
         }
 
-    }
+    } */
 
     /*	----- METHODS -----	*/
 
-    /**
-     * <p>
-     * Cross two individuals and return their two descendants.
-     * </p>
-     *
-     * @param mother the first individual to cross
-     * @param father the second individual to cross
-     * @return the two childrens generated
-     */
-    private NeuralNetwork[] crossover(NeuralNetwork mother, NeuralNetwork father) {
-        NeuralNetwork[] children = {mother, father};
 
-        cross(mother.getInputWeights(), father.getInputWeights());
-        cross(mother.getInputBias(), father.getInputBias());
-
-        return children;
-    }
 
 
     /**
@@ -105,22 +107,6 @@ public class Individual implements Comparable {
      * @param m the mother matrix (first matrix to cross)
      * @param f the father matrix (second matrix to cross)
      */
-    private Matrix cross(Matrix m, Matrix f) {
-
-        double random;
-        Matrix c = new Matrix(m.getRowCount(), m.getColumnCount());
-
-        for (int i = 0; i < m.getRowCount(); i++) {
-            for (int j = 0; j < m.getColumnCount(); j++) {
-                random = Math.random();
-                if (random <= NaturalSelection.CROSS_PROBABILITY) { // If we're applying a cross to this weight
-                    c.set(i, j, f.get(i, j));
-                    c.set(i, j, m.get(i, j));
-                }
-            }
-        }
-        return c;
-    }
 
 
 

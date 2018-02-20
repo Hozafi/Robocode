@@ -45,7 +45,7 @@ import model.acquisition.AcquisitionData;
  * @author Barroux Etienne
  * @author Gilbert Auriane
  */
-public class AcquisitionBot extends InitialRobot {
+public class AcquisitionBot extends AdvancedRobot {
 
 	/*	----- ATTRIBUTES -----	*/
 

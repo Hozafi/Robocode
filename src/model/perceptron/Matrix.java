@@ -8,6 +8,8 @@
 
 package model.perceptron;
 
+import model.genetic.NaturalSelection;
+
 import java.util.Locale;
 
 /**
@@ -107,7 +109,36 @@ public class Matrix {
 			return res;
 		}
 
-	
+		/**
+		 *
+		 *	Crosses two matrices to create a new one. For each matrix value, it chooses the value of one of the two input matrices according to the given probability;
+		 *
+		 * @return the new matrix
+		 */
+		public Matrix cross(Matrix m, double probability) throws IllegalArgumentException {
+
+			//checks if matrices have the same dimensions
+			if((m.getColumnCount() != this.getColumnCount())||(m.getRowCount() != this.getRowCount()))
+			{
+				throw new IllegalArgumentException("Error: Cannot cross matrices with different dimensions.");
+			}
+
+			double random;
+			Matrix c = new Matrix(this.getRowCount(), this.getColumnCount());
+
+			for (int i = 0; i < this.getRowCount(); i++) {
+				for (int j = 0; j < this.getColumnCount(); j++) {
+					random = Math.random();
+					if (random <= probability) { // If we're applying a cross to this weight
+						c.set(i, j, this.get(i, j));
+						c.set(i, j, m.get(i, j));
+					}
+				}
+			}
+			return c;
+		}
+
+
 	/*	----- ACCESSORS -----	*/
 		
 		/**

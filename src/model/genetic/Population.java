@@ -68,7 +68,7 @@ public class Population {
      * Creates the population at generation 1, initializes and randomizes every individual.
      * </p>
      */
-    public Population(int s, int nbSurv) {
+    public Population(int s, int nbSurv, boolean HiddenLayer) {
 
         generation = 1;
         nbSurvivors = nbSurv;
@@ -83,7 +83,7 @@ public class Population {
         }
 
         for (int i = 1; i <= size; i++) {
-            individuals.add(new Individual(i));
+            individuals.add(new Individual(i, HiddenLayer));
         }
 
     }
@@ -240,8 +240,7 @@ public class Population {
                 fatherID = random(0, nbSurvivors);
             } while (motherID == fatherID);
 
-            individuals.add(new Individual(i, individuals.get(motherID).getPerceptron(),
-                                              individuals.get(fatherID).getPerceptron()));
+            individuals.add(new Individual(i, individuals.get(motherID), individuals.get(fatherID)));
         }
 
     }
