@@ -130,7 +130,6 @@ public class Darwini extends InitialRobot {
     private OutputData decisions;
     private ScannedRobotEvent ennemy;
 
-    private boolean seen = false;
     private double absoluteBearing;
     private double bearingFromGun;
 
@@ -156,10 +155,9 @@ public class Darwini extends InitialRobot {
         //super.run();
 
         while (true) {
-            System.out.println("coucou je suis en train de combattre run");
-            seen = false;
             // If we can't see the enemy robot, turn the gun to the right
-            while (!seen) { turnGunRight(30); }
+            System.out.println("scan");
+            turnGunLeft(360);
             //decisions = perceptron.train(acquisitionData.acquisition(ennemy));
 
 
@@ -206,15 +204,18 @@ public class Darwini extends InitialRobot {
             }
             */
 
-            if (decisions.getMoveAhead() > 0)
+            /*if (decisions.getMoveAhead() > 0)
                 ahead(10 * sigmoid(decisions.getMoveAhead()));
+            if (sigmoid(decisions.getShoot()) > 0) {
+                fire(3);
+            }*/
         }
 
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
-        System.out.println("coucou je suis en train de combattre onScannedRobot debut");
-        seen = true;
+        ennemy = e;
+        System.out.println("onScannedRobot debut");
         // Calculate exact location of the robot
         absoluteBearing = getHeading() + e.getBearing();
         bearingFromGun = normalRelativeAngleDegrees(absoluteBearing - getGunHeading());
@@ -236,9 +237,9 @@ public class Darwini extends InitialRobot {
         // Generates another scan event if we see a robot.
         // We only need to call this if the gun (and therefore radar)
         // are not turning.  Otherwise, scan is called automatically.
-        if (bearingFromGun == 0) {
+        /*if (bearingFromGun == 0) {
             scan();
-        }
+        }*/
 
 
 
@@ -250,13 +251,12 @@ public class Darwini extends InitialRobot {
 
         System.out.println("coucou je suis en train de combattre onScannedRobot fin");
 
+        if (decisions.getMoveAhead() > 0)
+            ahead(10 * sigmoid(decisions.getMoveAhead()));
         if (sigmoid(decisions.getShoot()) > 0) {
             fire(3);
         }
-        /*setTurnLeft(0);
-        setMaxVelocity(0);
-        ahead(0);
-        ennemy = e;*/
+        scan();
     }
 
 
