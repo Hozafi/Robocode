@@ -14,6 +14,7 @@ import model.perceptron.NeuralNetwork;
 
 import robocode.*;
 
+import java.awt.*;
 import java.io.*;
 
 import static robocode.util.Utils.normalRelativeAngleDegrees;
@@ -35,12 +36,12 @@ import static robocode.util.Utils.normalRelativeAngleDegrees;
  * @author Serano Edgar
  * @author Rebout Etienne
  * @author Haus Daniel
- * @author Barroux Etienne
+ * @author Barroux Antoine
  * @author Gilbert Auriane
  * @version 2.0 - 29/11/17
  */
 
-public class Darwini extends InitialRobot {
+public class Darwini extends AdvancedRobot {
 
     /*	----- ATTRIBUTES -----	*/
     /**
@@ -150,6 +151,12 @@ public class Darwini extends InitialRobot {
      */
     @Override
     public void run() {
+
+        setBodyColor(Color.black);
+        setGunColor(Color.gray);
+        setRadarColor(Color.red);
+        setScanColor(Color.red);
+
         perceptron = new NeuralNetwork(getDataFile(PERCEPTRON_FILE)); // gets the perceptron given in the population directory (was in "out/...") directory before)
         acquisitionData = new AcquisitionData(this);
         // MUST be called after because the initial strategy can have an infinite loop.

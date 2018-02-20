@@ -8,8 +8,8 @@
 
 package model.acquisition;
 
-import controller.InitialRobot;
 import model.perceptron.InputData;
+import robocode.AdvancedRobot;
 import robocode.Rules;
 import robocode.ScannedRobotEvent;
 import sun.rmi.runtime.Log;
@@ -100,7 +100,7 @@ public class AcquisitionData {
      * @see controller.Darwini
      * @see controller.AcquisitionBot
      */
-    private InitialRobot myRobot;
+    private AdvancedRobot myRobot;
 
     /**
      * <p>
@@ -122,7 +122,7 @@ public class AcquisitionData {
      *
      * @param myRobot The robot which has called the creation of Acquisition Data; our robot.
      */
-    public AcquisitionData(InitialRobot myRobot) {
+    public AcquisitionData(AdvancedRobot myRobot) {
         this.myRobot = myRobot;
         maxWidth = myRobot.getBattleFieldWidth();
         maxHeight = myRobot.getBattleFieldHeight();
