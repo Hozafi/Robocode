@@ -60,7 +60,7 @@ public class NeuralNetwork {
      * </p>
      */
     //private static final int HIDDEN_NEURONS = InputData.INPUT_NEURONS;
-    private static final int HIDDEN_NEURONS = 20;
+    private static final int HIDDEN_NEURONS = 40;
 
     /**
      * <p>
@@ -71,6 +71,16 @@ public class NeuralNetwork {
     private static final int INPUT_NEURONS = InputData.INPUT_NEURONS;
 
     private static final int OUTPUT_NEURONS = OutputData.OUTPUT_NEURONS;
+
+    /*
+    Implementation of ELM : the input weight matrix is final
+     */
+    private static final Matrix INPUT_WEIGHTS_MATRIX = generateInputMatrix();
+
+    /*
+    Implementation of ELM : the input bias matrix is final
+     */
+    private static final Matrix INPUT_BIAS_MATRIX = generateBiasMatrix();
 
     /**
      * <p>
@@ -109,6 +119,18 @@ public class NeuralNetwork {
 
 
     /*	----- CONSTRUCTOR -----	*/
+
+    /*
+    Implementation of ELM : neural network always have an hidden layer. The input weights matrix is always the same and can't evolve.
+     */
+    public NeuralNetwork(){
+        inputWeights = INPUT_WEIGHTS_MATRIX;
+        inputBias = INPUT_BIAS_MATRIX;
+        outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        randomizeIOMatrix(outputWeights);
+    }
+
+
 
     /**
      * <p>
@@ -295,6 +317,30 @@ public class NeuralNetwork {
                 matrix.set(i, j, Math.random());
     }
 
+
+    /* Implementation of ELM : generates our final input matrix */
+    private static Matrix generateInputMatrix(){
+        Matrix m = new Matrix(INPUT_NEURONS, HIDDEN_NEURONS);
+        for (int i = 0; i<m.getRowCount(); i++){
+            for (int j = 0; j<m.getColumnCount();j++){
+                m.set(i, j, Math.random()*2 - 1);
+            }
+        }
+        return m;
+    }
+
+    /* Implementation of ELM : generates our final bias matrix */
+    private static Matrix generateBiasMatrix(){
+        Matrix m = new Matrix(HIDDEN_NEURONS, 1);
+        for (int i = 0; i<m.getRowCount(); i++){
+            for (int j = 0; j<m.getColumnCount(); j++){
+                m.set(i, j, Math.random());
+            }
+        }
+        return m;
+    }
+
+
     /**
      * <p>
      * The training process (decision process). We load an InputData containing the environment values of a current
@@ -397,12 +443,9 @@ public class NeuralNetwork {
         String str = "";
 
         str += "First matrix: \n" + this.inputWeights.toDebug();
-        str += "\nFirst bias vector: \n" + this.inputWeights.toDebug();
+        str += "\nFirst bias vector: \n" + this.inputBias.toDebug();
 
-        if(hasHiddenLayer){
-            str += "\nSecond matrix: \n" + this.inputWeights.toDebug();
-            str += "\nSecond bias vector: \n" + this.inputWeights.toDebug();
-        }
+        str += "\nSecond matrix: \n" + this.outputWeights.toDebug();
 
         return str;
     }

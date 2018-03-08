@@ -88,6 +88,28 @@ public class Population {
 
     }
 
+
+    /* Implementation of ELM : don't need boolean hiddenLayer anymore */
+    public Population(int s, int nbSurv){
+        generation = 1;
+        nbSurvivors = nbSurv;
+        size = s;
+
+        individuals = new ArrayList<Individual>(s);
+
+        try{
+            createDirs();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+        for (int i = 1; i<= size; i++){
+            individuals.add(new Individual(i));
+        }
+    }
+
+
+
     /*	----- METHODS -----	*/
 
     /**

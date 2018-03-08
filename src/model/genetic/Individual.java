@@ -40,6 +40,25 @@ public class Individual implements Comparable {
 
 
 
+    /*
+    Implementation of ELM : hidden layer always true
+     */
+    public Individual(int id){
+        index = id;
+        fitness = -9999;
+        perceptron = new NeuralNetwork();
+
+        try {
+            perceptron.printToXML(new File(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        }
+        System.out.println(perceptron.toDebug());
+    }
+
+
     /*	----- CONSTRUCTORS -----	*/
 
     public Individual(int id, boolean hasHiddenLayer){
