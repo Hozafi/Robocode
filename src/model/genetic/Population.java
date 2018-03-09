@@ -2,6 +2,7 @@ package model.genetic;
 
 import controller.Darwini;
 import jdk.nashorn.internal.objects.NativeUint8Array;
+import model.perceptron.Matrix;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,6 +11,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import static model.perceptron.NeuralNetwork.HIDDEN_NEURONS;
+import static model.perceptron.NeuralNetwork.OUTPUT_NEURONS;
 
 public class Population {
 
@@ -28,6 +32,9 @@ public class Population {
      * </p>
      */
     static final String INDIVIDUAL_FILENAME = "Individual";
+
+    public static Matrix output_mean;
+    public static Matrix output_std_deviation;
 
     /*	----- ATTRIBUTES -----	*/
 
@@ -95,7 +102,11 @@ public class Population {
         nbSurvivors = nbSurv;
         size = s;
 
-        individuals = new ArrayList<Individual>(s);
+        individuals = new ArrayList<Individual>(size);
+
+        /* We're creating output means and std deviations matrix to cross */
+        output_mean = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
 
         try{
             createDirs();
@@ -135,6 +146,7 @@ public class Population {
      * individuals and their childs.
      * </p>
      */
+    /* Implementation of gaussian cross */
     public void nextGeneration() {
 
         System.out.println("Generating generation " + (generation + 1) + "...");
@@ -145,16 +157,20 @@ public class Population {
 
         saveBest();
 
+        computeMeanAndDeviation();
+
         killWeaklings();
 
         loadBest();
 
-        generateChildren();
+        //generateChildren();
+        generateGaussianChildren();
 
         generation ++;
 
-        System.out.println("Done !");
-
+        /* Reset our output means and standard deviations matrix */
+        output_mean = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
     }
 
     /**
@@ -265,6 +281,41 @@ public class Population {
             individuals.add(new Individual(i, individuals.get(motherID), individuals.get(fatherID)));
         }
 
+    }
+
+    /* Implementation of gaussian cross */
+    private void generateGaussianChildren(){
+        for (int i = nbSurvivors + 1; i<=size; i++)
+            individuals.add(new Individual(i, output_mean, output_std_deviation));
+    }
+
+    /* Implementation of gaussian cross */
+    private void computeMeanAndDeviation(){
+        double value;
+        int i, j, k;
+
+        for (i = 0; i<output_mean.getRowCount(); i++){
+            for (j = 0; j<output_mean.getColumnCount(); j++){
+                output_mean.set(i, j, (output_mean.get(i, j)/size));
+            }
+        }
+
+        for (i = 0; i < size; i++){
+            for (j = 0; j<HIDDEN_NEURONS; j++){
+                for (k = 0; k<OUTPUT_NEURONS; k++){
+                    // (x - xbar)^2
+                    Individual ind = individuals.get(i);
+                    value = Math.pow(ind.getPerceptron().getOutputWeights().get(j, k) - output_mean.get(j, k), 2);
+                    output_std_deviation.set(j, k, output_std_deviation.get(j, k) + value);
+                }
+            }
+        }
+
+        for (i = 0; i<HIDDEN_NEURONS; i++) {
+            for (j = 0; j < OUTPUT_NEURONS; j++) {
+                output_std_deviation.set(i, j, Math.sqrt((output_std_deviation.get(i, j) / size)));
+            }
+        }
     }
 
     /**

@@ -13,6 +13,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import static model.perceptron.NeuralNetwork.HIDDEN_NEURONS;
+import static model.perceptron.NeuralNetwork.OUTPUT_NEURONS;
+
 public class Individual implements Comparable {
 
     /*	----- ATTRIBUTES -----	*/
@@ -55,7 +58,22 @@ public class Individual implements Comparable {
         } catch (XMLStreamException e) {
             e.printStackTrace();
         }
-        System.out.println(perceptron.toDebug());
+    }
+
+    /* Implementation of gaussian cross */
+    public Individual (int id, Matrix mean, Matrix deviation){
+        index = id;
+        fitness = -9999;
+        perceptron = new NeuralNetwork(mean, deviation);
+
+        try {
+            perceptron.printToXML(new File(Population.POPULATION_DIRECTORY + Population.INDIVIDUAL_FILENAME + index + ".xml"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

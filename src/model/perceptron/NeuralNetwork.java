@@ -15,11 +15,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+
+import static model.genetic.Population.output_mean;
 
 /**
  * <p>
@@ -60,7 +63,7 @@ public class NeuralNetwork {
      * </p>
      */
     //private static final int HIDDEN_NEURONS = InputData.INPUT_NEURONS;
-    private static final int HIDDEN_NEURONS = 40;
+    public static final int HIDDEN_NEURONS = 40;
 
     /**
      * <p>
@@ -68,9 +71,9 @@ public class NeuralNetwork {
      * </p>
      */
 
-    private static final int INPUT_NEURONS = InputData.INPUT_NEURONS;
+    public static final int INPUT_NEURONS = InputData.INPUT_NEURONS;
 
-    private static final int OUTPUT_NEURONS = OutputData.OUTPUT_NEURONS;
+    public static final int OUTPUT_NEURONS = OutputData.OUTPUT_NEURONS;
 
     /*
     Implementation of ELM : the input weight matrix is final
@@ -130,6 +133,22 @@ public class NeuralNetwork {
         randomizeIOMatrix(outputWeights);
     }
 
+    /* Implementation of gaussian cross */
+    public NeuralNetwork(Matrix mean, Matrix deviation){
+        double value;
+        Random r = new Random();
+        inputWeights = INPUT_WEIGHTS_MATRIX;
+        inputBias = INPUT_BIAS_MATRIX;
+        outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+
+        for (int i = 0; i<HIDDEN_NEURONS; i++){
+            for (int j = 0; j<OUTPUT_NEURONS; j++){
+                value = r.nextGaussian() * deviation.get(i, j) + mean.get(i, j);
+                outputWeights.set(i, j, value);
+            }
+        }
+    }
+
 
 
     /**
@@ -158,18 +177,7 @@ public class NeuralNetwork {
 
     }
 
-    /**
-     * <p>
-     * The neural network constructor with random weighting coefficient
-     * (used in the genetic algorithm process)
-     * </p>
-     */
-    public NeuralNetwork( Matrix inputWeights, Matrix inputBias) {
-        this.inputWeights = inputWeights;
-        this.inputBias = inputBias;
 
-
-    }
 
     /**
      * <p>
@@ -298,10 +306,16 @@ public class NeuralNetwork {
      *
      * @param matrix The matrix we want to change
      */
+    /* Implementation of gaussian cross */
     private void randomizeIOMatrix(Matrix matrix) {
-        for (int i = 0; i < matrix.getRowCount(); i++)
-            for (int j = 0; j < matrix.getColumnCount(); j++)
-                matrix.set(i, j, Math.random() * 2 - 1);
+        double value;
+        for (int i = 0; i < matrix.getRowCount(); i++) {
+            for (int j = 0; j < matrix.getColumnCount(); j++) {
+                value = Math.random() * 2 - 1;
+                matrix.set(i, j, value);
+                output_mean.set(i, j, (output_mean.get(i, j)+value));
+            }
+        }
     }
 
     /**
