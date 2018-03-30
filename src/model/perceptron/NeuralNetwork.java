@@ -22,6 +22,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 
+import static model.genetic.Population.output_bias_mean;
 import static model.genetic.Population.output_mean;
 
 /**
@@ -130,16 +131,19 @@ public class NeuralNetwork {
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
         outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        outputBias = new Matrix(OUTPUT_NEURONS, 1);
         randomizeIOMatrix(outputWeights);
+        randomizeBiasMatrix(outputBias);
     }
 
     /* Implementation of gaussian cross */
-    public NeuralNetwork(Matrix mean, Matrix deviation){
+    public NeuralNetwork(Matrix mean, Matrix deviation, Matrix bias_mean, Matrix bias_deviation){
         double value;
         Random r = new Random();
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
         outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        outputBias = new Matrix(OUTPUT_NEURONS, 1);
 
         for (int i = 0; i<HIDDEN_NEURONS; i++){
             for (int j = 0; j<OUTPUT_NEURONS; j++){
@@ -147,6 +151,12 @@ public class NeuralNetwork {
                 outputWeights.set(i, j, value);
             }
         }
+
+        for (int i = 0 ; i<OUTPUT_NEURONS; i++){
+            value = r.nextGaussian() * bias_deviation.get(i, 0) + bias_mean.get(i, 0);
+            outputBias.set(i, 0, value);
+        }
+        
     }
 
 
@@ -326,9 +336,14 @@ public class NeuralNetwork {
      * @param matrix The matrix we want to change
      */
     private void randomizeBiasMatrix(Matrix matrix) {
-        for (int i = 0; i < matrix.getRowCount(); i++)
-            for (int j = 0; j < matrix.getColumnCount(); j++)
-                matrix.set(i, j, Math.random());
+        double value;
+        for (int i = 0; i < matrix.getRowCount(); i++) {
+            for (int j = 0; j < matrix.getColumnCount(); j++) {
+                value = Math.random();
+                matrix.set(i, j, value);
+                output_bias_mean.set(i, j, output_bias_mean.get(i, j) + value);
+            }
+        }
     }
 
 

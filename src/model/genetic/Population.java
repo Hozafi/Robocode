@@ -35,6 +35,8 @@ public class Population {
 
     public static Matrix output_mean;
     public static Matrix output_std_deviation;
+    public static Matrix output_bias_mean;
+    public static Matrix output_bias_deviation;
 
     /*	----- ATTRIBUTES -----	*/
 
@@ -108,6 +110,10 @@ public class Population {
         output_mean = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
         output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
 
+        /* We're creating output bias means and std deviation matrix to cross */
+        output_bias_mean = new Matrix(OUTPUT_NEURONS, 1);
+        output_bias_deviation = new Matrix(OUTPUT_NEURONS, 1);
+
         try{
             createDirs();
         } catch(IOException e){
@@ -171,6 +177,10 @@ public class Population {
         /* Reset our output means and standard deviations matrix */
         output_mean = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
         output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+
+        /* Reset our output bias means and std deviation matrix */
+        output_bias_mean = new Matrix(OUTPUT_NEURONS, 1);
+        output_bias_deviation = new Matrix(OUTPUT_NEURONS, 1);
     }
 
     /**
@@ -286,7 +296,7 @@ public class Population {
     /* Implementation of gaussian cross */
     private void generateGaussianChildren(){
         for (int i = nbSurvivors + 1; i<=size; i++)
-            individuals.add(new Individual(i, output_mean, output_std_deviation));
+            individuals.add(new Individual(i, output_mean, output_std_deviation, output_bias_mean, output_bias_deviation));
     }
 
     /* Implementation of gaussian cross */
@@ -316,6 +326,26 @@ public class Population {
                 output_std_deviation.set(i, j, Math.sqrt((output_std_deviation.get(i, j) / size)));
             }
         }
+
+        // Generate the average of output bias value
+        for (i = 0; i<OUTPUT_NEURONS; i++){
+            output_bias_mean.set(i, 0, (output_bias_mean.get(i, 0) / size));
+        }
+
+
+        for (i = 0; i < size; i++){
+            for (j = 0; j<OUTPUT_NEURONS; j++){
+                // (x - xbar)^2
+                Individual ind = individuals.get(i);
+                value = Math.pow(ind.getPerceptron().getOutputBias().get(j, 0) - output_bias_mean.get(j, 0), 2);
+                output_bias_deviation.set(j, 0, output_bias_deviation.get(j, 0) + value);
+            }
+        }
+
+        for (i = 0; i<OUTPUT_NEURONS; i++) {
+            output_bias_deviation.set(i, 0, Math.sqrt((output_bias_deviation.get(i, 0) / OUTPUT_NEURONS)));
+        }
+
     }
 
     /**
