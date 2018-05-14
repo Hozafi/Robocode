@@ -92,9 +92,11 @@ public class NaturalSelection {
      */
     private static final int MUTATION_MAX = 20;
 
+    private static final int MAX_GENERATIONS = 10;
+
     public static void main (String[] args) {
         Population pop = new Population(3,1);
-        for(int i = 0; i < 2; i++) {
+        for(int i = 0; i < MAX_GENERATIONS; i++) {
             pop.makeFight();
             pop.nextGeneration();
         }
