@@ -10,6 +10,7 @@ package model.perceptron;
 
 import model.genetic.Individual;
 import model.genetic.NaturalSelection;
+import org.ejml.simple.SimpleMatrix;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -79,40 +80,40 @@ public class NeuralNetwork {
     /*
     Implementation of ELM : the input weight matrix is final
      */
-    private static final Matrix INPUT_WEIGHTS_MATRIX = generateInputMatrix();
+    private static final SimpleMatrix INPUT_WEIGHTS_MATRIX = generateInputMatrix();
 
     /*
     Implementation of ELM : the input bias matrix is final
      */
-    private static final Matrix INPUT_BIAS_MATRIX = generateBiasMatrix();
+    private static final SimpleMatrix INPUT_BIAS_MATRIX = generateBiasMatrix();
 
     /**
      * <p>
      * The first matrix, linking input neurons and the hidden layer
      * </p>
      */
-    private Matrix inputWeights;
+    private SimpleMatrix inputWeights;
 
     /**
      * <p>
      * The second matrix, linking hidden neurons and the output neurons
      * </p>
      */
-    private Matrix outputWeights;
+    private SimpleMatrix outputWeights;
 
     /**
      * <p>
      * Bias vector for the first matrix
      * </p>
      */
-    private Matrix inputBias;
+    private SimpleMatrix inputBias;
 
     /**
      * <p>
      * Bias vector for the second matrix
      * </p>
      */
-    private Matrix outputBias;
+    private SimpleMatrix outputBias;
 
     /**
      * <p>
@@ -130,20 +131,20 @@ public class NeuralNetwork {
     public NeuralNetwork(){
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
-        outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        outputBias = new Matrix(OUTPUT_NEURONS, 1);
+        outputWeights = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        outputBias = new SimpleMatrix(OUTPUT_NEURONS, 1);
         randomizeIOMatrix(outputWeights);
         randomizeBiasMatrix(outputBias);
     }
 
     /* Implementation of gaussian cross */
-    public NeuralNetwork(Matrix mean, Matrix deviation, Matrix bias_mean, Matrix bias_deviation){
+    public NeuralNetwork(SimpleMatrix mean, SimpleMatrix deviation, SimpleMatrix bias_mean, SimpleMatrix bias_deviation){
         double value;
         Random r = new Random();
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
-        outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        outputBias = new Matrix(OUTPUT_NEURONS, 1);
+        outputWeights = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        outputBias = new SimpleMatrix(OUTPUT_NEURONS, 1);
 
         for (int i = 0; i<HIDDEN_NEURONS; i++){
             for (int j = 0; j<OUTPUT_NEURONS; j++){
@@ -169,16 +170,16 @@ public class NeuralNetwork {
      */
     public NeuralNetwork(boolean hiddenLayer) {
 
-        inputWeights = new Matrix(INPUT_NEURONS, hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS);
+        inputWeights = new SimpleMatrix(INPUT_NEURONS, hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS);
         randomizeIOMatrix(inputWeights);
-        inputBias = new Matrix(hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS, 1);
+        inputBias = new SimpleMatrix(hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS, 1);
         randomizeBiasMatrix(inputBias);
 
         if(hiddenLayer){
 
-            outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+            outputWeights = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
             randomizeIOMatrix(outputWeights);
-            outputBias = new Matrix(OUTPUT_NEURONS, 1);
+            outputBias = new SimpleMatrix(OUTPUT_NEURONS, 1);
             randomizeBiasMatrix(outputBias);
 
         }
@@ -205,16 +206,33 @@ public class NeuralNetwork {
         }
 
 
-        this.inputWeights = father.getInputWeights().cross(mother.getInputWeights(), NaturalSelection.CROSS_PROBABILITY);
-        this.inputBias = father.getInputBias().cross(mother.getInputBias(), NaturalSelection.CROSS_PROBABILITY);
+        this.inputWeights = cross(father.getInputWeights(), mother.getInputWeights());
+        this.inputBias = cross(father.getInputBias(), mother.getInputBias());
 
         if(father.hasHiddenLayer){
-            this.outputWeights = father.getOutputWeights().cross(mother.getOutputWeights(), NaturalSelection.CROSS_PROBABILITY);
-            this.outputBias = father.getOutputBias().cross(mother.getOutputBias(), NaturalSelection.CROSS_PROBABILITY);
+            this.outputWeights = cross(father.getOutputWeights(), mother.getOutputWeights());
+            this.outputBias = cross(father.getOutputBias(), mother.getOutputBias());
         }
 
         this.hasHiddenLayer = father.hasHiddenLayer;
 
+    }
+
+    public SimpleMatrix cross(SimpleMatrix father, SimpleMatrix mother) {
+        double random;
+        SimpleMatrix c = new SimpleMatrix(father.numRows(), father.numCols());
+
+        for (int i = 0; i < father.numRows(); i++) {
+            for (int j = 0; j < father.numCols(); j++) {
+                random = Math.random();
+                if (random <= NaturalSelection.CROSS_PROBABILITY) { // If we're applying a cross to this weight
+                    c.set(i, j, father.get(i, j));
+                } else {
+                    c.set(i, j, mother.get(i, j));
+                }
+            }
+        }
+        return c;
     }
 
 
@@ -262,22 +280,22 @@ public class NeuralNetwork {
     /**
      * @return The output weights Matrix
      */
-    public Matrix getInputWeights() {
+    public SimpleMatrix getInputWeights() {
         return inputWeights;
     }
 
     /**
      * @return The inputBias vector
      */
-    public Matrix getInputBias() {
+    public SimpleMatrix getInputBias() {
         return inputBias;
     }
 
-    public Matrix getOutputWeights(){
+    public SimpleMatrix getOutputWeights(){
         return outputWeights;
     }
 
-    public Matrix getOutputBias(){
+    public SimpleMatrix getOutputBias(){
         return outputBias;
     }
 
@@ -292,12 +310,12 @@ public class NeuralNetwork {
      * @return the matrix loaded from the XML
      * @see NeuralNetwork#initMatrix(XMLStreamReader)
      */
-    private Matrix initMatrix(XMLStreamReader xmlEventReader) {
+    private SimpleMatrix initMatrix(XMLStreamReader xmlEventReader) {
         int rows = Integer.parseInt(xmlEventReader.getAttributeValue(0));
         int cols = Integer.parseInt(xmlEventReader.getAttributeValue(1));
         String[] values = xmlEventReader.getAttributeValue(2).split(" ");
 
-        Matrix matrix = new Matrix(rows, cols);
+        SimpleMatrix matrix = new SimpleMatrix(rows, cols);
 
         // Fill the matrix
         int index = 0;
@@ -317,10 +335,10 @@ public class NeuralNetwork {
      * @param matrix The matrix we want to change
      */
     /* Implementation of gaussian cross */
-    private void randomizeIOMatrix(Matrix matrix) {
+    private void randomizeIOMatrix(SimpleMatrix matrix) {
         double value;
-        for (int i = 0; i < matrix.getRowCount(); i++) {
-            for (int j = 0; j < matrix.getColumnCount(); j++) {
+        for (int i = 0; i < matrix.numRows(); i++) {
+            for (int j = 0; j < matrix.numCols(); j++) {
                 value = Math.random() * 2 - 1;
                 matrix.set(i, j, value);
                 output_mean.set(i, j, (output_mean.get(i, j)+value));
@@ -335,10 +353,10 @@ public class NeuralNetwork {
      *
      * @param matrix The matrix we want to change
      */
-    private void randomizeBiasMatrix(Matrix matrix) {
+    private void randomizeBiasMatrix(SimpleMatrix matrix) {
         double value;
-        for (int i = 0; i < matrix.getRowCount(); i++) {
-            for (int j = 0; j < matrix.getColumnCount(); j++) {
+        for (int i = 0; i < matrix.numRows(); i++) {
+            for (int j = 0; j < matrix.numCols(); j++) {
                 value = Math.random();
                 matrix.set(i, j, value);
                 output_bias_mean.set(i, j, output_bias_mean.get(i, j) + value);
@@ -348,10 +366,10 @@ public class NeuralNetwork {
 
 
     /* Implementation of ELM : generates our final input matrix */
-    private static Matrix generateInputMatrix(){
-        Matrix m = new Matrix(INPUT_NEURONS, HIDDEN_NEURONS);
-        for (int i = 0; i<m.getRowCount(); i++){
-            for (int j = 0; j<m.getColumnCount();j++){
+    private static SimpleMatrix generateInputMatrix(){
+        SimpleMatrix m = new SimpleMatrix(INPUT_NEURONS, HIDDEN_NEURONS);
+        for (int i = 0; i<m.numRows(); i++){
+            for (int j = 0; j<m.numCols();j++){
                 m.set(i, j, Math.random()*2 - 1);
             }
         }
@@ -359,10 +377,10 @@ public class NeuralNetwork {
     }
 
     /* Implementation of ELM : generates our final bias matrix */
-    private static Matrix generateBiasMatrix(){
-        Matrix m = new Matrix(HIDDEN_NEURONS, 1);
-        for (int i = 0; i<m.getRowCount(); i++){
-            for (int j = 0; j<m.getColumnCount(); j++){
+    private static SimpleMatrix generateBiasMatrix(){
+        SimpleMatrix m = new SimpleMatrix(HIDDEN_NEURONS, 1);
+        for (int i = 0; i<m.numRows(); i++){
+            for (int j = 0; j<m.numCols(); j++){
                 m.set(i, j, Math.random());
             }
         }
@@ -385,7 +403,7 @@ public class NeuralNetwork {
     public OutputData train(InputData entries) {
         // First Treatment
         //Multiplication du vecteur d'entrée avec la première matrice de poids. On obtient le vecteur de couche sans le neurone de biais
-        Matrix vcouche = entries.toMatrix().mult(inputWeights);
+        SimpleMatrix vcouche = entries.toMatrix().mult(inputWeights);
         //Ajout du neurone de biais et application de la fonction sigmoïde
 
 
@@ -411,7 +429,7 @@ public class NeuralNetwork {
         XMLStreamWriter xmlWriter = XMLOutputFactory.newInstance().createXMLStreamWriter(new FileOutputStream(file));
 
         xmlWriter.writeStartElement("meta");
-        xmlWriter.writeAttribute("NbOutputNeurons", Integer.toString(inputWeights.getColumnCount()));
+        xmlWriter.writeAttribute("NbOutputNeurons", Integer.toString(inputWeights.numCols()));
         xmlWriter.writeAttribute("Learners", "1");
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t");
@@ -424,21 +442,21 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\t\t");
 
         xmlWriter.writeStartElement("perceptron");
-        xmlWriter.writeAttribute("OutputNeurons", Integer.toString(inputWeights.getColumnCount()));
+        xmlWriter.writeAttribute("OutputNeurons", Integer.toString(inputWeights.numCols()));
         xmlWriter.writeAttribute("Kernel", "sigmoid");
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("OutputWeights");
-        xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.getRowCount()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.getColumnCount()));
+        xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.numRows()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.numCols()));
         xmlWriter.writeAttribute("Matrix", inputWeights.toString());
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("Bias");
-        xmlWriter.writeAttribute("Rows", Integer.toString(inputBias.getRowCount()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(inputBias.getColumnCount()));
+        xmlWriter.writeAttribute("Rows", Integer.toString(inputBias.numRows()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(inputBias.numCols()));
         xmlWriter.writeAttribute("Matrix", inputBias.toString());
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t");
@@ -466,7 +484,7 @@ public class NeuralNetwork {
 
         return str;
     }
-
+/*
     public String toDebug(){
 
         String str = "";
@@ -478,5 +496,5 @@ public class NeuralNetwork {
 
         return str;
     }
-
+*/
 }

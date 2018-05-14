@@ -1,0 +1,1979 @@
+%% ================================================================================
+%% This LaTeX file was created by AbiWord.                                         
+%% AbiWord is a free, Open Source word processor.                                  
+%% More information about AbiWord is available at http://www.abisource.com/        
+%% ================================================================================
+
+\documentclass[a4paper,portrait,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+%% Please revise the following command, if your babel
+%% package does not support en-US
+\usepackage[en]{babel}
+\usepackage{color}
+\usepackage{hyperref}
+ 
+\begin{document}
+
+
+\begin{flushleft}
+Cr\'{e}ation d'un robot de combat darwinien
+\end{flushleft}
+
+
+\begin{flushleft}
+Simon
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+BEAULIEU
+\end{flushleft}
+
+
+\begin{flushleft}
+ESTEVENY
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+SERRANO
+\end{flushleft}
+
+
+\begin{flushleft}
+GOUBET
+\end{flushleft}
+
+
+\begin{flushleft}
+RAYMOND
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+, Edgar
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Rapha\"{e}l
+\end{flushleft}
+
+
+
+
+
+,
+
+
+
+
+
+\begin{flushleft}
+, Martin
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Encadrant : Christian
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+May 22, 2017
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+R\'{e}sum\'{e}
+\end{flushleft}
+
+
+\begin{flushleft}
+Travail r\'{e}alis\'{e} dans le cadre du cursus ing\'{e}nieur informatique de l'INSA
+\end{flushleft}
+
+
+\begin{flushleft}
+de Rennes. Le pro jet est r\'{e}alis\'{e} \`{a} l'aide de Robocode, application permettant
+\end{flushleft}
+
+
+\begin{flushleft}
+aux utilisateurs de coder un robot combattant d'autres robots. L'ob jectif de ce
+\end{flushleft}
+
+
+\begin{flushleft}
+pro jet est d'obtenir un robot capable de prendre des d\'{e}cisions par lui-m\^{e}me au
+\end{flushleft}
+
+
+\begin{flushleft}
+travers d'un perceptron, appris par un algorithme g\'{e}n\'{e}tique.
+\end{flushleft}
+
+
+
+
+
+1
+
+
+
+
+
+\begin{flushleft}
+Objectifs
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Le logiciel Robocode permet d'impl\'{e}menter des r\`{e}gles qui d\'{e}?nissent le
+\end{flushleft}
+
+
+\begin{flushleft}
+comportement de notre robot. Notre objectif principal est donc d'obtenir un robot
+\end{flushleft}
+
+
+\begin{flushleft}
+intelligent. C'est-\`{a}-dire un robot capable de s'adapter et de s'am\'{e}liorer. A?n de
+\end{flushleft}
+
+
+\begin{flushleft}
+cr\'{e}er ce robot, nous utiliserons un perceptron ou r\'{e}seau de neurones. Cela permettra
+\end{flushleft}
+
+
+\begin{flushleft}
+\`{a} notre robot de prendre automatiquement et intelligemment ses d\'{e}cisions durant
+\end{flushleft}
+
+
+\begin{flushleft}
+le jeu. Le perceptron n\'{e}cessite cependant un param\'{e}trage sp\'{e}ci?que a?n d'\^{e}tre
+\end{flushleft}
+
+
+\begin{flushleft}
+e?cace. Pour ce faire nous utiliserons un algorithme g\'{e}n\'{e}tique pour le param\'{e}trer,
+\end{flushleft}
+
+
+\begin{flushleft}
+algorithme bas\'{e} sur la th\'{e}orie de l'\'{e}volution de Darwin, expliquant le nom du projet
+\end{flushleft}
+
+
+\begin{flushleft}
+{``}Robot de Combat Darwinien''.
+\end{flushleft}
+
+
+\begin{flushleft}
+\`{A} la ?n du projet notre robot devrait \^{e}tre en mesure de :
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ s'am\'{e}liorer par rapport au comportement initial.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ s'adapter au terrain et aux ennemis.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ vaincre un adversaire de plus en plus fort.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+
+
+
+2
+
+
+
+
+
+2
+
+
+
+
+
+\begin{flushleft}
+Outils
+\end{flushleft}
+
+
+
+
+
+2.1
+
+
+
+
+
+\begin{flushleft}
+Robocode
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Il s'agit d'un jeu vid\'{e}o \'{e}ducatif \`{a} programmation libre en java d\'{e}velopp\'{e}
+\end{flushleft}
+
+
+\begin{flushleft}
+par IBM. Ce jeu met en sc\`{e}ne des tanks virtuels en 2D qui combattent sur un
+\end{flushleft}
+
+
+\begin{flushleft}
+champs de bataille. Il est possible d'utiliser des tanks disponibles par d\'{e}faut, bien
+\end{flushleft}
+
+
+\begin{flushleft}
+que peu performants. Nous pouvons cr\'{e}er notre propre robot en java avec ses
+\end{flushleft}
+
+
+\begin{flushleft}
+propres actions. Vous trouverez plus d'informations sur le site d\'{e}di\'{e} de Robocode. [1]
+\end{flushleft}
+
+
+
+
+
+2.2
+
+
+
+
+
+\begin{flushleft}
+Langage et Format
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2.2.1 Java
+\end{flushleft}
+
+
+\begin{flushleft}
+Le langage \'{e}tait impos\'{e} par le sujet. En e?et, Robocode est cod\'{e} en Java et
+\end{flushleft}
+
+
+\begin{flushleft}
+a?n d'ajouter notre robot \`{a} Robocode nous devions \'{e}galement le r\'{e}aliser en Java.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2.2.2 XML
+\end{flushleft}
+
+
+\begin{flushleft}
+Nos di?\'{e}rents individus g\'{e}n\'{e}r\'{e}s par l'algorithme g\'{e}n\'{e}tique sont repr\'{e}sent\'{e}s en
+\end{flushleft}
+
+
+\begin{flushleft}
+XML.
+\end{flushleft}
+
+
+2.3
+
+
+
+
+
+\begin{flushleft}
+Environnement de d\'{e}veloppement
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2.3.1 Git
+\end{flushleft}
+
+
+\begin{flushleft}
+Git nous a \'{e}t\'{e} pr\'{e}sent\'{e} en d\'{e}but d'ann\'{e}e. Nous avons donc choisi de l'utiliser
+\end{flushleft}
+
+
+\begin{flushleft}
+a?n d'avancer notre projet de mani\`{e}re simple et de coordonner notre code, nous
+\end{flushleft}
+
+
+\begin{flushleft}
+avons cr\'{e}\'{e} un d\'{e}p\^{o}t distant sur GitHub pour mettre \`{a} jour notre code.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2.3.2 IntelliJ
+\end{flushleft}
+
+
+\begin{flushleft}
+On nous a pr\'{e}sent\'{e} l'IDE IntelliJ, qui nous avait sembl\'{e} \^{e}tre appropri\'{e} pour
+\end{flushleft}
+
+
+\begin{flushleft}
+notre projet. De plus le groupe de l'ann\'{e}e derni\`{e}re nous a fortement conseill\'{e} de
+\end{flushleft}
+
+
+\begin{flushleft}
+l'utiliser car il est plus simple d'utilisation pour lier notre code Java \`{a} Robocode.
+\end{flushleft}
+
+
+\begin{flushleft}
+C'est pourquoi nous avons opt\'{e} pour IntelliJ.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2.3.3 API de Robocode
+\end{flushleft}
+
+
+\begin{flushleft}
+A?n de comprendre toutes les m\'{e}thodes que nous pourrions utiliser dans
+\end{flushleft}
+
+
+\begin{flushleft}
+Robocode, nous avons parcouru la documentation mise \`{a} disposition par IBM.
+\end{flushleft}
+
+
+
+
+
+3
+
+
+
+
+
+\begin{flushleft}
+Notre Travail
+\end{flushleft}
+
+
+
+
+
+3.1
+
+
+
+
+
+\begin{flushleft}
+D\'{e}roulement d'une partie
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Une partie de Robocode se d\'{e}compose en une succession de tours pendant
+\end{flushleft}
+
+
+\begin{flushleft}
+lesquels notre robot r\'{e}cup\`{e}re les donn\'{e}es de son environnement qui nous ont sembl\'{e}es pertinentes a?n de prendre des d\'{e}cisions.
+\end{flushleft}
+
+
+\begin{flushleft}
+Nous allons maintenant pr\'{e}senter les di?\'{e}rents points cl\'{e}s, \`{a} savoir :
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ les donn\'{e}es d'entr\'{e}e.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+
+
+
+3
+
+
+
+
+
+\begin{flushleft}
+$\bullet$ les donn\'{e}es de sortie
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ le perceptron
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ l'algorithme g\'{e}n\'{e}tique
+\end{flushleft}
+
+
+3.2
+
+
+
+
+
+\begin{flushleft}
+Les donn\'{e}es d'entr\'{e}e
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.2.1 R\^{o}le
+\end{flushleft}
+
+
+\begin{flushleft}
+Ces donn\'{e}es sont r\'{e}cup\'{e}r\'{e}es par notre robot \`{a} chaque tour de jeu. Elles sont
+\end{flushleft}
+
+
+\begin{flushleft}
+prises en compte par notre perceptron, dans les neurones d'entr\'{e}e. Le perceptron
+\end{flushleft}
+
+
+\begin{flushleft}
+e?ectue ensuite une s\'{e}rie de calculs sur ces donn\'{e}es a?n d'obtenir di?\'{e}rentes valeurs
+\end{flushleft}
+
+
+\begin{flushleft}
+de sortie. Ces valeurs permettront \`{a} notre robot de prendre des d\'{e}cisions.
+\end{flushleft}
+
+
+\begin{flushleft}
+Ces donn\'{e}es sont donc tr\`{e}s importantes pour notre robot et se doivent d'\^{e}tre pertinentes a?n que le perceptron puisse prendre les bonnes d\'{e}cisions au bon moment.
+\end{flushleft}
+
+
+\begin{flushleft}
+Gr\^{a}ce \`{a} Robocode nous avons de nombreuses donn\'{e}es d'environnement lorsque nous
+\end{flushleft}
+
+
+\begin{flushleft}
+scannons un adversaire avec notre radar. Certaines sont assez \'{e}videntes comme par
+\end{flushleft}
+
+
+\begin{flushleft}
+exemple la distance entre notre robot et l'adversaire scann\'{e}, extr\^{e}mement importante. Cependant la couleur des robots n'est pas n\'{e}cessaire pour prendre de bonnes
+\end{flushleft}
+
+
+\begin{flushleft}
+d\'{e}cisions. De plus, a?n d'avoir un perceptron su?samment pr\'{e}cis, il faut disposer
+\end{flushleft}
+
+
+\begin{flushleft}
+d'un nombre su?sant de donn\'{e}es d'entr\'{e}e pour qu'il puisse manipuler plus de donn\'{e}es et \'{e}tablir ses propres r\`{e}gles d\'{e}duites.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.2.2 Collection
+\end{flushleft}
+
+
+\begin{flushleft}
+A chaque fois que notre robot scanne un adversaire, il va envoyer les donn\'{e}es
+\end{flushleft}
+
+
+\begin{flushleft}
+collect\'{e}es au perceptron pour prendre ses d\'{e}cisions en fonction des valeurs de sorties.
+\end{flushleft}
+
+
+\begin{flushleft}
+Voici la liste des donn\'{e}es que nous pouvons collecter et que nous avons trouv\'{e} pertinentes pour notre robot:
+\end{flushleft}
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+L'angle de direction de notre radar relatif \`{a} l'angle de direction du robot adverse
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+scann\'{e}.
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+La distance entre notre robot et le robot adverse scann\'{e}
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+L'\'{e}nergie de notre robot
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Notre v\'{e}locit\'{e} ainsi que celle de notre adversaire
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+L'angle de direction de notre robot ainsi que celui de notre adversaire
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+L'angle de direction de notre radar
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+L'angle de direction de notre tourelle
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Nos coordonn\'{e}es (x,y) dans le plan du jeu
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+La distance en x et y par rapport au robot adversaire scann\'{e}
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+La distance en x et y par rapport aux di?\'{e}rents murs vers lequel se dirige le
+\end{flushleft}
+
+
+\begin{flushleft}
+robot
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Ainsi, \`{a} chaque scan, notre robot cr\'{e}e un objet {``}InputData'' qui contient toutes ces
+\end{flushleft}
+
+
+\begin{flushleft}
+donn\'{e}es. Nous chargeons ensuite cet objet dans le perceptron qui renverra, apr\`{e}s
+\end{flushleft}
+
+
+\begin{flushleft}
+traitement, un objet {``}OutputData''.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+3.3
+
+
+
+
+
+4
+
+
+
+
+
+\begin{flushleft}
+Donn\'{e}es de sortie
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Les donn\'{e}es de sortie sont les donn\'{e}es que l'on r\'{e}cup\`{e}re une fois que nos donn\'{e}es
+\end{flushleft}
+
+
+\begin{flushleft}
+d'entr\'{e}e ont \'{e}t\'{e} trait\'{e}es par le perceptron. Ces donn\'{e}es repr\'{e}sentent donc les actions
+\end{flushleft}
+
+
+\begin{flushleft}
+que notre robot peut choisir d'e?ectuer. De ce fait, ces donn\'{e}es sont \'{e}galement tr\`{e}s
+\end{flushleft}
+
+
+\begin{flushleft}
+importantes. Chaque valeur de sortie est comprise entre -1 et 1 et permet de r\'{e}aliser
+\end{flushleft}
+
+
+\begin{flushleft}
+une action (tirer, tourner...). De plus ces valeurs ont une in?uence sur la fa\c{c}on dont
+\end{flushleft}
+
+
+\begin{flushleft}
+se d\'{e}roule une action, comme par exemple, tourner \`{a} droite d'un certain angle. Ainsi,
+\end{flushleft}
+
+
+\begin{flushleft}
+\`{a} chaque traitement du perceptron, notre robot peut choisir d'e?ectuer les d\'{e}cisions
+\end{flushleft}
+
+
+\begin{flushleft}
+suivantes :
+\end{flushleft}
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Tirer
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Tourner \`{a} droite d'un certain angle
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Tourner \`{a} gauche d'un certain angle
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Tourner le radar et la tourelle \`{a} droite d'un certain angle
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Tourner le radar et la tourelle \`{a} gauche d'un certain angle
+\end{flushleft}
+
+
+
+
+
+$\bullet$
+
+
+
+
+
+\begin{flushleft}
+Avancer
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Contrairement aux ann\'{e}es pr\'{e}c\'{e}dentes, nous avons choisi de lier la d\'{e}cision de la
+\end{flushleft}
+
+
+\begin{flushleft}
+rotation du radar et celle de la tourelle pour \'{e}viter que le robot ne tire alors que la
+\end{flushleft}
+
+
+\begin{flushleft}
+tourelle n'\'{e}tait pas en bonne position. Ainsi notre robot traitera l'objet ? OutputData ? qui lui est renvoy\'{e} a?n de prendre ses d\'{e}cisions.
+\end{flushleft}
+
+
+3.4
+
+
+
+
+
+\begin{flushleft}
+Perceptron
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Comme dit pr\'{e}c\'{e}demment, les donn\'{e}es d'entr\'{e}e sont r\'{e}cup\'{e}r\'{e}es et pass\'{e}es dans
+\end{flushleft}
+
+
+\begin{flushleft}
+un perceptron multicouche a?n que ce dernier puisse nous renvoyer les donn\'{e}es de
+\end{flushleft}
+
+
+\begin{flushleft}
+sortie et que notre robot puisse ainsi prendre ses d\'{e}cisions. Nous allons donc regarder
+\end{flushleft}
+
+
+\begin{flushleft}
+comment fonctionne notre perceptron.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.4.1 D\'{e}?nition
+\end{flushleft}
+
+
+\begin{flushleft}
+Un perceptron multicouche est un classi?eur dit neuronal formel organis\'{e} en
+\end{flushleft}
+
+
+\begin{flushleft}
+plusieurs couches au sein desquelles une information circule des couches d'entr\'{e}e
+\end{flushleft}
+
+
+\begin{flushleft}
+vers les couches de sortie. Ce mod\`{e}le s'inspire du fonctionnement de nos neurones.
+\end{flushleft}
+
+
+\begin{flushleft}
+Dans notre cas nous utilisons trois couches di?\'{e}rentes :
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Une couche d'entr\'{e}e qui r\'{e}cup\`{e}re nos donn\'{e}es d'entr\'{e}e
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Une couche de neurones cach\'{e}s
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Une couche de sortie qui nous permet de prendre nos d\'{e}cisions
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Dans un perceptron, tous les neurones de chaque couche sont connect\'{e}s \`{a} tous les
+\end{flushleft}
+
+
+\begin{flushleft}
+neurones de la couche suivante. Ainsi, tous les neurones d'entr\'{e}e sont connect\'{e}s
+\end{flushleft}
+
+
+\begin{flushleft}
+aux neurones de la couche cach\'{e}e. De m\^{e}me, les neurones de la couche cach\'{e}e sont
+\end{flushleft}
+
+
+\begin{flushleft}
+connect\'{e}s aux neurones de sortie. L'important dans un perceptron est que chacune
+\end{flushleft}
+
+
+\begin{flushleft}
+de ces connexions entre neurones est caract\'{e}ris\'{e}e par un coe?cient de pond\'{e}ration,
+\end{flushleft}
+
+
+\begin{flushleft}
+qui repr\'{e}sentent les poids du perceptron. Pour plus d'informations th\'{e}orique sur ce
+\end{flushleft}
+
+
+\begin{flushleft}
+classi?eur, vous pouvez consulter le wikip\'{e}dia d\'{e}di\'{e}. [2]
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+
+
+
+5
+
+
+
+
+
+\begin{flushleft}
+3.4.2 Fonctionnement
+\end{flushleft}
+
+
+\begin{flushleft}
+Le perceptron fonctionne de la mani\`{e}re suivante :
+\end{flushleft}
+
+
+\begin{flushleft}
+Chaque donn\'{e}e d'entr\'{e}e est repr\'{e}sent\'{e}e par un neurone dans la couche d'entr\'{e}e.
+\end{flushleft}
+
+
+\begin{flushleft}
+Chaque neurone de la couche cach\'{e}e prend pour valeur la somme des produits des
+\end{flushleft}
+
+
+\begin{flushleft}
+valeurs des neurones d'entr\'{e}e multipli\'{e}e par la valeur des poids attribu\'{e}s \`{a} chaque
+\end{flushleft}
+
+
+\begin{flushleft}
+connexion.
+\end{flushleft}
+
+
+\begin{flushleft}
+Chaque neurone de la couche de sortie correspond \`{a} une action du robot. Il est le
+\end{flushleft}
+
+
+\begin{flushleft}
+r\'{e}sultat de la multiplication des valeurs des neurones de la couche cach\'{e}e, auxquelles
+\end{flushleft}
+
+
+\begin{flushleft}
+nous avons appliqu\'{e} une fonction Relu, par les poids des liens entres neurones cach\'{e}s
+\end{flushleft}
+
+
+\begin{flushleft}
+et neurones de sortie.
+\end{flushleft}
+
+
+\begin{flushleft}
+Ensuite, notre robot prend sa d\'{e}cision en fonction de la valeur des neurones de sortie.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.4.3 Impl\'{e}mentation
+\end{flushleft}
+
+
+\begin{flushleft}
+Le perceptron est impl\'{e}ment\'{e} en quatre classes java : Une classe d\'{e}?nissant les
+\end{flushleft}
+
+
+\begin{flushleft}
+donn\'{e}es d'entr\'{e}e (InputData) et dont la valeur est comprise entre 1 et -1.
+\end{flushleft}
+
+
+\begin{flushleft}
+Une classe d\'{e}?nissant les donn\'{e}es des neurones de sortie (OutputData). Ces neurones prennent la d\'{e}cision qui leur est impl\'{e}ment\'{e}e si la valeur du neurone de sortie
+\end{flushleft}
+
+
+\begin{flushleft}
+est sup\'{e}rieure \`{a} 0, sinon il ne fait rien. Dans le cas où l'on souhaite tourner d'un
+\end{flushleft}
+
+
+\begin{flushleft}
+certain angle, plus la valeur du neurone est \'{e}lev\'{e}e, plus l'angle de rotation sera \'{e}lev\'{e}.
+\end{flushleft}
+
+
+\begin{flushleft}
+Une classe impl\'{e}mentant le perceptron. Un perceptron est repr\'{e}sent\'{e} comme
+\end{flushleft}
+
+
+\begin{flushleft}
+l'association de deux matrices, l'une repr\'{e}sentant les poids des liens des couches
+\end{flushleft}
+
+
+\begin{flushleft}
+entr\'{e}e-cach\'{e}e et l'autre les poids des liens des couches cach\'{e}e-sortie.
+\end{flushleft}
+
+
+\begin{flushleft}
+Ainsi nous disposons d'une fonction qui prend les valeurs des donn\'{e}es d'entr\'{e}e
+\end{flushleft}
+
+
+\begin{flushleft}
+choisies et les transforme en un vecteur et e?ectue les di?\'{e}rentes applications
+\end{flushleft}
+
+
+\begin{flushleft}
+num\'{e}riques. On obtient donc une matrice dont on prendra autant de premiers coef?cients qu'il y a de neurones de sortie.
+\end{flushleft}
+
+
+\begin{flushleft}
+Une classe d\'{e}?nissant les matrices. En e?et, les poids des di?\'{e}rents neurones sont
+\end{flushleft}
+
+
+\begin{flushleft}
+repr\'{e}sent\'{e}s sous forme matricielles.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.4.4 Obtenir un perceptron e?cace
+\end{flushleft}
+
+
+\begin{flushleft}
+Nous avons vu que le robot prenait une d\'{e}cision en fonction des donn\'{e}es rendues
+\end{flushleft}
+
+
+\begin{flushleft}
+par le perceptron. Et ces valeurs de sortie ne d\'{e}pendent que des donn\'{e}es envoy\'{e}es
+\end{flushleft}
+
+
+\begin{flushleft}
+en entr\'{e}e et des poids du perceptron. A?n d'obtenir un bon robot, nous devons donc
+\end{flushleft}
+
+
+\begin{flushleft}
+param\'{e}trer des poids ad\'{e}quats sur chaque connection de notre perceptron. Pour ce
+\end{flushleft}
+
+
+\begin{flushleft}
+faire, nous allons donc chercher \`{a} obtenir les matrices de poids gr\^{a}ce \`{a} un algorithme.
+\end{flushleft}
+
+
+\begin{flushleft}
+Une autre chose importante a?n d'avoir un perceptron e?cace est d'avoir des donn\'{e}es
+\end{flushleft}
+
+
+\begin{flushleft}
+pertinentes en entr\'{e}e, de m\^{e}me pour les donn\'{e}es de sortie.
+\end{flushleft}
+
+
+3.5
+
+
+
+
+
+\begin{flushleft}
+Algorithme g\'{e}n\'{e}tique
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Comme dit pr\'{e}c\'{e}demment, nous avons besoin d'obtenir les matrices de poids
+\end{flushleft}
+
+
+\begin{flushleft}
+et nous allons donc nous servir d'un algorithme g\'{e}n\'{e}tique a?n de param\'{e}trer le
+\end{flushleft}
+
+
+\begin{flushleft}
+perceptron de mani\`{e}re e?cace.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.5.1 Fonctionnement et impl\'{e}mentation
+\end{flushleft}
+
+
+\begin{flushleft}
+Cet algorithme se base sur la th\'{e}orie de l'\'{e}volution de Darwin. Le principe
+\end{flushleft}
+
+
+\begin{flushleft}
+fondamental est assez simple : on croise les robots d'une m\^{e}me g\'{e}n\'{e}ration d'individus
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+
+
+
+6
+
+
+
+
+
+\begin{flushleft}
+2 \`{a} 2 a?n de cr\'{e}er des descendants, c'est-\`{a}-dire un m\'{e}lange des matrices de poids
+\end{flushleft}
+
+
+\begin{flushleft}
+des perceptron parents.
+\end{flushleft}
+
+
+\begin{flushleft}
+Pour ce faire, nous partons d'une population initiale de n individus (n matrices de poids repr\'{e}sentant les perceptrons). Pour garder uniquement les meilleurs
+\end{flushleft}
+
+
+\begin{flushleft}
+individus de la population initiale, nous prenons au hasard q individus que nous
+\end{flushleft}
+
+
+\begin{flushleft}
+faisons s'a?ronter contre un m\^{e}me robot t\'{e}moin lors d'une bataille de robocode de
+\end{flushleft}
+
+
+\begin{flushleft}
+10 rounds. Nous gardons les meilleurs de ce tournoi. On r\'{e}p\`{e}te cette \'{e}tape jusqu'\`{a}
+\end{flushleft}
+
+
+\begin{flushleft}
+obtenir n/2 individus s\'{e}lectionn\'{e}s. Nous e?ectuons alors croisements et mutations
+\end{flushleft}
+
+
+\begin{flushleft}
+des individus 2 \`{a} 2 pour obtenir la population suivante.
+\end{flushleft}
+
+
+\begin{flushleft}
+Le groupe de l'ann\'{e}e derni\`{e}re a choisi d'utiliser la fonction compareTo de robocode
+\end{flushleft}
+
+
+\begin{flushleft}
+a?n de retourner le robot avec le plus grand pourcentage de victoire. Si jamais 2
+\end{flushleft}
+
+
+\begin{flushleft}
+individus arrivent \`{a} \'{e}galit\'{e}, est gard\'{e} celui qui aura fait le plus de d\'{e}gats directs.
+\end{flushleft}
+
+
+\begin{flushleft}
+Cependant, cette m\'{e}thode n'\'{e}tait pas assez pr\'{e}cise pour bien distinguer les forces
+\end{flushleft}
+
+
+\begin{flushleft}
+des di?\'{e}rents robots. C'est pourquoi nous avons choisi de pond\'{e}rer le score des
+\end{flushleft}
+
+
+\begin{flushleft}
+robots de mani\`{e}re arbitraire, c'est-\`{a}-dire que nous avons analys\'{e} les composantes
+\end{flushleft}
+
+
+\begin{flushleft}
+du score de robocode et nous avons choisi de ne garder que les d\'{e}gats du canon
+\end{flushleft}
+
+
+\begin{flushleft}
+(BulletDammage), les d\'{e}gats par collision (RamDammage) ainsi que le nombre de
+\end{flushleft}
+
+
+\begin{flushleft}
+matchs remport\'{e}s (Victory). Nous avons \'{e}galement pond\'{e}r\'{e} ces valeurs en donnant
+\end{flushleft}
+
+
+\begin{flushleft}
+plus d'importance aux BulletDammage et \`{a} Victory qu'aux RamDammage.
+\end{flushleft}
+
+
+\begin{flushleft}
+Pour plus d'informations concernant l'algorithme g\'{e}n\'{e}tique, vous pouvez consulter
+\end{flushleft}
+
+
+\begin{flushleft}
+le wikip\'{e}dia d\'{e}di\'{e}. [3]
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+3.5.2 Lancement de l'algorithme g\'{e}n\'{e}tique
+\end{flushleft}
+
+
+\begin{flushleft}
+Une fois notre algorithme g\'{e}n\'{e}tique pond\'{e}r\'{e} et impl\'{e}ment\'{e}, il nous reste \`{a} le
+\end{flushleft}
+
+
+\begin{flushleft}
+lancer, a?n de param\'{e}trer au mieux notre perceptron. Comme nous l'avons dit, cet
+\end{flushleft}
+
+
+\begin{flushleft}
+algorithme va prendre en entr\'{e}e deux matrices de poids : une pour les poids d'entr\'{e}e
+\end{flushleft}
+
+
+\begin{flushleft}
+et l'autre pour les poids de sortie. Notre algorithme g\'{e}n\'{e}tique e?ectue ensuite le
+\end{flushleft}
+
+
+\begin{flushleft}
+croisement de ces matrices et nous obtenons \`{a} la ?n un perceptron correctement
+\end{flushleft}
+
+
+\begin{flushleft}
+param\'{e}tr\'{e}, avec un ensemble de poids correspondant aux meilleurs poids des diff\'{e}rents perceptrons brass\'{e}s par l'algorithme.
+\end{flushleft}
+
+
+
+
+
+4
+
+
+4.1
+
+
+
+
+
+\begin{flushleft}
+Exp\'{e}rimentation
+\end{flushleft}
+
+
+\begin{flushleft}
+Tests
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Durant ce projet, nous avons d\^{u} e?ectuer de nombreux lancements de
+\end{flushleft}
+
+
+\begin{flushleft}
+l'algorithme g\'{e}n\'{e}tique a?n de tester nos am\'{e}liorations. Pour ce faire nous avions deux
+\end{flushleft}
+
+
+\begin{flushleft}
+m\'{e}thodes de test. Si nous voulions un r\'{e}sultat rapidement nous lancions l'algorithme
+\end{flushleft}
+
+
+\begin{flushleft}
+avec 5 g\'{e}n\'{e}rations de 10 individus. Cependant a?n d'avoir de meilleurs r\'{e}sultats nous
+\end{flushleft}
+
+
+\begin{flushleft}
+devions lancer l'algorithme avec 50 g\'{e}n\'{e}rations de 100 individus. De plus, au d\'{e}but
+\end{flushleft}
+
+
+\begin{flushleft}
+de l'ann\'{e}e nous utilisions un robot {``}inactif'', c'est-\`{a}-dire un robot qui ne tire pas et
+\end{flushleft}
+
+
+\begin{flushleft}
+qui ne bouge pas, pour nos tests. Cependant, au fur et \`{a} mesure de l'avanc\'{e}e du
+\end{flushleft}
+
+
+\begin{flushleft}
+projet nous avons remarqu\'{e} que nos robots battaient facilement cet adversaire. Nous
+\end{flushleft}
+
+
+\begin{flushleft}
+sommes donc pass\'{e} \`{a} un robot {``}al\'{e}atoire'', un robot dont tout le comportement est
+\end{flushleft}
+
+
+\begin{flushleft}
+al\'{e}atoire.
+\end{flushleft}
+
+
+4.2
+
+
+
+
+
+\begin{flushleft}
+R\'{e}sultats
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Gr\^{a}ce aux nombreux tests, nous avons pu obtenir des r\'{e}sultats int\'{e}ressants. En
+\end{flushleft}
+
+
+\begin{flushleft}
+e?et, nous avons pu remarquer sur les lancements \`{a} 50 g\'{e}n\'{e}rations que le score des
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+
+
+
+7
+
+
+
+
+
+\begin{flushleft}
+robots augmentait au fur et \`{a} mesure des g\'{e}n\'{e}rations. Cependant cette augmentation reste assez petites et pourrait \^{e}tre am\'{e}lior\'{e}e. Nous avons \'{e}galement obtenu
+\end{flushleft}
+
+
+\begin{flushleft}
+di?\'{e}rents comportements de robot. Par exemple, un robot se d\'{e}pla\c{c}ant sur le champ
+\end{flushleft}
+
+
+\begin{flushleft}
+de bataille en tirant sur son adversaire, un comportement de base. Nous avons \'{e}galement obtenus deux autres comportements int\'{e}ressants, un robot ? kamikaze ? qui
+\end{flushleft}
+
+
+\begin{flushleft}
+rep\`{e}re son adversaire et lui fonce dedans a?n d'in?iger des d\'{e}g\^{a}ts de collision, et un
+\end{flushleft}
+
+
+\begin{flushleft}
+robot ? l\^{a}che ? qui se contentait de fuir son adversaire.
+\end{flushleft}
+
+
+4.3
+
+
+
+
+
+\begin{flushleft}
+Conclusion sur notre robot
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Par rapport aux objectifs de d\'{e}but d'ann\'{e}e, nous avons r\'{e}ussi \`{a} obtenir un
+\end{flushleft}
+
+
+\begin{flushleft}
+robot meilleur que le robot initial. En e?et, comme dit pr\'{e}c\'{e}demment, nous avons
+\end{flushleft}
+
+
+\begin{flushleft}
+commenc\'{e} par essayer de r\'{e}aliser un robot qui battait un robot {``}inactif'' et nous r\'{e}ussissons maintenant \`{a} battre un robot au comportement al\'{e}atoire et certains autres
+\end{flushleft}
+
+
+\begin{flushleft}
+robots aux comportements plus script\'{e}s. De plus, notre robot adapte son comportement aux adversaires. En e?et, quand notre meilleur robot a?ronte le robot {``}inactif'',
+\end{flushleft}
+
+
+\begin{flushleft}
+il adopte une strat\'{e}gie où il rentre en collision avec l'ennemi tout en lui tirant dessus
+\end{flushleft}
+
+
+\begin{flushleft}
+ce qui le fait gagner automatiquement. Par contre, quand il a?ronte le robot au
+\end{flushleft}
+
+
+\begin{flushleft}
+comportement al\'{e}atoire, il se d\'{e}place sur le champ de bataille et ne tire que quand il
+\end{flushleft}
+
+
+\begin{flushleft}
+d\'{e}tecte l'ennemi. De m\^{e}me, nous avons commenc\'{e} \`{a} impl\'{e}menter l'adaptabilit\'{e} de
+\end{flushleft}
+
+
+\begin{flushleft}
+notre robot au terrain en essayant de lui faire \'{e}viter les murs du champs de bataille.
+\end{flushleft}
+
+
+
+
+
+5
+
+
+5.1
+
+
+
+
+
+\begin{flushleft}
+Notre exp\'{e}rience
+\end{flushleft}
+
+
+\begin{flushleft}
+R\'{e}partition du travail
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Durant toute l'ann\'{e}e, nous nous sommes retrouv\'{e}s en groupe une fois toutes les
+\end{flushleft}
+
+
+\begin{flushleft}
+deux semaines, a?n de mettre en commun nos avanc\'{e}es personnelles et les di?\'{e}rentes
+\end{flushleft}
+
+
+\begin{flushleft}
+connaissances que nous avions acquises sur le sujet ou sur les outils.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+5.1.1 Premier Semestre
+\end{flushleft}
+
+
+\begin{flushleft}
+Pour ce faire nous avons \'{e}tudi\'{e} le code du projet durant tout le semestre a?n de
+\end{flushleft}
+
+
+\begin{flushleft}
+se l'approprier en parall\`{e}le des autres objectifs. Lors du premier semestre, nos objectifs \'{e}taient de comprendre la fa\c{c}on dont le groupe pr\'{e}c\'{e}dent avait cod\'{e} le perceptron
+\end{flushleft}
+
+
+\begin{flushleft}
+et l'algorithme g\'{e}n\'{e}tique, lancer l'algorithme g\'{e}n\'{e}tique et commencer \`{a} r\'{e}?\'{e}chir aux
+\end{flushleft}
+
+
+\begin{flushleft}
+di?\'{e}rentes am\'{e}liorations.
+\end{flushleft}
+
+
+\begin{flushleft}
+Nous avons utilis\'{e} Robocode a?n de savoir comment utiliser le robot r\'{e}sultant
+\end{flushleft}
+
+
+\begin{flushleft}
+de l'algorithme g\'{e}n\'{e}tique. Nous avons aussi corrig\'{e} plusieurs bugs emp\^{e}chant
+\end{flushleft}
+
+
+\begin{flushleft}
+l'algorithme de se lancer.
+\end{flushleft}
+
+
+\begin{flushleft}
+Vers la ?n du semestre nous nous sommes focalis\'{e}s sur la soutenance \`{a} faire en
+\end{flushleft}
+
+
+\begin{flushleft}
+anglais.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+5.1.2 Second Semestre
+\end{flushleft}
+
+
+\begin{flushleft}
+Durant le premier semestre nous avions commenc\'{e} \`{a} r\'{e}?\'{e}chir \`{a} di?\'{e}rentes
+\end{flushleft}
+
+
+\begin{flushleft}
+am\'{e}liorations du robot. A?n de les r\'{e}aliser, nous avons r\'{e}parti le travail entre 2
+\end{flushleft}
+
+
+\begin{flushleft}
+groupes.
+\end{flushleft}
+
+
+\begin{flushleft}
+Edgar et Rapha\"{e}l avaient pour but d'am\'{e}liorer les donn\'{e}es d'entr\'{e}e, c'est-\`{a}-dire de
+\end{flushleft}
+
+
+\begin{flushleft}
+juger de la pertinence de ces donn\'{e}es et de regarder s'il ne serait pas mieux d'en
+\end{flushleft}
+
+
+\begin{flushleft}
+enlever certaines, ou alors d'en rajouter d'autres.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Rapport ?nal
+\end{flushleft}
+
+
+
+
+
+8
+
+
+
+
+
+\begin{flushleft}
+Simon et Martin, quant \`{a} eux, se sont occup\'{e}s de ?nir le d\'{e}bogage de l'algorithme
+\end{flushleft}
+
+
+\begin{flushleft}
+ainsi que de la pond\'{e}ration du score de chaque robot. Ces travaux ont \'{e}t\'{e} e?ectu\'{e}s tout en continuant \`{a} nous rencontrer ensemble a?n de mettre en commun nos
+\end{flushleft}
+
+
+\begin{flushleft}
+avanc\'{e}es respectives.
+\end{flushleft}
+
+
+\begin{flushleft}
+Martin a \'{e}galement cr\'{e}\'{e} et g\'{e}r\'{e} un Github a?n que l'on puisse coder en parall\`{e}le
+\end{flushleft}
+
+
+\begin{flushleft}
+durant le semestre.
+\end{flushleft}
+
+
+5.2
+
+
+
+
+
+\begin{flushleft}
+Conclusion
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Ce sujet d'\'{e}tude pratique nous a permis d'apprendre \`{a} mieux travailler en \'{e}quipe
+\end{flushleft}
+
+
+\begin{flushleft}
+au sein d'un m\^{e}me projet comme nous aurons \`{a} le faire en milieu professionnel.
+\end{flushleft}
+
+
+\begin{flushleft}
+Ainsi, nous avons appris \`{a} travailler ensemble, \`{a} avoir des responsabilit\'{e}s au sein
+\end{flushleft}
+
+
+\begin{flushleft}
+d'une \'{e}quipe et d'accomplir nos t\^{a}ches respectives. Nous avons \'{e}galement acquis des
+\end{flushleft}
+
+
+\begin{flushleft}
+comp\'{e}tences qui nous serons utiles dans notre vie professionnelle comme l'utilisation
+\end{flushleft}
+
+
+\begin{flushleft}
+de git ou une exp\'{e}rience suppl\'{e}mentaire de travailler en Java et XML.
+\end{flushleft}
+
+
+\begin{flushleft}
+Nous avons malheureusement eu quelques soucis en d\'{e}but de 2\`{e}me semestre car le
+\end{flushleft}
+
+
+\begin{flushleft}
+projet continuait de bugger sur certains ordinateurs, ce qui a conduit \`{a} une baisse
+\end{flushleft}
+
+
+\begin{flushleft}
+de motivation. Cependant apr\`{e}s quelques semaines nous avons r\'{e}ussi \`{a} d\'{e}bogger le
+\end{flushleft}
+
+
+\begin{flushleft}
+projet pour tout le monde et nous avons pu reprendre le travail.
+\end{flushleft}
+
+
+\begin{flushleft}
+Malgr\'{e} quelques tensions aux moments des soutenances, ce projet reste une exp\'{e}rience enrichissante durant laquelle nous avons pu mettre en pratique les di?\'{e}rentes
+\end{flushleft}
+
+
+\begin{flushleft}
+connaissances acquises en cours tout au long de l'ann\'{e}e.
+\end{flushleft}
+
+
+\begin{flushleft}
+Au ?nal, nous avons tous \'{e}t\'{e} satisfait de participer \`{a} un tel projet. En e?et cela
+\end{flushleft}
+
+
+\begin{flushleft}
+nous a permis de d\'{e}couvrir et de comprendre di?\'{e}rents algorithmes assez complexes
+\end{flushleft}
+
+
+\begin{flushleft}
+comme l'algorithme g\'{e}n\'{e}tique.
+\end{flushleft}
+
+
+
+
+
+6
+
+
+
+
+
+\begin{flushleft}
+R\'{e}f\'{e}rences
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+[1] IBM. Site o?ciel de robocode:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+http://robocode.sourceforge.net/
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+[2] Wikip\'{e}dia. Perceptron multicouche:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+https://fr.wikipedia.org/wiki/Perceptron\_multicouche
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+[3] Wikip\'{e}dia. Algorithme g\'{e}n\'{e}tique:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+https://fr.wikipedia.org/wiki/Algorithme\_g\%C3\%A9n\%C3\%A9tique.
+\end{flushleft}
+
+
+
+
+
+\newpage
+
+
+
+\end{document}

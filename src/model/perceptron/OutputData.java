@@ -8,6 +8,8 @@
 
 package model.perceptron;
 
+import org.ejml.simple.SimpleMatrix;
+
 /**
  * <p>
  *	Object which contains the neural network result. Every parameters incarnates a decision's value.
@@ -83,9 +85,9 @@ public class OutputData {
 		 *
 		 * @param results The neural network output matrix
 		 */
-		public OutputData(Matrix results) throws IllegalArgumentException{
+		public OutputData(SimpleMatrix results) throws IllegalArgumentException{
 
-			if(results.getColumnCount()!= OUTPUT_NEURONS) {throw new IllegalArgumentException("Matrix dimensions do not match output neuron count.");}
+			if(results.numCols()!= OUTPUT_NEURONS) {throw new IllegalArgumentException("Matrix dimensions do not match output neuron count.");}
 
 			shoot = results.get(0, 0);
 			turn = results.get(0, 1);

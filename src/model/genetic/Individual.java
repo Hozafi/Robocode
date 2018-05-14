@@ -3,6 +3,7 @@ package model.genetic;
 import controller.Darwini;
 import model.perceptron.Matrix;
 import model.perceptron.NeuralNetwork;
+import org.ejml.simple.SimpleMatrix;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.*;
@@ -61,7 +62,7 @@ public class Individual implements Comparable {
     }
 
     /* Implementation of gaussian cross */
-    public Individual (int id, Matrix mean, Matrix deviation, Matrix bias_mean, Matrix bias_deviation){
+    public Individual (int id, SimpleMatrix mean, SimpleMatrix deviation, SimpleMatrix bias_mean, SimpleMatrix bias_deviation){
         index = id;
         fitness = -9999;
         perceptron = new NeuralNetwork(mean, deviation, bias_mean, bias_deviation);
@@ -139,7 +140,7 @@ public class Individual implements Comparable {
         try {
             copyFile(NaturalSelection.POPULATION_DIRECTORY + NaturalSelection.INDIVIDUAL_FILENAME
                     + index + ".xml", NaturalSelection.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
-
+System.out.println("Baston ici");
             // Launch the test in Robocode
             Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp "
                     + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle "

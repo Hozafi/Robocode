@@ -8,6 +8,8 @@
 
 package model.perceptron;
 
+import org.ejml.simple.SimpleMatrix;
+
 /**
  * <p>
  * This object is created every turn, filled with the environment data from AcquisitionData and load in the neural network
@@ -285,8 +287,8 @@ public class InputData {
      * @see controller.Darwini
      * @see NeuralNetwork
      */
-    public Matrix toMatrix() {
-        Matrix matrix = new Matrix(1, INPUT_NEURONS);
+    public SimpleMatrix toMatrix() {
+        SimpleMatrix matrix = new SimpleMatrix(1, INPUT_NEURONS);
 
         /*matrix.set(0, 0, myBearing);
         matrix.set(0, 1, distance);
