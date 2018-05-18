@@ -324,4 +324,18 @@ System.out.println("Baston ici");
 
     }
 
+    public String toDebug(){
+
+        String str = "========================================================\n";
+
+        str += "Individual #" + this.index + "\n";
+        str += "Fitness: " + this.fitness + "\n";
+        str += "Perceptron: \n" + this.perceptron.toDebug();
+
+        str += "========================================================";
+
+        return str;
+
+    }
+
 }

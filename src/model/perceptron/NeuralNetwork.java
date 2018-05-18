@@ -484,17 +484,17 @@ public class NeuralNetwork {
 
         return str;
     }
-/*
+
     public String toDebug(){
 
         String str = "";
 
-        str += "First matrix: \n" + this.inputWeights.toDebug();
-        str += "\nFirst bias vector: \n" + this.inputBias.toDebug();
+        str += "First matrix: \n" + this.inputWeights.toString();
+        str += "\nFirst bias vector: \n" + this.inputBias.toString();
 
-        str += "\nSecond matrix: \n" + this.outputWeights.toDebug();
+        str += "\nSecond matrix: \n" + this.outputWeights.toString();
 
         return str;
     }
-*/
+
 }

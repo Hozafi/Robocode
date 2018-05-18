@@ -95,13 +95,24 @@ public class NaturalSelection {
     private static final int MAX_GENERATIONS = 10;
 
     public static void main (String[] args) {
+
+        Individual John = new Individual(1, true);
+
+        Individual Mary = new Individual(2, true);
+
+        System.out.println(John.toDebug());
+
+        System.out.println(Mary.toDebug());
+
+
+        /*
         Population pop = new Population(3,1);
         for(int i = 0; i < MAX_GENERATIONS; i++) {
             pop.makeFight();
             pop.nextGeneration();
         }
 
-        System.out.println("Best fitness : " + pop.bestIndividual().getFitness());
+        System.out.println("Best fitness : " + pop.bestIndividual().getFitness());*/
 
     }
 }
