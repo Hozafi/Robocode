@@ -1,9 +1,8 @@
 package model.genetic;
 
 import controller.Darwini;
-import jdk.nashorn.internal.objects.NativeUint8Array;
 //import model.perceptron.Matrix;
-import org.ejml.*;
+import model.perceptron.Matrix;
 import org.ejml.simple.SimpleMatrix;
 
 import java.io.File;
@@ -35,10 +34,10 @@ public class Population {
      */
     static final String INDIVIDUAL_FILENAME = "Individual";
 
-    public static SimpleMatrix output_mean;
-    public static SimpleMatrix output_std_deviation;
-    public static SimpleMatrix output_bias_mean;
-    public static SimpleMatrix output_bias_deviation;
+    public static Matrix output_mean;
+    public static Matrix output_std_deviation;
+    public static Matrix output_bias_mean;
+    public static Matrix output_bias_deviation;
 
     /*	----- ATTRIBUTES -----	*/
 
@@ -109,12 +108,12 @@ public class Population {
         individuals = new ArrayList<Individual>(size);
 
         /* We're creating output means and std deviations matrix to cross */
-        output_mean = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        output_std_deviation = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        output_mean = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
 
         /* We're creating output bias means and std deviation matrix to cross */
-        output_bias_mean = new SimpleMatrix(OUTPUT_NEURONS, 1);
-        output_bias_deviation = new SimpleMatrix(OUTPUT_NEURONS, 1);
+        output_bias_mean = new Matrix(OUTPUT_NEURONS, 1);
+        output_bias_deviation = new Matrix(OUTPUT_NEURONS, 1);
 
         try{
             createDirs();
@@ -177,12 +176,12 @@ public class Population {
         generation ++;
 
         /* Reset our output means and standard deviations matrix */
-        output_mean = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        output_std_deviation = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        output_mean = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
 
         /* Reset our output bias means and std deviation matrix */
-        output_bias_mean = new SimpleMatrix(OUTPUT_NEURONS, 1);
-        output_bias_deviation = new SimpleMatrix(OUTPUT_NEURONS, 1);
+        output_bias_mean = new Matrix(OUTPUT_NEURONS, 1);
+        output_bias_deviation = new Matrix(OUTPUT_NEURONS, 1);
     }
 
     /**
@@ -306,8 +305,8 @@ public class Population {
         double value;
         int i, j, k;
 
-        for (i = 0; i<output_mean.numRows(); i++){
-            for (j = 0; j<output_mean.numCols(); j++){
+        for (i = 0; i<output_mean.getRowCount(); i++){
+            for (j = 0; j<output_mean.getColumnCount(); j++){
                 output_mean.set(i, j, (output_mean.get(i, j)/size));
             }
         }

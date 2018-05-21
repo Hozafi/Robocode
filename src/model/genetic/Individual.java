@@ -62,7 +62,7 @@ public class Individual implements Comparable {
     }
 
     /* Implementation of gaussian cross */
-    public Individual (int id, SimpleMatrix mean, SimpleMatrix deviation, SimpleMatrix bias_mean, SimpleMatrix bias_deviation){
+    public Individual (int id, Matrix mean, Matrix deviation, Matrix bias_mean, Matrix bias_deviation){
         index = id;
         fitness = -9999;
         perceptron = new NeuralNetwork(mean, deviation, bias_mean, bias_deviation);

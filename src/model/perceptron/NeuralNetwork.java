@@ -8,7 +8,6 @@
 
 package model.perceptron;
 
-import model.genetic.Individual;
 import model.genetic.NaturalSelection;
 import org.ejml.simple.SimpleMatrix;
 
@@ -43,17 +42,15 @@ import static model.genetic.Population.output_mean;
  * @author GEFFRAULT Luc
  * @author MATHIEU Vianney
  * @author VAILLAND Guillaume
- * @author Beaulieu Simon
+ * @author Beaulieu Simon0
  * @author Goubet Martin
  * @author Estevany Raphael
  * @author Serano Edgar
  * @version 1.1 - 28/03/17
- * @see    model.genetic.GeneticAlgorithm
  * @see InputData
  * @see OutputData
  * @see controller.AcquisitionBot
  * @see controller.Darwini
- * @see model.genetic.Score
  * @see model.genetic.NaturalSelection
  */
 public class NeuralNetwork {
@@ -81,40 +78,40 @@ public class NeuralNetwork {
     /*
     Implementation of ELM : the input weight matrix is final
      */
-    private static final SimpleMatrix INPUT_WEIGHTS_MATRIX = generateInputMatrix();
+    private static final Matrix INPUT_WEIGHTS_MATRIX = generateInputMatrix();
 
     /*
     Implementation of ELM : the input bias matrix is final
      */
-    private static final SimpleMatrix INPUT_BIAS_MATRIX = generateBiasMatrix();
+    private static final Matrix INPUT_BIAS_MATRIX = generateBiasMatrix();
 
     /**
      * <p>
      * The first matrix, linking input neurons and the hidden layer
      * </p>
      */
-    private SimpleMatrix inputWeights;
+    private Matrix inputWeights;
 
     /**
      * <p>
      * The second matrix, linking hidden neurons and the output neurons
      * </p>
      */
-    private SimpleMatrix outputWeights;
+    private Matrix outputWeights;
 
     /**
      * <p>
      * Bias vector for the first matrix
      * </p>
      */
-    private SimpleMatrix inputBias;
+    private Matrix inputBias;
 
     /**
      * <p>
      * Bias vector for the second matrix
      * </p>
      */
-    private SimpleMatrix outputBias;
+    private Matrix outputBias;
 
     /**
      * <p>
@@ -132,20 +129,20 @@ public class NeuralNetwork {
     public NeuralNetwork(){
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
-        outputWeights = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        outputBias = new SimpleMatrix(OUTPUT_NEURONS, 1);
+        outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        outputBias = new Matrix(OUTPUT_NEURONS, 1);
         randomizeIOMatrix(outputWeights);
         randomizeBiasMatrix(outputBias);
     }
 
     /* Implementation of gaussian cross */
-    public NeuralNetwork(SimpleMatrix mean, SimpleMatrix deviation, SimpleMatrix bias_mean, SimpleMatrix bias_deviation){
+    public NeuralNetwork(Matrix mean, Matrix deviation, Matrix bias_mean, Matrix bias_deviation){
         double value;
         Random r = new Random();
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
-        outputWeights = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        outputBias = new SimpleMatrix(OUTPUT_NEURONS, 1);
+        outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+        outputBias = new Matrix(OUTPUT_NEURONS, 1);
 
         for (int i = 0; i<HIDDEN_NEURONS; i++){
             for (int j = 0; j<OUTPUT_NEURONS; j++){
@@ -171,16 +168,16 @@ public class NeuralNetwork {
      */
     public NeuralNetwork(boolean hiddenLayer) {
 
-        inputWeights = new SimpleMatrix(INPUT_NEURONS, hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS);
+        inputWeights = new Matrix(INPUT_NEURONS, hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS);
         randomizeIOMatrix(inputWeights);
-        inputBias = new SimpleMatrix(hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS, 1);
+        inputBias = new Matrix(hiddenLayer ? HIDDEN_NEURONS : OUTPUT_NEURONS, 1);
         randomizeBiasMatrix(inputBias);
 
         if(hiddenLayer){
 
-            outputWeights = new SimpleMatrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
+            outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
             randomizeIOMatrix(outputWeights);
-            outputBias = new SimpleMatrix(OUTPUT_NEURONS, 1);
+            outputBias = new Matrix(OUTPUT_NEURONS, 1);
             randomizeBiasMatrix(outputBias);
 
         }
@@ -216,12 +213,12 @@ public class NeuralNetwork {
 
     }
 
-    public SimpleMatrix cross(SimpleMatrix father, SimpleMatrix mother) {
+    public Matrix cross(Matrix father, Matrix mother) {
         double random;
-        SimpleMatrix c = new SimpleMatrix(father.numRows(), father.numCols());
+        Matrix c = new Matrix(father.getRowCount(), father.getColumnCount());
 
-        for (int i = 0; i < father.numRows(); i++) {
-            for (int j = 0; j < father.numCols(); j++) {
+        for (int i = 0; i < father.getRowCount(); i++) {
+            for (int j = 0; j < father.getColumnCount(); j++) {
                 random = Math.random();
                 if (random <= NaturalSelection.CROSS_PROBABILITY) { // If we're applying a cross to this weight
                     c.set(i, j, father.get(i, j));
@@ -284,22 +281,22 @@ public class NeuralNetwork {
     /**
      * @return The output weights Matrix
      */
-    public SimpleMatrix getInputWeights() {
+    public Matrix getInputWeights() {
         return inputWeights;
     }
 
     /**
      * @return The inputBias vector
      */
-    public SimpleMatrix getInputBias() {
+    public Matrix getInputBias() {
         return inputBias;
     }
 
-    public SimpleMatrix getOutputWeights(){
+    public Matrix getOutputWeights(){
         return outputWeights;
     }
 
-    public SimpleMatrix getOutputBias(){
+    public Matrix getOutputBias(){
         return outputBias;
     }
 
@@ -314,12 +311,12 @@ public class NeuralNetwork {
      * @return the matrix loaded from the XML
      * @see NeuralNetwork#initMatrix(XMLStreamReader)
      */
-    private SimpleMatrix initMatrix(XMLStreamReader xmlEventReader) {
+    private Matrix initMatrix(XMLStreamReader xmlEventReader) {
         int rows = Integer.parseInt(xmlEventReader.getAttributeValue(0));
         int cols = Integer.parseInt(xmlEventReader.getAttributeValue(1));
         String[] values = xmlEventReader.getAttributeValue(2).split(" ");
 
-        SimpleMatrix matrix = new SimpleMatrix(rows, cols);
+        Matrix matrix = new Matrix(rows, cols);
 
         // Fill the matrix
         int index = 0;
@@ -341,10 +338,10 @@ public class NeuralNetwork {
      * @param matrix The matrix we want to change
      */
     /* Implementation of gaussian cross */
-    private void randomizeIOMatrix(SimpleMatrix matrix) {
+    private void randomizeIOMatrix(Matrix matrix) {
         double value;
-        for (int i = 0; i < matrix.numRows(); i++) {
-            for (int j = 0; j < matrix.numCols(); j++) {
+        for (int i = 0; i < matrix.getRowCount(); i++) {
+            for (int j = 0; j < matrix.getColumnCount(); j++) {
                 value = Math.random() * 2 - 1;
                 matrix.set(i, j, value);
                 output_mean.set(i, j, (output_mean.get(i, j)+value));
@@ -359,10 +356,10 @@ public class NeuralNetwork {
      *
      * @param matrix The matrix we want to change
      */
-    private void randomizeBiasMatrix(SimpleMatrix matrix) {
+    private void randomizeBiasMatrix(Matrix matrix) {
         double value;
-        for (int i = 0; i < matrix.numRows(); i++) {
-            for (int j = 0; j < matrix.numCols(); j++) {
+        for (int i = 0; i < matrix.getRowCount(); i++) {
+            for (int j = 0; j < matrix.getColumnCount(); j++) {
                 value = Math.random();
                 matrix.set(i, j, value);
                 output_bias_mean.set(i, j, output_bias_mean.get(i, j) + value);
@@ -372,10 +369,10 @@ public class NeuralNetwork {
 
 
     /* Implementation of ELM : generates our final input matrix */
-    private static SimpleMatrix generateInputMatrix(){
-        SimpleMatrix m = new SimpleMatrix(INPUT_NEURONS, HIDDEN_NEURONS);
-        for (int i = 0; i<m.numRows(); i++){
-            for (int j = 0; j<m.numCols();j++){
+    private static Matrix generateInputMatrix(){
+        Matrix m = new Matrix(INPUT_NEURONS, HIDDEN_NEURONS);
+        for (int i = 0; i<m.getRowCount(); i++){
+            for (int j = 0; j<m.getColumnCount();j++){
                 m.set(i, j, Math.random()*2 - 1);
             }
         }
@@ -383,10 +380,10 @@ public class NeuralNetwork {
     }
 
     /* Implementation of ELM : generates our final bias matrix */
-    private static SimpleMatrix generateBiasMatrix(){
-        SimpleMatrix m = new SimpleMatrix(HIDDEN_NEURONS, 1);
-        for (int i = 0; i<m.numRows(); i++){
-            for (int j = 0; j<m.numCols(); j++){
+    private static Matrix generateBiasMatrix(){
+        Matrix m = new Matrix(HIDDEN_NEURONS, 1);
+        for (int i = 0; i<m.getRowCount(); i++){
+            for (int j = 0; j<m.getColumnCount(); j++){
                 m.set(i, j, Math.random());
             }
         }
@@ -409,12 +406,12 @@ public class NeuralNetwork {
     public OutputData train(InputData entries) {
         // First Treatment
         //Multiplication du vecteur d'entrée avec la première matrice de poids. On obtient le vecteur de couche sans le neurone de biais
-        SimpleMatrix vcouche = entries.toMatrix().mult(inputWeights);
+        Matrix vcouche = entries.toMatrix().mult(inputWeights);
         //Ajout du neurone de biais et application de la fonction sigmoïde
-        vcouche = vcouche.plus(inputBias);
+        vcouche.plus(inputBias);
 
         vcouche = vcouche.mult(outputWeights);
-        vcouche = vcouche.plus(outputBias);
+        vcouche.plus(outputBias);
 
 
         /*for (int i = 0; i < inputWeights.getColumnCount(); i++)
@@ -439,7 +436,7 @@ public class NeuralNetwork {
         XMLStreamWriter xmlWriter = XMLOutputFactory.newInstance().createXMLStreamWriter(new FileOutputStream(file));
 
         xmlWriter.writeStartElement("meta");
-        xmlWriter.writeAttribute("NbOutputNeurons", Integer.toString(inputWeights.numCols()));
+        xmlWriter.writeAttribute("NbOutputNeurons", Integer.toString(inputWeights.getColumnCount()));
         xmlWriter.writeAttribute("Learners", "1");
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t");
@@ -452,17 +449,17 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\t\t");
 
         xmlWriter.writeStartElement("perceptron");
-        xmlWriter.writeAttribute("OutputNeurons", Integer.toString(inputWeights.numCols()));
+        xmlWriter.writeAttribute("OutputNeurons", Integer.toString(inputWeights.getColumnCount()));
         xmlWriter.writeAttribute("Kernel", "sigmoid");
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("InputWeights");
-        xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.numRows()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.numCols()));
-        StringBuilder sb = new StringBuilder(inputWeights.numRows() * inputWeights.numCols());;
-        for (int i = 0; i < inputWeights.numRows(); i++) {
-            for (int j = 0; j < inputWeights.numCols(); j++) {
+        xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.getRowCount()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.getColumnCount()));
+        StringBuilder sb = new StringBuilder(inputWeights.getRowCount() * inputWeights.getColumnCount());
+        for (int i = 0; i < inputWeights.getRowCount(); i++) {
+            for (int j = 0; j < inputWeights.getColumnCount(); j++) {
                 sb.append(String.format(Locale.US, "%.2f", inputWeights.get(i, j))).append(" ");
             }
         }
@@ -471,11 +468,11 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("InputBias");
-        xmlWriter.writeAttribute("Rows", Integer.toString(inputBias.numRows()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(inputBias.numCols()));
-        sb = new StringBuilder(inputBias.numRows() * inputBias.numCols());;
-        for (int i = 0; i < inputBias.numRows(); i++) {
-            for (int j = 0; j < inputBias.numCols(); j++) {
+        xmlWriter.writeAttribute("Rows", Integer.toString(inputBias.getRowCount()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(inputBias.getColumnCount()));
+        sb = new StringBuilder(inputBias.getRowCount() * inputBias.getColumnCount());;
+        for (int i = 0; i < inputBias.getRowCount(); i++) {
+            for (int j = 0; j < inputBias.getColumnCount(); j++) {
                 sb.append(String.format(Locale.US, "%.2f", inputBias.get(i, j))).append(" ");
             }
         }
@@ -484,11 +481,11 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("OutputWeights");
-        xmlWriter.writeAttribute("Rows", Integer.toString(outputWeights.numRows()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(outputWeights.numCols()));
-        sb = new StringBuilder(outputWeights.numRows() * outputWeights.numCols());;
-        for (int i = 0; i < outputWeights.numRows(); i++) {
-            for (int j = 0; j < outputWeights.numCols(); j++) {
+        xmlWriter.writeAttribute("Rows", Integer.toString(outputWeights.getRowCount()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(outputWeights.getColumnCount()));
+        sb = new StringBuilder(outputWeights.getRowCount() * outputWeights.getColumnCount());
+        for (int i = 0; i < outputWeights.getRowCount(); i++) {
+            for (int j = 0; j < outputWeights.getColumnCount(); j++) {
                 sb.append(String.format(Locale.US, "%.2f", outputWeights.get(i, j))).append(" ");
             }
         }
@@ -497,11 +494,11 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\t\t\t");
 
         xmlWriter.writeEmptyElement("OutputBias");
-        xmlWriter.writeAttribute("Rows", Integer.toString(outputBias.numRows()));
-        xmlWriter.writeAttribute("Cols", Integer.toString(outputBias.numCols()));
-        sb = new StringBuilder(outputBias.numRows() * outputBias.numCols());;
-        for (int i = 0; i < outputBias.numRows(); i++) {
-            for (int j = 0; j < outputBias.numCols(); j++) {
+        xmlWriter.writeAttribute("Rows", Integer.toString(outputBias.getRowCount()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(outputBias.getColumnCount()));
+        sb = new StringBuilder(outputBias.getRowCount() * outputBias.getColumnCount());;
+        for (int i = 0; i < outputBias.getRowCount(); i++) {
+            for (int j = 0; j < outputBias.getColumnCount(); j++) {
                 sb.append(String.format(Locale.US, "%.2f", outputBias.get(i, j))).append(" ");
             }
         }

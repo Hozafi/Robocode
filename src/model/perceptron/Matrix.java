@@ -109,6 +109,22 @@ public class Matrix {
 			return res;
 		}
 
+		public boolean plus(Matrix m) throws IllegalArgumentException {
+
+			if((this.getColumnCount()!=m.getColumnCount()) || (this.getRowCount() != m.getRowCount())){
+				throw new IllegalArgumentException("Error: matrices do not have matching dimensions.");
+			}
+
+			//sums the contents of the input matrix m into this
+
+			for(int i=0; i<this.getRowCount();i++){
+				for(int j=0; j<this.getColumnCount();j++){
+					this.set(i,j,this.get(i,j) + m.get(i,j) );
+				}
+			}
+			return true;
+		}
+
 		/**
 		 *
 		 *	Crosses two matrices to create a new one. For each matrix value, it chooses the value of one of the two input matrices according to the given probability;
