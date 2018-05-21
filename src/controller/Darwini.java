@@ -14,6 +14,7 @@ import model.perceptron.NeuralNetwork;
 
 import robocode.*;
 
+import javax.xml.stream.XMLStreamException;
 import java.awt.*;
 import java.io.*;
 
@@ -157,9 +158,10 @@ public class Darwini extends AdvancedRobot {
         setScanColor(Color.red);
 
         perceptron = new NeuralNetwork(getDataFile(PERCEPTRON_FILE)); // gets the perceptron given in the population directory (was in "out/...") directory before)
+
         acquisitionData = new AcquisitionData(this);
         // MUST be called after because the initial strategy can have an infinite loop.
-        //super.run();
+        // super.run();
 
         while (true) {
             // If we can't see the enemy robot, turn the gun to the right
@@ -247,12 +249,6 @@ public class Darwini extends AdvancedRobot {
         /*if (bearingFromGun == 0) {
             scan();
         }*/
-
-
-
-
-
-
 
         decisions = perceptron.train(acquisitionData.acquisition(e));
 

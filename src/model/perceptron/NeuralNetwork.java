@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 import java.util.Random;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
@@ -120,7 +121,7 @@ public class NeuralNetwork {
      * Boolean attribute that indicates if the neural network has a hidden layer or not.
      * </p>
      */
-    private boolean hasHiddenLayer;
+    private boolean hasHiddenLayer;  // Enlever ça, ça sert plus à rien (le considérer comme TRUE partout)
 
 
     /*	----- CONSTRUCTOR -----	*/
@@ -184,8 +185,6 @@ public class NeuralNetwork {
 
         }
 
-        hasHiddenLayer = hiddenLayer;
-
     }
 
 
@@ -199,8 +198,7 @@ public class NeuralNetwork {
     public NeuralNetwork(NeuralNetwork mother, NeuralNetwork father) throws IllegalArgumentException{
 
         //checks if Individuals have different number of neuron layers, ie if one of them has a hidden layer and the other does not
-        if((father.hasHiddenLayer) && (!mother.hasHiddenLayer)
-                || (!father.hasHiddenLayer) && (mother.hasHiddenLayer))
+        if((father.hasHiddenLayer) != (mother.hasHiddenLayer))
         {
             throw new IllegalArgumentException("Error: Individuals do not have the same type of perceptron.");
         }
@@ -259,11 +257,17 @@ public class NeuralNetwork {
             xmlReader.nextTag();
             xmlReader.nextTag();
             inputBias = initMatrix(xmlReader);
+            xmlReader.nextTag();
+            xmlReader.nextTag();
+            outputWeights = initMatrix(xmlReader);
+            xmlReader.nextTag();
+            xmlReader.nextTag();
+            outputBias = initMatrix(xmlReader);
+
+
 
             // Close the reader
             xmlReader.close();
-
-            hasHiddenLayer = false;
 
         } catch (FileNotFoundException e) {
             System.out.println(file.getAbsolutePath() + " is not found.");
@@ -319,9 +323,11 @@ public class NeuralNetwork {
 
         // Fill the matrix
         int index = 0;
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 matrix.set(i, j, Double.parseDouble(values[index++]));
+            }
+        }
 
         return matrix;
     }
@@ -405,6 +411,10 @@ public class NeuralNetwork {
         //Multiplication du vecteur d'entrée avec la première matrice de poids. On obtient le vecteur de couche sans le neurone de biais
         SimpleMatrix vcouche = entries.toMatrix().mult(inputWeights);
         //Ajout du neurone de biais et application de la fonction sigmoïde
+        vcouche = vcouche.plus(inputBias);
+
+        vcouche = vcouche.mult(outputWeights);
+        vcouche = vcouche.plus(outputBias);
 
 
         /*for (int i = 0; i < inputWeights.getColumnCount(); i++)
@@ -447,19 +457,58 @@ public class NeuralNetwork {
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
-        xmlWriter.writeEmptyElement("OutputWeights");
+        xmlWriter.writeEmptyElement("InputWeights");
         xmlWriter.writeAttribute("Rows", Integer.toString(inputWeights.numRows()));
         xmlWriter.writeAttribute("Cols", Integer.toString(inputWeights.numCols()));
-        xmlWriter.writeAttribute("Matrix", inputWeights.toString());
+        StringBuilder sb = new StringBuilder(inputWeights.numRows() * inputWeights.numCols());;
+        for (int i = 0; i < inputWeights.numRows(); i++) {
+            for (int j = 0; j < inputWeights.numCols(); j++) {
+                sb.append(String.format(Locale.US, "%.2f", inputWeights.get(i, j))).append(" ");
+            }
+        }
+        xmlWriter.writeAttribute("Matrix", sb.toString());
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t\t");
 
-        xmlWriter.writeEmptyElement("Bias");
+        xmlWriter.writeEmptyElement("InputBias");
         xmlWriter.writeAttribute("Rows", Integer.toString(inputBias.numRows()));
         xmlWriter.writeAttribute("Cols", Integer.toString(inputBias.numCols()));
-        xmlWriter.writeAttribute("Matrix", inputBias.toString());
+        sb = new StringBuilder(inputBias.numRows() * inputBias.numCols());;
+        for (int i = 0; i < inputBias.numRows(); i++) {
+            for (int j = 0; j < inputBias.numCols(); j++) {
+                sb.append(String.format(Locale.US, "%.2f", inputBias.get(i, j))).append(" ");
+            }
+        }
+        xmlWriter.writeAttribute("Matrix", sb.toString());
+        xmlWriter.writeCharacters("\n");
+        xmlWriter.writeCharacters("\t\t\t");
+
+        xmlWriter.writeEmptyElement("OutputWeights");
+        xmlWriter.writeAttribute("Rows", Integer.toString(outputWeights.numRows()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(outputWeights.numCols()));
+        sb = new StringBuilder(outputWeights.numRows() * outputWeights.numCols());;
+        for (int i = 0; i < outputWeights.numRows(); i++) {
+            for (int j = 0; j < outputWeights.numCols(); j++) {
+                sb.append(String.format(Locale.US, "%.2f", outputWeights.get(i, j))).append(" ");
+            }
+        }
+        xmlWriter.writeAttribute("Matrix", sb.toString());
+        xmlWriter.writeCharacters("\n");
+        xmlWriter.writeCharacters("\t\t\t");
+
+        xmlWriter.writeEmptyElement("OutputBias");
+        xmlWriter.writeAttribute("Rows", Integer.toString(outputBias.numRows()));
+        xmlWriter.writeAttribute("Cols", Integer.toString(outputBias.numCols()));
+        sb = new StringBuilder(outputBias.numRows() * outputBias.numCols());;
+        for (int i = 0; i < outputBias.numRows(); i++) {
+            for (int j = 0; j < outputBias.numCols(); j++) {
+                sb.append(String.format(Locale.US, "%.2f", outputBias.get(i, j))).append(" ");
+            }
+        }
+        xmlWriter.writeAttribute("Matrix", sb.toString());
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t\t");
+
         xmlWriter.writeEndElement();
         xmlWriter.writeCharacters("\n");
         xmlWriter.writeCharacters("\t");
