@@ -139,16 +139,11 @@ public class Individual implements Comparable {
         try {
             copyFile(NaturalSelection.POPULATION_DIRECTORY + NaturalSelection.INDIVIDUAL_FILENAME
                     + index + ".xml", NaturalSelection.ROBOT_DIRECTORY + Darwini.PERCEPTRON_FILE);
-System.out.println("Baston ici");
             // Launch the test in Robocode
             Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp "
-                    + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -battle "
-                    + NaturalSelection.BATTLE_PATH + " -results "
-                    + NaturalSelection.RESULTS_PATH).waitFor();
-            /*Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp "
                     + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle "
                     + NaturalSelection.BATTLE_PATH + " -results "
-                    + NaturalSelection.RESULTS_PATH).waitFor();*/
+                    + NaturalSelection.RESULTS_PATH).waitFor();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
