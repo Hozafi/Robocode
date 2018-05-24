@@ -8,8 +8,6 @@
 
 package model.perceptron;
 
-import org.ejml.simple.SimpleMatrix;
-
 /**
  * <p>
  *	Object which contains the neural network result. Every parameters incarnates a decision's value.

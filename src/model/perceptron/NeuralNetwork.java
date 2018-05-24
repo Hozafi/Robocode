@@ -9,7 +9,6 @@
 package model.perceptron;
 
 import model.genetic.NaturalSelection;
-import org.ejml.simple.SimpleMatrix;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -130,7 +129,7 @@ public class NeuralNetwork {
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
         outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        outputBias = new Matrix(OUTPUT_NEURONS, 1);
+        outputBias = new Matrix(1, OUTPUT_NEURONS);
         randomizeIOMatrix(outputWeights);
         randomizeBiasMatrix(outputBias);
     }
@@ -381,7 +380,7 @@ public class NeuralNetwork {
 
     /* Implementation of ELM : generates our final bias matrix */
     private static Matrix generateBiasMatrix(){
-        Matrix m = new Matrix(HIDDEN_NEURONS, 1);
+        Matrix m = new Matrix(1, HIDDEN_NEURONS);
         for (int i = 0; i<m.getRowCount(); i++){
             for (int j = 0; j<m.getColumnCount(); j++){
                 m.set(i, j, Math.random());

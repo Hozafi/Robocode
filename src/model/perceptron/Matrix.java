@@ -110,7 +110,6 @@ public class Matrix {
 		}
 
 		public boolean plus(Matrix m) throws IllegalArgumentException {
-
 			if((this.getColumnCount()!=m.getColumnCount()) || (this.getRowCount() != m.getRowCount())){
 				throw new IllegalArgumentException("Error: matrices do not have matching dimensions.");
 			}

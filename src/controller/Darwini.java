@@ -158,6 +158,7 @@ public class Darwini extends AdvancedRobot {
         setScanColor(Color.red);
 
         perceptron = new NeuralNetwork(getDataFile(PERCEPTRON_FILE)); // gets the perceptron given in the population directory (was in "out/...") directory before)
+        System.out.println("test");
 
         acquisitionData = new AcquisitionData(this);
         // MUST be called after because the initial strategy can have an infinite loop.

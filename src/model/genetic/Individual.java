@@ -3,7 +3,6 @@ package model.genetic;
 import controller.Darwini;
 import model.perceptron.Matrix;
 import model.perceptron.NeuralNetwork;
-import org.ejml.simple.SimpleMatrix;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.*;
@@ -143,9 +142,13 @@ public class Individual implements Comparable {
 System.out.println("Baston ici");
             // Launch the test in Robocode
             Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp "
-                    + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle "
+                    + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -battle "
                     + NaturalSelection.BATTLE_PATH + " -results "
                     + NaturalSelection.RESULTS_PATH).waitFor();
+            /*Runtime.getRuntime().exec("java -Xmx512M -DNOSECURITY=true -DWORKINGDIRECTORY=data -cp "
+                    + NaturalSelection.ROBOCODE_PATH + " robocode.Robocode -nosound -nodisplay -battle "
+                    + NaturalSelection.BATTLE_PATH + " -results "
+                    + NaturalSelection.RESULTS_PATH).waitFor();*/
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

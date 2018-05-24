@@ -8,8 +8,6 @@
 
 package model.perceptron;
 
-import org.ejml.simple.SimpleMatrix;
-
 /**
  * <p>
  * This object is created every turn, filled with the environment data from AcquisitionData and load in the neural network

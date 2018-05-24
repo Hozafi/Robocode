@@ -3,7 +3,6 @@ package model.genetic;
 import controller.Darwini;
 //import model.perceptron.Matrix;
 import model.perceptron.Matrix;
-import org.ejml.simple.SimpleMatrix;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -112,8 +111,8 @@ public class Population {
         output_std_deviation = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
 
         /* We're creating output bias means and std deviation matrix to cross */
-        output_bias_mean = new Matrix(OUTPUT_NEURONS, 1);
-        output_bias_deviation = new Matrix(OUTPUT_NEURONS, 1);
+        output_bias_mean = new Matrix(1, OUTPUT_NEURONS);
+        output_bias_deviation = new Matrix(1, OUTPUT_NEURONS);
 
         try{
             createDirs();
