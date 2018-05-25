@@ -141,7 +141,7 @@ public class NeuralNetwork {
         inputWeights = INPUT_WEIGHTS_MATRIX;
         inputBias = INPUT_BIAS_MATRIX;
         outputWeights = new Matrix(HIDDEN_NEURONS, OUTPUT_NEURONS);
-        outputBias = new Matrix(OUTPUT_NEURONS, 1);
+        outputBias = new Matrix(1, OUTPUT_NEURONS);
 
         for (int i = 0; i<HIDDEN_NEURONS; i++){
             for (int j = 0; j<OUTPUT_NEURONS; j++){
@@ -151,8 +151,8 @@ public class NeuralNetwork {
         }
 
         for (int i = 0 ; i<OUTPUT_NEURONS; i++){
-            value = r.nextGaussian() * bias_deviation.get(i, 0) + bias_mean.get(i, 0);
-            outputBias.set(i, 0, value);
+            value = r.nextGaussian() * bias_deviation.get(0, i) + bias_mean.get(0, i);
+            outputBias.set(0, i, value);
         }
         
     }
