@@ -8,6 +8,8 @@
 
 package model.perceptron;
 
+import model.genetic.NaturalSelection;
+
 import java.util.Locale;
 
 /**
@@ -44,19 +46,29 @@ public class Matrix {
 		 */
 		private double[][] matrix;
 
+		private int numRows;
+		private int numColumns;
 
+		private int getRows(){return numRows;}
+		private int getColumns(){return numColumns;}
+		
+		
+		
+		
 	/*	----- CONSTRUCTOR -----	*/
 
 		/**
 		 * The matrix's constructor
 		 *
-		 * @param numColumns Matrix's number of columns
-		 * @param numRows Matrix's number of rows
+		 * @param columns Matrix's number of columns
+		 * @param rows Matrix's number of rows
 		 *
 		 * @see Matrix
 		 */
-		public Matrix(int numRows, int numColumns) {
-			matrix = new double[numRows][numColumns];
+		public Matrix(int rows, int columns) {
+			matrix = new double[rows][columns];
+			this.numRows = rows;
+			this.numColumns = columns;
 		}
 		
 	
@@ -83,6 +95,9 @@ public class Matrix {
 		public Matrix mult(Matrix m2) {
 			Matrix res = new Matrix(matrix.length, m2.matrix[0].length);
 			
+			if(m2.getRows() != this.numColumns){return null;}
+			//checks if multiplication is possible, avoids possible memory issues
+			
 			double value;
 			for (int k = 0; k < m2.matrix.length; k++) 
 				for (int i = 0; i < matrix.length; i++) {
@@ -94,7 +109,51 @@ public class Matrix {
 			return res;
 		}
 
-	
+		public boolean plus(Matrix m) throws IllegalArgumentException {
+			if((this.getColumnCount()!=m.getColumnCount()) || (this.getRowCount() != m.getRowCount())){
+				throw new IllegalArgumentException("Error: matrices do not have matching dimensions.");
+			}
+
+			//sums the contents of the input matrix m into this
+
+			for(int i=0; i<this.getRowCount();i++){
+				for(int j=0; j<this.getColumnCount();j++){
+					this.set(i,j,this.get(i,j) + m.get(i,j) );
+				}
+			}
+			return true;
+		}
+
+		/**
+		 *
+		 *	Crosses two matrices to create a new one. For each matrix value, it chooses the value of one of the two input matrices according to the given probability;
+		 *
+		 * @return the new matrix
+		 */
+		public Matrix cross(Matrix m, double probability) throws IllegalArgumentException {
+
+			//checks if matrices have the same dimensions
+			if((m.getColumnCount() != this.getColumnCount())||(m.getRowCount() != this.getRowCount()))
+			{
+				throw new IllegalArgumentException("Error: Cannot cross matrices with different dimensions.");
+			}
+
+			double random;
+			Matrix c = new Matrix(this.getRowCount(), this.getColumnCount());
+
+			for (int i = 0; i < this.getRowCount(); i++) {
+				for (int j = 0; j < this.getColumnCount(); j++) {
+					random = Math.random();
+					if (random <= probability) { // If we're applying a cross to this weight
+						c.set(i, j, this.get(i, j));
+						c.set(i, j, m.get(i, j));
+					}
+				}
+			}
+			return c;
+		}
+
+
 	/*	----- ACCESSORS -----	*/
 		
 		/**
@@ -137,11 +196,30 @@ public class Matrix {
 		 */
 		public String toString() {
 			StringBuilder sb = new StringBuilder(matrix.length * matrix[0].length);
-			for (int i = 0; i < matrix.length; i++)
-				for (int j = 0; j < matrix[0].length; j++)
-					sb.append(String.format(Locale.US, "%.6f", matrix[i][j])).append(" ");
+			for (int i = 0; i < matrix.length; i++) {
 
+				for (int j = 0; j < matrix[0].length; j++) {
+					sb.append(String.format(Locale.US, "%.2f", matrix[i][j])).append(" ");
+				}
+			}
 			return sb.toString();
 		}
+
+	/**
+	 * Print a matrix
+	 *
+	 * @return the printed matrix
+	 */
+	public String toDebug() {
+		StringBuilder sb = new StringBuilder(matrix.length * matrix[0].length);
+		for (int i = 0; i < matrix.length; i++) {
+
+			for (int j = 0; j < matrix[0].length; j++) {
+				sb.append(String.format(Locale.US, "%.2f", matrix[i][j])).append(" ");
+			}
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
 
 }

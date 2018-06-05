@@ -41,7 +41,7 @@ public class OutputData {
 		 *  	Number of output Neurons of the neural network
 		 * </p>
 		 */
-		protected static final int OUTPUT_NEURONS = 8;
+		protected static final int OUTPUT_NEURONS = 4;
 		
 		/**
 		 * <p>
@@ -54,54 +54,22 @@ public class OutputData {
 		/**
 		 * <p>
 		 * 		Second output neuron
-		 * 		The turn right decision
+		 * 		The decision to turn (angle)
 		 * </p>
 		 */
-		private double turnRight;
+		private double turn;
 		
 		/**
 		 * <p>
-		 * 		Third output neuron
-		 * 		The turn left decision
+		 * 		Third ouput neuron
+		 * 		The decision to turn the gun or not (angle)
 		 * </p>
 		 */
-		private double turnLeft;
+		private double turnGun;
 		
 		/**
 		 * <p>
 		 * 		Fourth output neuron
-		 * 		The gun turn right decision
-		 * </p>
-		 */
-		private double turnGunRight;
-		
-		/**
-		 * <p>
-		 * 		Fifth ouput neuron
-		 * 		The gun turn left decision
-		 * </p>
-		 */
-		private double turnGunLeft;
-		
-		/**
-		 * <p>
-		 * 		Sixth output neuron
-		 * 		The radar turn right decision
-		 * </p>
-		 */
-		private double turnRadarRight;
-		
-		/**
-		 * <p>
-		 * 		Seventh output neuron
-		 * 		The radar turn left decision
-		 * </p>
-		 */
-		private double turnRadarLeft;
-		
-		/**
-		 * <p>
-		 * 		Eighth output neuron
 		 * 		The move ahead decision
 		 * </p>
 		 */
@@ -115,15 +83,14 @@ public class OutputData {
 		 *
 		 * @param results The neural network output matrix
 		 */
-		public OutputData(Matrix results) {
+		public OutputData(Matrix results) throws IllegalArgumentException{
+
+			if(results.getColumnCount()!= OUTPUT_NEURONS) {throw new IllegalArgumentException("Matrix dimensions do not match output neuron count.");}
+
 			shoot = results.get(0, 0);
-			turnRight = results.get(0, 1);
-			turnLeft = results.get(0, 2);
-			turnRadarRight = results.get(0, 3);
-			turnRadarLeft = results.get(0, 4);
-			turnGunRight = results.get(0, 5);
-			turnGunLeft = results.get(0, 6);
-			moveAhead = results.get(0, 7);
+			turn = results.get(0, 1);
+			turnGun = results.get(0, 2);
+			moveAhead = results.get(0, 3);
 		}
 		
 	
@@ -137,46 +104,17 @@ public class OutputData {
 		}
 		
 		/**
-		 * @return The turn right decision
+		 * @return The turn decision
 		 */
-		public double getTurnRight() {
-			return turnRight;
+		public double getTurn() {
+			return turn;
 		}
+
 		
 		/**
-		 * @return The turn left decision
+		 * @return The gun turn decision
 		 */
-		public double getTurnLeft() {
-			return turnLeft;
-		}
-		
-		/**
-		 * @return The radar turn right decision
-		 */
-		public double getTurnRadarRight() {
-			return turnRadarRight;
-		}
-		
-		/**
-		 * @return The radar turn left decision
-		 */
-		public double getTurnRadarLeft() {
-			return turnRadarLeft;
-		}
-		
-		/**
-		 * @return The gun turn right decision
-		 */
-		public double getTurnGunRight() {
-			return turnGunRight;
-		}
-		
-		/**
-		 * @return The gun turn left decision
-		 */
-		public double getTurnGunLeft() {
-			return turnGunLeft;
-		}
+		public double getTurnGun(){ return turnGun; }
 		
 		/**
 		 * @return The move ahead decision

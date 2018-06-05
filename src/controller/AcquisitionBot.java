@@ -38,8 +38,14 @@ import model.acquisition.AcquisitionData;
  * @author Goubet Martin
  * @author Estevany Raphael
  * @author Serano Edgar
+ * 
+ * @version 2.0 - 29/11/17
+ * @author Rebout Etienne
+ * @author Haus Daniel
+ * @author Barroux Etienne
+ * @author Gilbert Auriane
  */
-public class AcquisitionBot extends InitialRobot {
+public class AcquisitionBot extends AdvancedRobot {
 
 	/*	----- ATTRIBUTES -----	*/
 
